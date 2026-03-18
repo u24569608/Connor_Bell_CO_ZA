@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Connor Bell—Under Construction",
+  title: "Connor Bell | Under Construction",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
