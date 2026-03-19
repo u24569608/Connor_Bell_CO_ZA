@@ -33,7 +33,7 @@ export default function Navbar() {
 
       {/* Mobile Hamburger */}
       <button
-        className="md:hidden text-5xl text-black opacity-60"
+        className="md:hidden text-5xl text-black opacity-65"
         onClick={() => setMenuOpen(true)}
       >
         ☰
@@ -47,7 +47,7 @@ export default function Navbar() {
           </div>
 
           <button
-            className="absolute top-6 right-8 text-4xl text-black opacity-60"
+            className="absolute top-6 right-8 text-4xl text-black opacity-65"
             onClick={() => setMenuOpen(false)}
           >
             ✕
