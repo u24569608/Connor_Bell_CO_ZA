@@ -10,20 +10,20 @@ export default function Navbar() {
       </div>
 
       {/* Links */}
-      <div className="flex gap-24 text-[22px] font-regular tracking-wider text-black">
-        <a href="#hero" className="text-black hover:underline underline-offset-4 transition-all">
+      <div className="flex gap-24 text-[22px] font-medium tracking-wider text-black">
+        <a href="#hero" className="text-black opacity-70 hover:opacity-100 transition-all">
           Home
         </a>
-         <a href="#about" className="text-black hover:underline underline-offset-4 transition-all">
+         <a href="#about" className="text-black opacity-70 hover:opacity-100 transition-all">
           About
         </a>
-        <a href="#work" className="text-black hover:underline underline-offset-4 transition-all">
+        <a href="#work" className="text-black opacity-70 hover:opacity-100 transition-all">
           Work
         </a>
-        <a href="#life" className="text-black hover:underline underline-offset-4 transition-all">
+        <a href="#life" className="text-black opacity-70 hover:opacity-100 transition-all">
           Life
         </a>
-        <a href="#contact" className="text-black hover:underline underline-offset-4 transition-all">
+        <a href="#contact" className="text-black opacity-70 hover:opacity-100 transition-all">
           Contact
         </a>
       </div>
