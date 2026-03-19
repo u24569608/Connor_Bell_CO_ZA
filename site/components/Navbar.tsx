@@ -8,12 +8,12 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full bg-[rgb(250,227,65)] px-8 py-6 flex items-center justify-between z-50">
       <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Name */}
-        <div className="text-[36px] md:text-[36px] leading-tight whitespace-nowrap opacity-70 font-medium tracking-wide text-black">
+        <div className="text-[36px] lg:text-[36px] leading-tight whitespace-nowrap opacity-70 font-medium tracking-wide text-black">
           Connor Bell
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex flex-wrap items-center gap-x-16 gap-y-2 text-[18px] lg:text-[22px] font-medium tracking-wider text-black">
+        <div className="hidden lg:flex items-center gap-x-24 xl:gap-x-24 text-[26px] xl:text-[26px] font-medium tracking-wider text-black whitespace-nowrap">
           <a href="#hero" className="text-black opacity-70 hover:opacity-100 transition-all">
             Home
           </a>
@@ -33,7 +33,7 @@ export default function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden text-4xl text-black opacity-65"
+          className="lg:hidden text-4xl text-black opacity-65"
           onClick={() => setMenuOpen(true)}
         >
           ☰
