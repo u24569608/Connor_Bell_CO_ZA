@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full bg-[rgb(250,227,65)] px-8 py-6 flex items-center justify-between z-50">
       
       {/* Name */}
-      <div className="text-[36px] font-medium tracking-wide text-black">
+      <div className="text-[36px] opacity-70 font-medium tracking-wide text-black">
         Connor Bell
       </div>
 
