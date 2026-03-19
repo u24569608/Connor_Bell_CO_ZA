@@ -6,38 +6,39 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 w-full bg-[rgb(250,227,65)] px-8 py-6 flex items-center justify-between z-50">
-      
-      {/* Name */}
-      <div className="text-[36px] opacity-70 font-medium tracking-wide text-black">
-        Connor Bell
-      </div>
+      <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between">
+        {/* Name */}
+        <div className="text-[36px] md:text-[36px] leading-tight whitespace-nowrap opacity-70 font-medium tracking-wide text-black">
+          Connor Bell
+        </div>
 
-      {/* Desktop Links */}
-      <div className="hidden md:flex gap-24 text-[22px] font-medium tracking-wider text-black">
-        <a href="#hero" className="text-black opacity-70 hover:opacity-100 transition-all">
-          Home
-        </a>
-        <a href="#about" className="text-black opacity-70 hover:opacity-100 transition-all">
-          About
-        </a>
-        <a href="#work" className="text-black opacity-70 hover:opacity-100 transition-all">
-          Work
-        </a>
-        <a href="#life" className="text-black opacity-70 hover:opacity-100 transition-all">
-          Life
-        </a>
-        <a href="#contact" className="text-black opacity-70 hover:opacity-100 transition-all">
-          Contact
-        </a>
-      </div>
+        {/* Desktop Links */}
+        <div className="hidden md:flex flex-wrap items-center gap-x-16 gap-y-2 text-[18px] lg:text-[22px] font-medium tracking-wider text-black">
+          <a href="#hero" className="text-black opacity-70 hover:opacity-100 transition-all">
+            Home
+          </a>
+          <a href="#about" className="text-black opacity-70 hover:opacity-100 transition-all">
+            About
+          </a>
+          <a href="#work" className="text-black opacity-70 hover:opacity-100 transition-all">
+            Work
+          </a>
+          <a href="#life" className="text-black opacity-70 hover:opacity-100 transition-all">
+            Life
+          </a>
+          <a href="#contact" className="text-black opacity-70 hover:opacity-100 transition-all">
+            Contact
+          </a>
+        </div>
 
-      {/* Mobile Hamburger */}
-      <button
-        className="md:hidden text-5xl text-black opacity-65"
-        onClick={() => setMenuOpen(true)}
-      >
-        ☰
-      </button>
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-4xl text-black opacity-65"
+          onClick={() => setMenuOpen(true)}
+        >
+          ☰
+        </button>
+      </div>
 
       {menuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-[rgb(250,227,65)] z-50 flex flex-col items-center justify-center gap-10 text-3xl">
