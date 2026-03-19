@@ -10,7 +10,7 @@ export default function Navbar() {
       </div>
 
       {/* Links */}
-      <div className="flex gap-24 text-[22px] font-medium tracking-wider text-black">
+      <div className="flex gap-24 text-[22px] font-regular tracking-wider text-black">
         <a href="#hero" className="text-black hover:underline underline-offset-4 transition-all">
           Home
         </a>
