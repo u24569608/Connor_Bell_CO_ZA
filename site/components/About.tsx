@@ -35,7 +35,9 @@ export default function About() {
               </p>
 
               <div className="mt-6">
-                <button className="
+                <a
+                  href="#life"
+                  className="
                   border border-black text-black bg-white
                   px-12 py-2
                   text-[16px] md:text-[18px]
@@ -43,9 +45,10 @@ export default function About() {
                   tracking-wider
                   transition-all
                   hover:bg-black hover:text-white
+                  inline-block
                 ">
                   More
-                </button>
+                </a>
               </div>
             </div>
 

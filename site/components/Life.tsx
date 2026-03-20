@@ -10,12 +10,12 @@ export default function Life() {
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16 lg:gap-20">
 
           {/* Heading */}
-          <h2 className="text-[40px] md:text-[48px] font-medium tracking-wide text-black opacity-80">
+          <h2 className="text-[40px] md:text-[48px] font-medium tracking-wide text-black opacity-80 min-w-[124px]">
             Life
           </h2>
 
           {/* Content */}
-          <div className="flex flex-col sm:flex-row items-start gap-8 max-w-[800px]">
+          <div className="flex flex-col sm:flex-row items-start gap-8 w-full max-w-[800px]">
 
             {/* Headshot */}
             <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 opacity-100">
@@ -30,7 +30,7 @@ export default function Life() {
 
             <div className="max-w-[800px]">
               <p className="text-[18px] md:text-[20px] text-black opacity-80 max-w-[600px] text-justify">
-                I'm a final-year Computer Science student at Tuks, originally from Jozi. I enjoy crafting software that is clean, functional, and visually refined. I'm interested in full-stack development, where I combine technical problem-solving with thoughtful, careful design. I care about building applications that feel intuitive, well-made, and enjoyable to use.
+                Outside of work and academics, I'm passionate about cycling and spend a lot of my time on the road. Over the years, I've taken part in races such as the 947 Ride Joburg, Amashova, and Ride for Sight, which have been highlights of my riding. I also enjoy mountain biking for a change of pace and scenery. Beyond cycling, I value spending quality time with my girlfriend, listening to good EDM, and enjoying great food. I aim to maintain a balance between staying active, unwinding, and enjoying the simple things.
               </p>
 
               <div className="mt-8 md:mt-10">
