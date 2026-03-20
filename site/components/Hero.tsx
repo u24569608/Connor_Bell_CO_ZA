@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14">
 
         {/* Top spacing */}
-        <div className="pt-20 md:pt-18 lg:pt-20">
+        <div className="pt-26 md:pt-18 lg:pt-20">
 
           {/* HOWZIT */}
           <h1 className="
