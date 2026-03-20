@@ -14,10 +14,11 @@ export default function Hero() {
 
           {/* HOWZIT */}
           <h1 className="
-            text-[clamp(94px,24vw,260px)]
+            text-[clamp(88px,24vw,260px)]
             leading-tight
             tracking-tight
             text-black -ml-[2px] sm:-ml-[10px] md:-ml-[14px] lg:-ml-[18px]
+            max-w-full
           ">
             HOWZIT
           </h1>
