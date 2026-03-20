@@ -22,3 +22,11 @@ body {
   color: var(--foreground);
   font-family: "futura-pt", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px; 
+}

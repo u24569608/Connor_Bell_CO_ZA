@@ -3,7 +3,7 @@
 export default function Hero() {
   return (
     <section
-      id="hero"
+      id="howzit"
       className="w-full bg-[rgb(121,148,248)] overflow-hidden"
     >
       {/* Container aligned with navbar */}
@@ -55,19 +55,23 @@ export default function Hero() {
               <div className="mt-8 md:mt-10">
 
                 {/* Button */}
-                <button className="
-                  bg-black text-white
-                  px-12 py-2
-                  text-[16px] sm:text-[16px] md:text-[18px]
-                  font-normal
-                  opacity-80 
-                  tracking-wider
-                  transition-all
-                  hover:bg-white hover:text-black
-                  hover:opacity-70
-                ">
+                <a
+                  href="#about"
+                  className="
+                    inline-block
+                    bg-black text-white
+                    px-12 py-2
+                    text-[16px] sm:text-[16px] md:text-[18px]
+                    font-normal
+                    opacity-80 
+                    tracking-wider
+                    transition-all
+                    hover:bg-white hover:text-black
+                    hover:opacity-70
+                  "
+                >
                   More
-                </button>
+                </a>
 
               </div>
             </div>

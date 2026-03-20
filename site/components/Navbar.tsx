@@ -14,7 +14,7 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-x-24 xl:gap-x-24 text-[26px] xl:text-[26px] font-medium tracking-wider text-black whitespace-nowrap">
-          <a href="#hero" className="text-black opacity-70 hover:opacity-100 transition-all">
+          <a href="#howzit" className="text-black opacity-70 hover:opacity-100 transition-all">
             Home
           </a>
           <a href="#about" className="text-black opacity-70 hover:opacity-100 transition-all">
@@ -57,7 +57,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex-1 flex flex-col items-center justify-center gap-12 text-3xl">
-            <a href="#hero" className="font-medium text-black opacity-70 hover:opacity-100 transition-all" onClick={() => setMenuOpen(false)}>Home</a>
+            <a href="#howzit" className="font-medium text-black opacity-70 hover:opacity-100 transition-all" onClick={() => setMenuOpen(false)}>Home</a>
             <a href="#about" className="font-medium text-black opacity-70 hover:opacity-100 transition-all" onClick={() => setMenuOpen(false)}>About</a>
             <a href="#work" className="font-medium text-black opacity-70 hover:opacity-100 transition-all" onClick={() => setMenuOpen(false)}>Work</a>
             <a href="#life" className="font-medium text-black opacity-70 hover:opacity-100 transition-all" onClick={() => setMenuOpen(false)}>Life</a>
