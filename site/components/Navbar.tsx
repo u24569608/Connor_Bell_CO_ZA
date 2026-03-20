@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[rgb(250,227,65)] px-8 py-4 flex items-center justify-between z-50">
+    <nav className="fixed top-0 left-0 w-full bg-[rgb(250,227,65)] px-5 sm:px-8 md:px-10 lg:px-14 py-4 flex items-center justify-between z-50">
       <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Name */}
         <div className="text-[36px] lg:text-[36px] leading-tight whitespace-nowrap opacity-70 font-medium tracking-wide text-black">
@@ -43,7 +43,7 @@ export default function Navbar() {
       {menuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-[rgb(250,227,65)] z-50 flex flex-col">
           
-          <div className="absolute top-0 left-0 w-full px-8 py-4 flex items-center justify-between">
+          <div className="absolute top-0 left-0 w-full px-5 sm:px-8 md:px-10 lg:px-14 py-4 flex items-center justify-between">
             <div className="text-[36px] opacity-70 font-medium tracking-wide text-black">
               Connor Bell
             </div>
