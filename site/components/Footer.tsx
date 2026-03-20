@@ -14,7 +14,7 @@ export default function Footer() {
           </div>
 
           {/* Right - Sitemap + Connect */}
-          <div className="flex-1 ml-1 sm:ml-0 md:ml-24 lg:ml-28">
+          <div className="flex-1 ml-1 sm:ml-0 md:ml-34 lg:ml-38">
             <div className="flex flex-col sm:flex-row gap-18">
 
               {/* Sitemap */}
