@@ -6,35 +6,35 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="w-full bg-[rgb(121,148,248)]"
+      className="w-full bg-[rgb(121,148,248)] overflow-hidden"
     >
       {/* Container aligned with navbar */}
-      <div className="w-full px-14">
+      <div className="w-full px-4 sm:px-8 md:px-10 lg:px-14">
 
         {/* Top spacing */}
         <div className="pt-16 md:pt-18 lg:pt-20">
 
           {/* HOWZIT */}
           <h1 className="
-            text-[120px] md:text-[210px] lg:text-[260px]
+            text-[clamp(48px,16vw,220px)]
             leading-tight
             tracking-tight
-            text-black -ml-[18px]
+            text-black -ml-[2px] sm:-ml-[8px] md:-ml-[14px] lg:-ml-[18px]
           ">
             HOWZIT
           </h1>
 
           {/* Space below HOWZIT */}
-          <div className="mt-2 md:mt-2 lg:mt-2">
+          <div className="mt-3 sm:mt-4 md:mt-6">
 
             {/* I'm Connor Bell */}
-            <div className="text-[32px] md:text-[36px] lg:text-[38px] leading-tight opacity-70 text-black">
+            <div className="text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px] leading-tight opacity-70 text-black">
               <span className="font-light">I'm </span>
               <span className="font-normal">Connor Bell</span>
             </div>
 
             {/* Location */}
-            <div className="text-[20px] md:text-[22px] lg:text-[24px] leading-tight tracking-wider opacity-70  text-black mt-0">
+            <div className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] leading-tight tracking-wider opacity-70  text-black mt-0">
               Gauteng, South Africa
             </div>
 
@@ -42,13 +42,13 @@ export default function Hero() {
             <div className="mt-8 md:mt-10">
 
               {/* Degree */}
-              <div className="text-[28px] md:text-[32px] lg:text-[36px] leading-tight opacity-70 text-black">
+              <div className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] leading-tight opacity-70 text-black">
                 <span className="font-light">Final Year </span>
                 <span className="font-normal">BSc Computer Science Student</span>
               </div>
 
               {/* University */}
-              <div className="text-[20px] md:text-[22px] lg:text-[24px] leading-tight tracking-wider text-black mt-0 opacity-70 font-light">
+              <div className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] leading-tight tracking-wider text-black mt-0 opacity-70 font-light">
                 University of Pretoria
               </div>
 
@@ -58,15 +58,14 @@ export default function Hero() {
                 {/* Button */}
                 <button className="
                   bg-black text-white
-                  px-14 py-2
-                  text-[18px] md:text-[20px]
+                  px-6 sm:px-8 md:px-12 py-2
+                  text-[14px] sm:text-[16px] md:text-[18px]
                   font-normal
                   opacity-80 
                   tracking-wider
                   transition-all
                   hover:bg-white hover:text-black
                   hover:opacity-70
-
                 ">
                   More
                 </button>
