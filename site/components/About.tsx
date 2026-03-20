@@ -7,30 +7,30 @@ export default function About() {
     <section id="about" className="w-full bg-white">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 py-16">
 
-        <div className="flex flex-col md:flex-row items-start gap-8">
+        <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16 lg:gap-20">
 
           {/* Heading */}
-          <h2 className="text-[40px] md:text-[48px] font-medium text-black">
+          <h2 className="text-[40px] md:text-[48px] font-medium tracking-wide text-black opacity-80">
             About
           </h2>
 
           {/* Content */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 max-w-[800px]">
+          <div className="flex flex-col sm:flex-row items-start gap-8 max-w-[800px]">
 
             {/* Headshot */}
-            <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0">
+            <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 opacity-100">
               <Image
                 src="/Headshot.webp"
-                alt="Connor Bell"
-                width={120}
-                height={120}
+                alt="Headshot of Connor Bell"
+                width={2000}
+                height={2000}
                 className="object-cover w-full h-full"
               />
             </div>
 
             {/* Text + Button */}
             <div>
-              <p className="text-[16px] md:text-[18px] text-black opacity-70 leading-relaxed max-w-[600px]">
+              <p className="text-[18px] md:text-[20px] text-black opacity-80 max-w-[600px] text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
               </p>
 
