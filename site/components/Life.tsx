@@ -36,7 +36,7 @@ export default function Life() {
               <div className="mt-8 md:mt-10">
                 <div className="mt-12 md:mt-16 w-full">
 
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+                  <div className="grid grid-cols-1 min-[540px]:grid-cols-3 gap-10 min-[820px]:gap-16">
 
                     {/* Hobbies */}
                     <div>
