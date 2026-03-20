@@ -9,23 +9,23 @@ export default function Hero() {
       className="w-full bg-[rgb(121,148,248)]"
     >
       {/* Container aligned with navbar */}
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
+      <div className="w-full px-14">
 
         {/* Top spacing */}
-        <div className="pt-20 md:pt-24 lg:pt-28">
+        <div className="pt-16 md:pt-18 lg:pt-20">
 
           {/* HOWZIT */}
           <h1 className="
             text-[120px] md:text-[210px] lg:text-[260px]
-            leading-none
+            leading-tight
             tracking-tight
-            text-black
+            text-black -ml-[18px]
           ">
             HOWZIT
           </h1>
 
           {/* Space below HOWZIT */}
-          <div className="mt-8 md:mt-10 lg:mt-12">
+          <div className="mt-4 md:mt-6 lg:mt-8">
 
             {/* I'm Connor Bell */}
             <div className="text-[32px] md:text-[36px] lg:text-[38px] leading-tight opacity-70 text-black">
