@@ -31,7 +31,7 @@ export default function About() {
             {/* Text + Button */}
             <div>
               <p className="text-[18px] md:text-[20px] text-black opacity-80 max-w-[600px] text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                I'm a final-year Computer Science student at Tuks, originally from Jozi. I enjoy crafting software that is clean, functional, and visually refined. I'm interested in full-stack development, where I combine technical problem-solving with thoughtful, careful design. I care about building applications that feel intuitive, well-made, and enjoyable to use.
               </p>
 
               <div className="mt-6">
