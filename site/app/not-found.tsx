@@ -47,7 +47,7 @@ export default function NotFound() {
               inline-block
               bg-white text-black
               px-10 py-2
-              text-[22px] md:text-[22px]
+              text-[18px] md:text-[18px]
               tracking-wider
               transition-all
               hover:bg-[rgb(250,227,65)] hover:text-black
