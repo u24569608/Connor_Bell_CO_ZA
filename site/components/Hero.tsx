@@ -1,5 +1,3 @@
-
-
 "use client";
 
 export default function Hero() {
@@ -34,7 +32,7 @@ export default function Hero() {
             </div>
 
             {/* Location */}
-            <div className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] leading-tight tracking-wider opacity-70  text-black mt-0">
+            <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] leading-tight tracking-wider opacity-70  text-black mt-0">
               Gauteng, South Africa
             </div>
 
@@ -48,7 +46,7 @@ export default function Hero() {
               </div>
 
               {/* University */}
-              <div className="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] leading-tight tracking-wider text-black mt-0 opacity-70 font-light">
+              <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] leading-tight tracking-wider text-black mt-0 opacity-70 font-light">
                 University of Pretoria
               </div>
 
@@ -58,8 +56,8 @@ export default function Hero() {
                 {/* Button */}
                 <button className="
                   bg-black text-white
-                  px-6 sm:px-8 md:px-12 py-2
-                  text-[14px] sm:text-[16px] md:text-[18px]
+                  px-12 py-2
+                  text-[16px] sm:text-[16px] md:text-[18px]
                   font-normal
                   opacity-80 
                   tracking-wider
