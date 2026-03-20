@@ -40,7 +40,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-black flex items-center justify-center transition-all hover:scale-105"
                   >
-                    <img src="/Github.svg" alt="GitHub" className="w-9 h-9" />
+                    <img src="/GitHub.svg" alt="GitHub" className="w-9 h-9" />
                   </a>
 
                   <a
