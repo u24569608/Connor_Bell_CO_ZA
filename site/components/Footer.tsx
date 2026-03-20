@@ -45,9 +45,9 @@ export default function Footer() {
                   <a
                     href="https://linkedin.com/in/connorbellup/"
                     target="_blank"
-                    className="w-12 h-12 flex items-center justify-center transition-all hover:scale-105"
+                    className="w-12 h-12 bg-[rgb(0,125,182)] flex items-center justify-center transition-all hover:scale-105"
                   >
-                    <img src="/LinkedIn.svg" alt="LinkedIn" className="w-16 h-16" />
+                    <img src="/LinkedIn.svg" alt="LinkedIn" className="w-12 h-12" />
                   </a>
 
                 </div>
