@@ -91,7 +91,7 @@ export default function Work() {
                 target="_blank"
                 className="bg-black text-white text-[18px] px-2 py-2 text-center tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80"
               >
-                View Full CV
+                View CV
               </a>
 
               <a
@@ -99,7 +99,7 @@ export default function Work() {
                 target="_blank"
                 className="bg-black text-white text-[18px] px-4 py-2 text-center tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80"
               >
-                View GitHub
+                GitHub
               </a>
             </div>
           </div>
