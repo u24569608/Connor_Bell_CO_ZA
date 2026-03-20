@@ -6,9 +6,16 @@ export default function NotFound() {
       
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 flex flex-col justify-center">
         
+        {/* Name (like navbar) */}
+        <div className="mb-12">
+          <p className="text-[42px] font-medium tracking-wide opacity-70">
+            Connor Bell
+          </p>
+        </div>
+
         {/* BIG heading */}
         <h1 className="
-          text-[clamp(80px,20vw,220px)]
+          text-[clamp(90px,24vw,220px)]
           font-medium
           tracking-tight
           leading-[0.9]
@@ -20,12 +27,12 @@ export default function NotFound() {
         <div className="mt-8">
 
           {/* 404 line */}
-          <p className="text-[32px] md:text-[65px] font-regular tracking-wide">
+          <p className="text-[56px] md:text-[65px] font-regular tracking-wide">
             404
           </p>
 
           {/* small text */}
-          <p className="text-[18px] md:text-[32px] tracking-wide opacity-80">
+          <p className="text-[32px] md:text-[32px] tracking-wide opacity-80">
             Eish... <br></br> This Page Doesn't Exist
           </p>
 
@@ -39,7 +46,7 @@ export default function NotFound() {
               inline-block
               bg-white text-black
               px-10 py-2
-              text-[18px] md:text-[22px]
+              text-[22px] md:text-[22px]
               tracking-wider
               transition-all
               hover:bg-[rgb(250,227,65)] hover:text-black
