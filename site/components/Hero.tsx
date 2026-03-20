@@ -3,7 +3,7 @@
 export default function Hero() {
   return (
     <section
-      id="hero"
+      id="howzit"
       className="w-full bg-[rgb(121,148,248)] overflow-hidden"
     >
       {/* Container aligned with navbar */}

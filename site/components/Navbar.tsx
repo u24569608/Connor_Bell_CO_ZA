@@ -14,7 +14,7 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-x-24 xl:gap-x-24 text-[26px] xl:text-[26px] font-medium tracking-wider text-black whitespace-nowrap">
-          <a href="#hero" className="text-black opacity-70 hover:opacity-100 transition-all">
+          <a href="#howzit" className="text-black opacity-70 hover:opacity-100 transition-all">
             Home
           </a>
           <a href="#about" className="text-black opacity-70 hover:opacity-100 transition-all">
