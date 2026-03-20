@@ -37,6 +37,7 @@ export default function Footer() {
                   <a
                     href="https://github.com/u24569608/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-black flex items-center justify-center transition-all hover:scale-105"
                   >
                     <img src="/Github.svg" alt="GitHub" className="w-9 h-9" />
@@ -45,6 +46,7 @@ export default function Footer() {
                   <a
                     href="https://linkedin.com/in/connorbellup/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-[rgb(0,125,182)] flex items-center justify-center transition-all hover:scale-105"
                   >
                     <img src="/LinkedIn.svg" alt="LinkedIn" className="w-12 h-12" />
