@@ -28,13 +28,114 @@ export default function Life() {
               />
             </div>
 
-            <div>
+            <div className="max-w-[800px]">
               <p className="text-[18px] md:text-[20px] text-black opacity-80 max-w-[600px] text-justify">
                 I'm a final-year Computer Science student at Tuks, originally from Jozi. I enjoy crafting software that is clean, functional, and visually refined. I'm interested in full-stack development, where I combine technical problem-solving with thoughtful, careful design. I care about building applications that feel intuitive, well-made, and enjoyable to use.
               </p>
+
+              <div className="mt-8 md:mt-10">
+                <div className="mt-12 md:mt-16 w-full">
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+
+                    {/* Hobbies */}
+                    <div>
+                      <h3 className="text-[20px] md:text-[22px] font-medium mb-4 tracking-wide opacity-80">
+                        Hobbies
+                      </h3>
+                      <ul className="space-y-3 text-[16px] md:text-[18px] opacity-80">
+                        <li>– Road Cycling</li>
+                        <li>– Mountain Biking</li>
+                        <li>– Listening to Music</li>
+                        <li>– Computers</li>
+                        <li>– Fishing</li>
+                      </ul>
+                    </div>
+
+                    {/* Likes */}
+                    <div>
+                      <h3 className="text-[20px] md:text-[22px] font-medium mb-4 tracking-wide opacity-80">
+                        Likes
+                      </h3>
+                      <ul className="space-y-3 text-[16px] md:text-[18px] opacity-80">
+
+                        <li className="flex items-center gap-3">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                          </svg>
+                          EDM
+                        </li>
+
+                        <li className="flex items-center gap-3">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                          </svg>
+                          Tasty Food
+                        </li>
+
+                        <li className="flex items-center gap-3">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                          </svg>
+                          Sunshine 
+                        </li>
+
+                        <li className="flex items-center gap-3">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                          </svg>
+                          Nature 
+                        </li>
+
+                        <li className="flex items-center gap-3">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                          </svg>
+                          The Ocean
+                        </li>
+
+                      </ul>
+                    </div>
+
+                    {/* Dislikes */}
+                    <div>
+                      <h3 className="text-[20px] md:text-[22px] font-medium mb-4 tracking-wide opacity-80">
+                        Dislikes
+                      </h3>
+                      <ul className="space-y-3 text-[16px] md:text-[18px] opacity-80">
+
+                        <li className="flex items-center gap-3">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+                            <path d="M6 6l12 12M18 6L6 18"/>
+                          </svg>
+                          Mushrooms
+                        </li>
+
+                        <li className="flex items-center gap-3">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+                            <path d="M6 6l12 12M18 6L6 18"/>
+                          </svg>
+                          Olives
+                        </li>
+
+                        <li className="flex items-center gap-3">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
+                            <path d="M6 6l12 12M18 6L6 18"/>
+                          </svg>
+                          Traffic
+                        </li>
+
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>
+
         </div>
 
       </div>
