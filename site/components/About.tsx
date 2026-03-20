@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function About() {
   return (
     <section id="about" className="w-full bg-white">
-      <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 py-16">
+      <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 pt-8 pb-16 md:py-16">
 
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16 lg:gap-20">
 
