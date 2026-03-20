@@ -7,7 +7,7 @@ export default function Life() {
     <section id="life" className="w-full bg-white">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 pt-8 pb-16 md:py-16">
 
-        <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16 xl:gap-20">
 
           {/* Heading */}
           <h2 className="text-[40px] md:text-[48px] font-medium tracking-wide text-black opacity-80 min-w-[124px]">
@@ -15,7 +15,7 @@ export default function Life() {
           </h2>
 
           {/* Content */}
-          <div className="flex flex-col sm:flex-row items-start gap-8 w-full max-w-[800px]">
+          <div className="flex flex-col min-[820px]:flex-row items-start gap-8 w-full max-w-[800px]">
 
             {/* Headshot */}
             <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 opacity-100">
@@ -36,7 +36,7 @@ export default function Life() {
               <div className="mt-8 md:mt-10">
                 <div className="mt-12 md:mt-16 w-full">
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
 
                     {/* Hobbies */}
                     <div>
