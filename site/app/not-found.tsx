@@ -2,9 +2,9 @@
 
 export default function NotFound() {
   return (
-    <section className="w-full min-h-screen bg-black text-white flex">
+    <section className="w-full min-h-screen bg-black text-white flex overflow-y-auto">
       
-      <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 flex flex-col justify-center">
+      <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 flex flex-col justify-start py-20">
         
         {/* Name (like navbar) */}
         <div className="mb-12">
@@ -39,7 +39,7 @@ export default function NotFound() {
         </div>
 
         {/* button */}
-        <div className="mt-10">
+        <div className="mt-5 pb-5">
           <a
             href="/"
             className="
