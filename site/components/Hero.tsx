@@ -25,7 +25,7 @@ export default function Hero() {
           </h1>
 
           {/* Space below HOWZIT */}
-          <div className="mt-4 md:mt-6 lg:mt-8">
+          <div className="mt-2 md:mt-2 lg:mt-2">
 
             {/* I'm Connor Bell */}
             <div className="text-[32px] md:text-[36px] lg:text-[38px] leading-tight opacity-70 text-black">
@@ -75,8 +75,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Bottom spacing (control this) */}
-          <div className="pb-24 md:pb-28 lg:pb-32" />
+          {/* Bottom spacing */}
+          <div className="pb-20 md:pb-20 lg:pb-20" />
 
         </div>
       </div>
