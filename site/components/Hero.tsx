@@ -76,7 +76,7 @@ export default function Hero() {
           </div>
 
           {/* Bottom spacing */}
-          <div className="pb-20 md:pb-20 lg:pb-20" />
+          <div className="pb-22 md:pb-24 lg:pb-28" />
 
         </div>
       </div>
