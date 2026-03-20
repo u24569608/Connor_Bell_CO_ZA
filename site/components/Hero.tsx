@@ -9,17 +9,17 @@ export default function Hero() {
       className="w-full bg-[rgb(121,148,248)] overflow-hidden"
     >
       {/* Container aligned with navbar */}
-      <div className="w-full px-4 sm:px-8 md:px-10 lg:px-14">
+      <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14">
 
         {/* Top spacing */}
-        <div className="pt-16 md:pt-18 lg:pt-20">
+        <div className="pt-20 md:pt-18 lg:pt-20">
 
           {/* HOWZIT */}
           <h1 className="
-            text-[clamp(48px,16vw,220px)]
+            text-[clamp(94px,24vw,260px)]
             leading-tight
             tracking-tight
-            text-black -ml-[2px] sm:-ml-[8px] md:-ml-[14px] lg:-ml-[18px]
+            text-black -ml-[2px] sm:-ml-[10px] md:-ml-[14px] lg:-ml-[18px]
           ">
             HOWZIT
           </h1>
