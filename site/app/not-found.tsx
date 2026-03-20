@@ -2,7 +2,8 @@
 
 export default function NotFound() {
   return (
-    <section className="w-full min-h-screen bg-black text-white flex overflow-y-auto">
+    <section className="w-full min-h-[100svh] bg-black text-white flex overflow-y-auto">
+      <div className="fixed inset-0 bg-black -z-10"></div>
       
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 flex flex-col justify-start py-20">
         
@@ -46,7 +47,7 @@ export default function NotFound() {
               inline-block
               bg-white text-black
               px-10 py-2
-              text-[22px] md:text-[22px]
+              text-[18px] md:text-[18px]
               tracking-wider
               transition-all
               hover:bg-[rgb(250,227,65)] hover:text-black
