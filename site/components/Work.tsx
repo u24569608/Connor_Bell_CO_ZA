@@ -97,8 +97,13 @@ export default function Work() {
               <a
                 href="https://github.com/u24569608/"
                 target="_blank"
-                className="bg-black text-white text-[18px] px-4 py-2 text-center tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80"
+                className="bg-black text-white text-[18px] px-4 py-2 tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80 flex items-center justify-center gap-2"
               >
+                <img
+                  src="/GitHub.svg"
+                  alt="GitHub"
+                  className="w-5 h-5"
+                />
                 GitHub
               </a>
             </div>
