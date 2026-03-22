@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
   try {
     const result = await resend.emails.send({
-      from: "Connor Bell <contact@connorbell.co.za>",
+      from: "Connor Bell (Website) <websitecontact@connorbell.co.za>",
       to: [
         "connorbell27@icloud.com", /* Personal Email */ 
         "u24569608@tuks.co.za", /* School/Work Email */ 
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
         <p>${message}</p>
       `,
     });
-        
+
     return Response.json({ success: true });
   } catch (error) {
     console.error("RESEND ERROR:", error);
