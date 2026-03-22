@@ -13,7 +13,7 @@ export default function Contact() {
           </h2>
 
           {/* Form */}
-          <div className="w-full max-w-[800px]">
+          <div className="w-full max-w-[800px] lg:ml-[124px]">
 
             <h3 className="text-[32px] md:text-[32px] font-light mb-4 opacity-90">
               Get in Touch
