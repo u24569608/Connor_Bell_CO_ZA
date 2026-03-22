@@ -167,7 +167,7 @@ export default function Contact() {
               </button>
 
               {success && (
-                <p className="text-[18px] mt-4 text-white/90">
+                <p className="text-[22px] font-medium -mt-2 text-[rgb(169, 187, 255)]">
                   Shap! Message Received
                 </p>
               )}
