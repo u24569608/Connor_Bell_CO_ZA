@@ -4,10 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Connor Bell | Final-Year Computer Science Student at University of Pretoria | Software Developer Portfolio",
-  icons: {
-    icon: '/favicon.ico',
-  },
+  title: "Connor Bell | Final-Year Computer Science Student at the University of Pretoria | Software Engineer Portfolio",
 };
 
 export default function RootLayout({
