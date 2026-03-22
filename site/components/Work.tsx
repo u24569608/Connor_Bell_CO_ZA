@@ -14,6 +14,7 @@ type EducationItem = {
   date: string;
 };
 
+/* Work Experience */ 
 const workData: WorkItem[] = [
   {
     title: "Student Vacation Work",
@@ -29,6 +30,7 @@ const workData: WorkItem[] = [
   },
 ];
 
+/* Education */ 
 const educationData: EducationItem[] = [
   {
     title: "BSc Computer Science",
@@ -65,7 +67,7 @@ export default function Work() {
             <div className="space-y-6">
               {workData.map((item, index) => (
                 <div key={index}>
-                  <h3 className="text-[28px] font-normal">
+                  <h3 className="text-[28px] font-normal leading-tight">
                     {item.title}
                   </h3>
 
