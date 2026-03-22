@@ -61,7 +61,7 @@ export default function Contact() {
 
               {/* Message */}
               <div>
-                <label className="text-[18px] opacity-80">Write a Message</label>
+                <label className="text-[18px] opacity-80">Write a Message*</label>
                 <textarea
                   rows={5}
                   className="w-full mt-2 px-4 py-3 text-[20px] bg-white/10 border border-white/30 outline-none focus:border-white transition resize-none"
