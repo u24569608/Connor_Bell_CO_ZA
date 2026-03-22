@@ -24,7 +24,7 @@ export default function Contact() {
               {/* Row 1 */}
               <div className="grid grid-cols-1 min-[820px]:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-[18px] opacity-80">First Name*</label>
+                  <label className="text-[20px] opacity-80">First Name*</label>
                   <input
                     type="text"
                     className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition"
@@ -32,7 +32,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-[18px] opacity-80">Last Name</label>
+                  <label className="text-[20px] opacity-80">Last Name</label>
                   <input
                     type="text"
                     className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition"
@@ -43,7 +43,7 @@ export default function Contact() {
               {/* Row 2 */}
               <div className="grid grid-cols-1 min-[820px]:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-[18px] opacity-80">Email*</label>
+                  <label className="text-[20px] opacity-80">Email*</label>
                   <input
                     type="email"
                     className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition"
@@ -51,7 +51,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-[18px] opacity-80">Phone</label>
+                  <label className="text-[20px] opacity-80">Phone</label>
                   <input
                     type="text"
                     className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition"
@@ -61,7 +61,7 @@ export default function Contact() {
 
               {/* Message */}
               <div>
-                <label className="text-[18px] opacity-80">Write a Message*</label>
+                <label className="text-[20px] opacity-80">Write a Message*</label>
                 <textarea
                   rows={5}
                   className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition resize-none"
@@ -71,7 +71,7 @@ export default function Contact() {
               {/* Button */}
               <button
                 type="submit"
-                className="mt-4 py-3 text-[20px] tracking-wide font-['ubuntu-mono'] font-semibold bg-[rgb(121,148,248)] hover:opacity-90 transition"
+                className="mt-4 py-3 text-[22px] tracking-wide font-medium bg-[rgb(121,148,248)] hover:opacity-90 transition"
               >
                 Submit
               </button>
