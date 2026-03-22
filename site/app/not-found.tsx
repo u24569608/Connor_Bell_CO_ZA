@@ -19,10 +19,10 @@ export default function NotFound() {
     <section className="w-full min-h-screen min-h-[100svh] bg-black text-white flex overflow-y-auto">
       <div className="fixed inset-0 bg-black -z-10"></div>
       
-      <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 flex flex-col justify-start py-20">
+      <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 flex flex-col justify-start pt-14 pb-20">
         
         {/* Name (like navbar) */}
-        <div className="mb-12">
+        <div className="mb-4">
           <p className="text-[42px] font-medium tracking-wide opacity-70">
             Connor Bell
           </p>
