@@ -22,7 +22,7 @@ const workData: WorkItem[] = [
     date: "Early 2026",
   },
   {
-    title: "Computer Science TA",
+    title: "Computer Science Teaching Assistant",
     company: "University of Pretoria",
     location: "Pretoria, Gauteng, South Africa",
     date: "Early 2025—Present",
