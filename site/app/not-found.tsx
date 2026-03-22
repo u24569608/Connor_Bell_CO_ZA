@@ -1,8 +1,22 @@
 "use client";
 
+import { useEffect } from "react";
+
 export default function NotFound() {
+  useEffect(() => {
+    const prevBodyBg = document.body.style.backgroundColor;
+    const prevHtmlBg = document.documentElement.style.backgroundColor;
+
+    document.body.style.backgroundColor = "black";
+    document.documentElement.style.backgroundColor = "black";
+
+    return () => {
+      document.body.style.backgroundColor = prevBodyBg;
+      document.documentElement.style.backgroundColor = prevHtmlBg;
+    };
+  }, []);
   return (
-    <section className="w-full min-h-[100svh] bg-black text-white flex overflow-y-auto">
+    <section className="w-full min-h-screen min-h-[100svh] bg-black text-white flex overflow-y-auto">
       <div className="fixed inset-0 bg-black -z-10"></div>
       
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 flex flex-col justify-start py-20">
