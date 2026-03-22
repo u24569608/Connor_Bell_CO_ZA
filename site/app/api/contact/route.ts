@@ -8,13 +8,14 @@ export async function POST(req: Request) {
   const { firstName, lastName, email, phone, message } = body;
 
   try {
-    await resend.emails.send({
-      from: "Website Contact (cbell.co.za) <onboarding@resend.dev>",
+    const result = await resend.emails.send({
+      from: "Connor Bell <contact@connorbell.co.za>",
       to: [
         "connorbell27@icloud.com", /* Personal Email */ 
         "u24569608@tuks.co.za", /* School/Work Email */ 
       ],
-      subject: `(cbell.co.za) New Message From ${firstName} ${lastName}`,
+      replyTo: email,
+      subject: `WEBSITE CONTACT (cbell.co.za) New Message From ${firstName} ${lastName}`,
       html: `
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -23,9 +24,10 @@ export async function POST(req: Request) {
         <p>${message}</p>
       `,
     });
-
+        
     return Response.json({ success: true });
   } catch (error) {
+    console.error("RESEND ERROR:", error);
     return Response.json({ error });
   }
 }
