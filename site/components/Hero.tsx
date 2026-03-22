@@ -19,6 +19,7 @@ export default function Hero() {
             tracking-tight
             text-black -ml-[2px] sm:-ml-[10px] md:-ml-[14px] lg:-ml-[18px]
             max-w-full
+            font-medium
             opacity-70
           ">
             HOWZIT
