@@ -11,8 +11,8 @@ export async function POST(req: Request) {
     const result = await resend.emails.send({
       from: "Connor Bell (Website) <websitecontact@connorbell.co.za>",
       to: [
-        "connorbell27@icloud.com", /* Personal Email */ 
-        "u24569608@tuks.co.za", /* School/Work Email */ 
+        process.env.CONTACT_EMAIL_PRIMARY!,
+        process.env.CONTACT_EMAIL_SECONDARY!
       ],
       replyTo: email,
       subject: `WEBSITE CONTACT (cbell.co.za) New Message From ${firstName} ${lastName}`,
