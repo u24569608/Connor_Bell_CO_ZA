@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
@@ -14,12 +14,38 @@ export default function Contact() {
     message: "",
   });
 
+  const [errorMsg, setErrorMsg] = useState("");
+  const messageRef = useRef<HTMLParagraphElement | null>(null);
+
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    setErrorMsg("");
+    setSuccess(false);
+
+    let error = "";
+
+    if (!form.firstName.trim()) {
+      error = "Please Enter your First Name";
+    } else if (!form.email.trim()) {
+      error = "Please Enter your Email Address";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      error = "Please Enter a Valid Email Address";
+    } else if (form.phone && !/^[0-9]+$/.test(form.phone)) {
+      error = "Phone Number Must Contain Only Digits";
+    } else if (!form.message.trim()) {
+      error = "Please Enter a Message";
+    }
+
+    if (error) {
+      setErrorMsg(error);
+      setTimeout(() => messageRef.current?.focus(), 0);
+      return;
+    }
 
     setLoading(true);
 
@@ -31,6 +57,7 @@ export default function Contact() {
     setLoading(false);
 
     if (res.ok) {
+      setErrorMsg("");
       setSuccess(true);
 
       // Clear form
@@ -166,9 +193,15 @@ export default function Contact() {
                 {loading ? "Sending..." : "Send"}
               </button>
 
-              {success && (
-                <p className="text-[22px] font-medium -mt-2 text-[rgb(169, 187, 255)]">
-                  Shap! Message Received
+              {(errorMsg || success) && (
+                <p
+                  ref={messageRef}
+                  tabIndex={-1}
+                  className={`text-[22px] font-medium -mt-2 ${
+                    errorMsg ? "text-red-300" : "text-[rgb(169, 187, 255)]"
+                  }`}
+                >
+                  {errorMsg ? errorMsg : "Shap! Message Received"}
                 </p>
               )}
 
