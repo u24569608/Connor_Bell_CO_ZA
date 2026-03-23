@@ -70,7 +70,7 @@ export default function Life() {
                           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
                             <path d="M20 6L9 17l-5-5"/>
                           </svg>
-                          Tasty Food
+                          Good Food
                         </li>
 
                         <li className="flex items-center gap-3">
@@ -86,14 +86,6 @@ export default function Life() {
                           </svg>
                           Nature 
                         </li>
-
-                        <li className="flex items-center gap-3">
-                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
-                            <path d="M20 6L9 17l-5-5"/>
-                          </svg>
-                          The Ocean
-                        </li>
-
                       </ul>
                     </div>
 
@@ -115,16 +107,8 @@ export default function Life() {
                           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
                             <path d="M6 6l12 12M18 6L6 18"/>
                           </svg>
-                          Olives
-                        </li>
-
-                        <li className="flex items-center gap-3">
-                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
-                            <path d="M6 6l12 12M18 6L6 18"/>
-                          </svg>
                           Traffic
                         </li>
-
                       </ul>
                     </div>
 
