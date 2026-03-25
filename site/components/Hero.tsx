@@ -22,7 +22,6 @@ export default function Hero() {
             font-medium
             dark:text-white
             opacity-70
-            dark:opacity-80
           ">
             HOWZIT
           </h1>

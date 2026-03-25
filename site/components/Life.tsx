@@ -18,7 +18,7 @@ export default function Life() {
           <div className="flex flex-col min-[820px]:flex-row items-start gap-8 w-full max-w-[800px]">
 
             {/* Headshot */}
-            <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 opacity-100">
+            <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 dark:opacity-80 opacity-100">
               <Image
                 src="/Cycling.webp"
                 alt="Cycling Photo of Connor Bell"

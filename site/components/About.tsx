@@ -18,7 +18,7 @@ export default function About() {
           <div className="flex flex-col sm:flex-row items-start gap-8 max-w-[800px]">
 
             {/* Headshot */}
-            <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 opacity-100">
+            <div className="w-[120px] h-[120px] rounded-full overflow-hidden flex-shrink-0 dark:opacity-80 opacity-100">
               <Image
                 src="/Headshot.webp"
                 alt="Headshot of Connor Bell"
