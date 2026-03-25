@@ -1,6 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function Footer() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    setDark(isDark);
+  };
+
   return (
     <footer className="w-full bg-[rgb(61,74,124)] text-white">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 py-12">
@@ -64,6 +78,13 @@ export default function Footer() {
         <div className="mt-12 text-[16px] tracking-wider opacity-40">
           ©2026 Connor Bell <br />
           Proudly Made in South Africa
+          <br/>
+          <button
+            onClick={toggleTheme}
+            className="underline mt-2 hover:opacity-80 transition"
+          >
+            {dark ? "Light Mode" : "Dark Mode"}
+          </button>
         </div>
 
       </div>
