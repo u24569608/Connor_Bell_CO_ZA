@@ -89,7 +89,6 @@ export default function Footer() {
 
         </div>
 
-
         {/* Bottom */}
         <div className="mt-12 text-[16px] tracking-wider opacity-40">
           ©2026 Connor Bell <br />
