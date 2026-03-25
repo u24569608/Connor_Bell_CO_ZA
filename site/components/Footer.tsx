@@ -31,7 +31,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[rgb(61,74,124)] text-white">
+    <footer className="w-full bg-[rgb(61,74,124)] dark:bg-black text-white">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 py-12">
 
         {/* Top Section */}

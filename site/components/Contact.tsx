@@ -77,7 +77,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full bg-[rgb(91,111,185)] text-white">
+    <section id="contact" className="w-full bg-[rgb(91,111,185)] dark:bg-[rgb(14,14,14)] text-white">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 pt-8 pb-16 md:py-16">
 
         <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16 xl:gap-20">
@@ -162,7 +162,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-4 py-3 text-[22px] tracking-wide font-medium bg-[rgb(121,148,248)] hover:opacity-90 transition flex items-center justify-center gap-2 disabled:opacity-70"
+                className="mt-4 py-3 text-[22px] tracking-wide font-medium bg-[rgb(121,148,248)] dark:bg-[rgb(85,85,85)] dark:text-white hover:opacity-90 transition flex items-center justify-center gap-2 disabled:opacity-70"
               >
                 {loading && (
                   <svg
