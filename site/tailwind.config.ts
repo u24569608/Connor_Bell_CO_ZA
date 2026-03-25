@@ -10,11 +10,6 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [
-    plugin(function ({ addVariant }) {
-      addVariant("red", ".red &");
-    }),
-  ],
 };
 
 export default config;
