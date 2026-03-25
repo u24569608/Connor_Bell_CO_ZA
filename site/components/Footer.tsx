@@ -3,38 +3,31 @@
 import { useEffect, useState } from "react";
 
 export default function Footer() {
-  const [dark, setDark] = useState(false);
+  type Theme = "light" | "dark" | "red";
+  const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
+    const stored = (localStorage.getItem("theme") as Theme) || "light";
 
-    if (stored === "dark") {
-      document.documentElement.classList.add("dark");
-      setDark(true);
-    } else if (stored === "light") {
-      document.documentElement.classList.remove("dark");
-      setDark(false);
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (prefersDark) {
-        document.documentElement.classList.add("dark");
-        setDark(true);
-      }
-    }
+    const root = document.documentElement;
+    root.classList.remove("dark", "red");
+
+    if (stored === "dark") root.classList.add("dark");
+    if (stored === "red") root.classList.add("red");
+
+    setThemeState(stored);
   }, []);
 
-  const toggleTheme = () => {
-    const isDark = document.documentElement.classList.contains("dark");
+  const setTheme = (newTheme: Theme) => {
+    const root = document.documentElement;
 
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setDark(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setDark(true);
-    }
+    root.classList.remove("dark", "red");
+
+    if (newTheme === "dark") root.classList.add("dark");
+    if (newTheme === "red") root.classList.add("red");
+
+    localStorage.setItem("theme", newTheme);
+    setThemeState(newTheme);
   };
 
   return (
@@ -101,12 +94,28 @@ export default function Footer() {
           ©2026 Connor Bell <br />
           Proudly Made in South Africa
           <br/>
-          <button
-            onClick={toggleTheme}
-            className="underline mt-2 hover:opacity-80 transition"
-          >
-            {dark ? "Light Mode" : "Dark Mode"}
-          </button>
+          <div className="flex gap-4 mt-2">
+            <button
+              onClick={() => setTheme("light")}
+              className={`underline transition hover:opacity-80 ${theme === "light" ? "opacity-100" : "opacity-50"}`}
+            >
+              Light Mode
+            </button>
+
+            <button
+              onClick={() => setTheme("dark")}
+              className={`underline transition hover:opacity-80 ${theme === "dark" ? "opacity-100" : "opacity-50"}`}
+            >
+              Dark Mode
+            </button>
+
+            <button
+              onClick={() => setTheme("red")}
+              className={`underline transition hover:opacity-80 ${theme === "red" ? "opacity-100" : "opacity-50"}`}
+            >
+              Red Mode
+            </button>
+          </div>
         </div>
 
       </div>
