@@ -50,7 +50,7 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="w-full bg-[rgb(250,227,65)]"
+      className="w-full bg-[rgb(250,227,65)] dark:bg-[rgb(18,18,18)]"
     >
       {/* container aligned with site */}
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 py-12 md:py-18">
@@ -60,26 +60,26 @@ export default function Work() {
 
           {/* WORK */}
           <div>
-            <h2 className="text-[40px] md:text-[48px] font-medium mb-10 opacity-80">
+            <h2 className="text-[40px] md:text-[48px] dark:text-white font-medium mb-10 opacity-80">
               Work
             </h2>
 
             <div className="space-y-6">
               {workData.map((item, index) => (
                 <div key={index}>
-                  <h3 className="text-[28px] font-normal leading-tight">
+                  <h3 className="text-[28px] dark:text-white font-normal leading-tight">
                     {item.title}
                   </h3>
 
-                  <p className="text-[20px] font-medium">
+                  <p className="text-[20px] dark:text-white font-medium">
                     {item.company}
                   </p>
 
-                  <p className="text-[18px] italic opacity-80">
+                  <p className="text-[18px] dark:text-white italic opacity-80">
                     {item.location}
                   </p>
 
-                  <p className="text-[16px] opacity-80">
+                  <p className="text-[16px] dark:text-white opacity-80">
                     {item.date}
                   </p>
                 </div>
@@ -91,7 +91,7 @@ export default function Work() {
               <a
                 href="/Connor_Bell_CV.pdf"
                 target="_blank"
-                className="bg-black text-white text-[18px] px-2 py-2 text-center tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80"
+                className="bg-black text-white text-[18px] px-2 py-2 text-center tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80 dark:hover:bg-black dark:hover:text-white dark:hover:opacity-60"
               >
                 View CV
               </a>
@@ -99,7 +99,7 @@ export default function Work() {
               <a
                 href="https://github.com/u24569608/"
                 target="_blank"
-                className="bg-black text-white text-[18px] px-4 py-2 tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80 flex items-center justify-center gap-2"
+                className="bg-black text-white text-[18px] px-4 py-2 tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80 flex items-center justify-center gap-2 dark:hover:bg-black dark:hover:text-white dark:hover:opacity-60"
               >
                 <img
                   src="/GitHub.svg"
@@ -113,26 +113,26 @@ export default function Work() {
 
           {/* EDUCATION */}
           <div>
-            <h2 className="text-[40px] md:text-[48px] font-medium mb-10 opacity-80">
+            <h2 className="text-[40px] md:text-[48px] dark:text-white font-medium mb-10 opacity-80">
               Education
             </h2>
 
             <div className="space-y-6">
               {educationData.map((item, index) => (
                 <div key={index}>
-                  <h3 className="text-[28px] font-normal">
+                  <h3 className="text-[28px] dark:text-white font-normal">
                     {item.title}
                   </h3>
 
-                  <p className="text-[20px] font-medium">
+                  <p className="text-[20px] dark:text-white font-medium">
                     {item.institution}
                   </p>
 
-                  <p className="text-[18px] italic opacity-80">
+                  <p className="text-[18px] dark:text-white italic opacity-80">
                     {item.location}
                   </p>
 
-                  <p className="text-[16px] opacity-80">
+                  <p className="text-[16px] dark:text-white opacity-80">
                     {item.date}
                   </p>
                 </div>
