@@ -6,13 +6,35 @@ export default function Footer() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    setDark(document.documentElement.classList.contains("dark"));
+    const stored = localStorage.getItem("theme");
+
+    if (stored === "dark") {
+      document.documentElement.classList.add("dark");
+      setDark(true);
+    } else if (stored === "light") {
+      document.documentElement.classList.remove("dark");
+      setDark(false);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (prefersDark) {
+        document.documentElement.classList.add("dark");
+        setDark(true);
+      }
+    }
   }, []);
 
   const toggleTheme = () => {
-    const isDark = document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    setDark(isDark);
+    const isDark = document.documentElement.classList.contains("dark");
+
+    if (isDark) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setDark(false);
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setDark(true);
+    }
   };
 
   return (
