@@ -21,12 +21,24 @@ export default function RootLayout({
         dangerouslySetInnerHTML={{
           __html: `
             (function () {
-              const theme = localStorage.getItem("theme");
+              try {
+                const theme = localStorage.getItem("theme") || "light";
+                const root = document.documentElement;
 
-              if (theme === "dark") {
-                document.documentElement.classList.add("dark");
-              } else {
-                document.documentElement.classList.remove("dark");
+                // Always reset first
+                root.classList.remove("dark", "red");
+
+                if (theme === "dark") {
+                  root.classList.add("dark");
+                } else if (theme === "red") {
+                  root.classList.add("red");
+                } else {
+                  // explicitly ensure light mode
+                  root.classList.remove("dark", "red");
+                }
+              } catch (e) {
+                // fallback to light if anything breaks
+                document.documentElement.classList.remove("dark", "red");
               }
             })();
           `,

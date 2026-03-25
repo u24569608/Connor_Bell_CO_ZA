@@ -91,7 +91,7 @@ export default function Work() {
               <a
                 href="/Connor_Bell_CV.pdf"
                 target="_blank"
-                className="bg-black text-white text-[18px] px-2 py-2 text-center tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80 dark:hover:bg-black dark:hover:text-white dark:hover:opacity-60"
+                className="bg-black text-white text-[18px] px-2 py-2 text-center tracking-wider transition opacity-80 hover:opacity-70 dark:hover:bg-black dark:hover:text-white dark:hover:opacity-60"
               >
                 View CV
               </a>
@@ -99,7 +99,7 @@ export default function Work() {
               <a
                 href="https://github.com/u24569608/"
                 target="_blank"
-                className="bg-black text-white text-[18px] px-4 py-2 tracking-wider hover:bg-white hover:text-black transition opacity-80 hover:opacity-80 flex items-center justify-center gap-2 dark:hover:bg-black dark:hover:text-white dark:hover:opacity-60"
+                className="bg-black text-white text-[18px] px-4 py-2 tracking-wider  transition opacity-80 hover:opacity-70 flex items-center justify-center gap-2 dark:hover:bg-black dark:hover:text-white dark:hover:opacity-60"
               >
                 <img
                   src="/GitHub.svg"
