@@ -1,8 +1,37 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function Footer() {
+  type Theme = "light" | "dark" | "red";
+  const [theme, setThemeState] = useState<Theme>("light");
+
+  useEffect(() => {
+    const stored = (localStorage.getItem("theme") as Theme) || "light";
+
+    const root = document.documentElement;
+    root.classList.remove("dark", "red");
+
+    if (stored === "dark") root.classList.add("dark");
+    if (stored === "red") root.classList.add("red");
+
+    setThemeState(stored);
+  }, []);
+
+  const setTheme = (newTheme: Theme) => {
+    const root = document.documentElement;
+
+    root.classList.remove("dark", "red");
+
+    if (newTheme === "dark") root.classList.add("dark");
+    if (newTheme === "red") root.classList.add("red");
+
+    localStorage.setItem("theme", newTheme);
+    setThemeState(newTheme);
+  };
+
   return (
-    <footer className="w-full bg-[rgb(61,74,124)] text-white">
+    <footer className="w-full bg-[rgb(61,74,124)] dark:bg-black text-white">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 py-12">
 
         {/* Top Section */}
@@ -59,11 +88,34 @@ export default function Footer() {
           </div>
 
         </div>
-
+        {/* TEST */}
         {/* Bottom */}
         <div className="mt-12 text-[16px] tracking-wider opacity-40">
           ©2026 Connor Bell <br />
           Proudly Made in South Africa
+          <br/>
+          <div className="flex gap-4 mt-2">
+            <button
+              onClick={() => setTheme("light")}
+              className={`underline transition hover:opacity-80 ${theme === "light" ? "opacity-100" : "opacity-50"}`}
+            >
+              Light Mode
+            </button>
+
+            <button
+              onClick={() => setTheme("dark")}
+              className={`underline transition hover:opacity-80 ${theme === "dark" ? "opacity-100" : "opacity-50"}`}
+            >
+              Dark Mode
+            </button>
+
+            <button
+              onClick={() => setTheme("red")}
+              className={`underline transition hover:opacity-80 ${theme === "red" ? "opacity-100" : "opacity-50"}`}
+            >
+              Red Mode
+            </button>
+          </div>
         </div>
 
       </div>

@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="howzit"
-      className="w-full bg-[rgb(121,148,248)] overflow-hidden"
+      className="w-full bg-[rgb(121,148,248)] dark:bg-[rgb(10,10,10)] overflow-hidden"
     >
       {/* Container aligned with navbar */}
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14">
@@ -20,6 +20,7 @@ export default function Hero() {
             text-black -ml-[2px] sm:-ml-[10px] md:-ml-[14px] lg:-ml-[18px]
             max-w-full
             font-medium
+            dark:text-white
             opacity-70
           ">
             HOWZIT
@@ -29,13 +30,13 @@ export default function Hero() {
           <div className="mt-3 sm:mt-4 md:mt-6">
 
             {/* I'm Connor Bell */}
-            <div className="text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px] leading-tight opacity-70 text-black">
+            <div className="text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px] leading-tight opacity-70 text-black dark:text-white">
               <span className="font-light">I'm </span>
               <span className="font-normal">Connor Bell</span>
             </div>
 
             {/* Location */}
-            <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] leading-tight tracking-wider opacity-70  text-black mt-0">
+            <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] leading-tight tracking-wider opacity-70 text-black dark:text-white mt-0">
               Gauteng, South Africa
             </div>
 
@@ -43,13 +44,13 @@ export default function Hero() {
             <div className="mt-8 md:mt-10">
 
               {/* Degree */}
-              <div className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] leading-tight opacity-70 text-black">
+              <div className="text-[20px] sm:text-[24px] md:text-[30px] lg:text-[36px] leading-tight opacity-70 text-black dark:text-white">
                 <span className="font-light">Final Year </span>
                 <span className="font-normal">BSc Computer Science Student</span>
               </div>
 
               {/* University */}
-              <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] leading-tight tracking-wider text-black mt-0 opacity-70 font-light">
+              <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] leading-tight tracking-wider text-black dark:text-white mt-0 opacity-70 font-light">
                 University of Pretoria
               </div>
 
@@ -70,6 +71,8 @@ export default function Hero() {
                     transition-all
                     hover:bg-white hover:text-black
                     hover:opacity-70
+                    dark:bg-white
+                    dark:text-black
                   "
                 >
                   More
