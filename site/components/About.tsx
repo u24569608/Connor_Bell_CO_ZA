@@ -4,13 +4,13 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="w-full bg-white">
+    <section id="about" className="w-full bg-white dark:bg-black">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 pt-8 pb-16 md:py-16">
 
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16 lg:gap-20">
 
           {/* Heading */}
-          <h2 className="text-[40px] md:text-[48px] font-medium tracking-wide text-black opacity-80">
+          <h2 className="text-[40px] md:text-[48px] font-medium tracking-wide text-black dark:text-white opacity-80">
             About
           </h2>
 
@@ -30,7 +30,7 @@ export default function About() {
 
             {/* Text + Button */}
             <div>
-              <p className="text-[18px] md:text-[20px] text-black opacity-80 max-w-[600px] text-justify">
+              <p className="text-[18px] md:text-[20px] text-black dark:text-white opacity-80 max-w-[600px] text-justify">
                 I'm a final-year Computer Science student at Tuks, originally from Jozi. I enjoy crafting software that is clean, functional, and visually refined. I'm interested in full-stack development, where I combine technical problem-solving with thoughtful, careful design. I care about building applications that feel intuitive, well-made, and enjoyable to use.
               </p>
 
@@ -46,6 +46,10 @@ export default function About() {
                   transition-all
                   hover:bg-black hover:text-white
                   inline-block
+                  dark:bg-black
+                  dark:border-white
+                  dark:text-white
+                  dark:hover:opacity-80
                 ">
                   More
                 </a>
