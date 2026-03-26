@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="w-full bg-white dark:bg-black red:bg-[rgb(15,0,0)]">
+    <section id="about" className="w-full bg-white dark:bg-black red:bg-[rgb(20,0,0)]">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 pt-8 pb-16 md:py-16">
 
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16 lg:gap-20">
@@ -52,7 +52,8 @@ export default function About() {
                   dark:border-white
                   dark:text-white
                   dark:hover:opacity-80
-                  red:bg-[rgb(15,0,0)]
+                  red:bg-[rgb(20,0,0)]
+                  red:hover:bg-[rgb(20,0,0)]
                   red:border-[rgb(150,0,0)] 
                   red:text-[rgb(150,0,0)]
                   red:hover:text-[rgb(200,0,0)]

@@ -77,20 +77,20 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full bg-[rgb(91,111,185)] dark:bg-[rgb(14,14,14)] text-white">
+    <section id="contact" className="w-full bg-[rgb(91,111,185)] dark:bg-[rgb(14,14,14)] red:bg-[rgb(30,0,0)] text-white">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 pt-8 pb-16 md:py-16">
 
         <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16 xl:gap-20">
 
           {/* Heading */}
-          <h2 className="text-[40px] md:text-[48px] font-medium tracking-wide opacity-90 min-w-[140px]">
+          <h2 className="text-[40px] md:text-[48px] red:text-[rgb(254,0,0)] font-medium tracking-wide opacity-90 min-w-[140px]">
             Contact
           </h2>
 
           {/* Form */}
           <div className="w-full max-w-[800px] lg:ml-[140px] xl:ml-[124px]">
 
-            <h3 className="text-[32px] md:text-[32px] font-light mb-4 opacity-90">
+            <h3 className="text-[32px] md:text-[32px] red:text-[rgb(254,0,0)] font-light mb-4 opacity-90">
               Get in Touch
             </h3>
 
@@ -99,24 +99,24 @@ export default function Contact() {
               {/* Row 1 */}
               <div className="grid grid-cols-1 min-[820px]:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-[20px] opacity-80">First Name*</label>
+                  <label className="text-[20px] red:text-[rgb(254,0,0)] opacity-80">First Name*</label>
                   <input
                     type="text"
                     name="firstName"
                     value={form.firstName}
                     onChange={handleChange}
-                    className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition"
+                    className="w-full mt-2 px-4 py-3 text-[20px] red:text-[rgb(254,0,0)] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition red:bg-[rgb(40,0,0)] red:border-[rgb(100,0,0)] red:focus:border-[rgb(254,0,0)]"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[20px] opacity-80">Last Name</label>
+                  <label className="text-[20px] red:text-[rgb(254,0,0)] opacity-80">Last Name</label>
                   <input
                     type="text"
                     name="lastName"
                     value={form.lastName}
                     onChange={handleChange}
-                    className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition"
+                    className="w-full mt-2 px-4 py-3 text-[20px] red:text-[rgb(254,0,0)] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition red:bg-[rgb(40,0,0)] red:border-[rgb(100,0,0)] red:focus:border-[rgb(254,0,0)]"
                   />
                 </div>
               </div>
@@ -124,37 +124,37 @@ export default function Contact() {
               {/* Row 2 */}
               <div className="grid grid-cols-1 min-[820px]:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-[20px] opacity-80">Email*</label>
+                  <label className="text-[20px] red:text-[rgb(254,0,0)] opacity-80">Email*</label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition"
+                    className="w-full mt-2 px-4 py-3 text-[20px] red:text-[rgb(254,0,0)] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition red:bg-[rgb(40,0,0)] red:border-[rgb(100,0,0)] red:focus:border-[rgb(254,0,0)]"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[20px] opacity-80">Phone</label>
+                  <label className="text-[20px] red:text-[rgb(254,0,0)] opacity-80">Phone</label>
                   <input
                     type="text"
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition"
+                    className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] red:text-[rgb(254,0,0)] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition red:bg-[rgb(40,0,0)] red:border-[rgb(100,0,0)] red:focus:border-[rgb(254,0,0)]"
                   />
                 </div>
               </div>
 
               {/* Message */}
               <div>
-                <label className="text-[20px] opacity-80">Write a Message*</label>
+                <label className="text-[20px] red:text-[rgb(254,0,0)] opacity-80">Write a Message*</label>
                 <textarea
                   rows={5}
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  className="w-full mt-2 px-4 py-3 text-[20px] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition resize-none"
+                  className="w-full mt-2 px-4 py-3 text-[20px] red:text-[rgb(254,0,0)] font-['ubuntu-mono'] font-semibold bg-white/10 border border-white/30 outline-none focus:border-white transition resize-none red:bg-[rgb(40,0,0)] red:border-[rgb(100,0,0)] red:focus:border-[rgb(254,0,0)]"
                 />
               </div>
 
@@ -162,12 +162,12 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-4 py-3 text-[22px] tracking-wide font-medium bg-[rgb(121,148,248)] dark:bg-[rgb(85,85,85)] dark:text-white hover:opacity-90 transition flex items-center justify-center gap-2 disabled:opacity-70"
+                className="mt-4 py-3 text-[22px] red:text-[rgb(254,0,0)] tracking-wide font-medium bg-[rgb(121,148,248)] dark:bg-[rgb(85,85,85)] dark:text-white red:bg-[rgb(60,0,0)] hover:opacity-90 transition flex items-center justify-center gap-2 disabled:opacity-70"
               >
                 {loading && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-white"
+                    className="h-5 w-5 text-white red:text-[rgb(254,0,0)]"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -197,8 +197,8 @@ export default function Contact() {
                 <p
                   ref={messageRef}
                   tabIndex={-1}
-                  className={`text-[22px] font-medium -mt-2 ${
-                    errorMsg ? "text-red-300" : "text-[rgb(169, 187, 255)]"
+                  className={`text-[22px] red:text-[rgb(254,0,0)] font-medium -mt-2 ${
+                    errorMsg ? "text-red-300" : "text-[rgb(169, 187, 255)] "
                   }`}
                 >
                   {errorMsg ? errorMsg : "Shap! Message Received"}
