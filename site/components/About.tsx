@@ -27,7 +27,7 @@ export default function About() {
                 className="object-cover w-full h-full"
               />
               {/* Red overlay for Red theme */}
-              <div className="absolute inset-0 pointer-events-none red:bg-[rgb(90,0,0)] red:opacity-50"></div>
+              {/*<div className="absolute inset-0 pointer-events-none red:bg-[rgb(90,0,0)] red:opacity-50"></div>*/}
             </div>
 
             {/* Text + Button */}
