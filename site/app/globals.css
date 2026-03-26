@@ -20,7 +20,7 @@ section {
 }
 
 .red {
-  background-color: black;
+  background-color: rgb(20,0,0);
   --red-light: rgb(254,0,0); 
   --red-medium: rgb(190,0,0); 
   --red-mild: rgb(127,0,0); 

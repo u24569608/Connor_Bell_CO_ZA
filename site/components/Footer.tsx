@@ -31,14 +31,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[rgb(61,74,124)] dark:bg-black text-white">
+    <footer className="w-full bg-[rgb(61,74,124)] dark:bg-black red:bg-[rgb(20,0,0)] text-white">
       <div className="w-full px-5 sm:px-8 md:px-10 lg:px-14 py-12">
 
         {/* Top Section */}
         <div className="flex flex-col md:flex-row gap-8 items-start">
 
           {/* Left - Name */}
-          <div className="text-[36px] opacity-90 font-light tracking-wide">
+          <div className="text-[36px] opacity-90 font-light red:text-[rgb(254,0,0)] tracking-wide">
             Connor Bell
           </div>
 
@@ -48,19 +48,19 @@ export default function Footer() {
 
               {/* Sitemap */}
               <div>
-                <h3 className="text-[24px] font-medium mb-4 opacity-80">Site Map</h3>
+                <h3 className="text-[24px] red:text-[rgb(254,0,0)] font-medium mb-4 opacity-80">Site Map</h3>
                 <div className="flex flex-col gap-3 text-[20px] opacity-70">
-                  <a href="#howzit" className="hover:opacity-100 hover:font-medium transition-all">Home</a>
-                  <a href="#about" className="hover:opacity-100 hover:font-medium transition-all">About</a>
-                  <a href="#work" className="hover:opacity-100 hover:font-medium transition-all">Work</a>
-                  <a href="#life" className="hover:opacity-100 hover:font-medium transition-all">Life</a>
-                  <a href="#contact" className="hover:opacity-100 hover:font-medium transition-all">Contact</a>
+                  <a href="#howzit" className="hover:opacity-100 hover:font-medium red:text-[rgb(254,0,0)] transition-all">Home</a>
+                  <a href="#about" className="hover:opacity-100 hover:font-medium red:text-[rgb(254,0,0)] transition-all">About</a>
+                  <a href="#work" className="hover:opacity-100 hover:font-medium red:text-[rgb(254,0,0)] transition-all">Work</a>
+                  <a href="#life" className="hover:opacity-100 hover:font-medium red:text-[rgb(254,0,0)] transition-all">Life</a>
+                  <a href="#contact" className="hover:opacity-100 hover:font-medium red:text-[rgb(254,0,0)] transition-all">Contact</a>
                 </div>
               </div>
 
               {/* Connect */}
               <div>
-                <h3 className="text-[24px] font-medium mb-4 opacity-80">Connect</h3>
+                <h3 className="text-[24px] font-medium mb-4 red:text-[rgb(254,0,0)] opacity-80">Connect</h3>
                 <div className="flex gap-4">
 
                   <a
@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
         {/* TEST */}
         {/* Bottom */}
-        <div className="mt-12 text-[16px] tracking-wider opacity-40">
+        <div className="mt-12 text-[16px] red:text-[rgb(254,0,0)] tracking-wider opacity-40">
           ©2026 Connor Bell <br />
           Proudly Made in South Africa
           <br/>
