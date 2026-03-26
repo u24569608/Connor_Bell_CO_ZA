@@ -5,6 +5,10 @@ body {
   font-family: "futura-pt", sans-serif;
 }
 
+.dark body {
+  background-color: black;
+}
+
 html {
   scroll-behavior: smooth;
 }
