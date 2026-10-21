@@ -3,7 +3,7 @@ import CVPage from "../pages/cv";
 
 export default function CV() {
   return (
-    <main className="min-h-svh bg-black">
+    <main data-page="cv" className="min-h-svh bg-black">
       <Navbar />
       <CVPage />
     </main>

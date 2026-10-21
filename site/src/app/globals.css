@@ -132,6 +132,10 @@
   body:has(main[data-page="home"]) {
     overflow: hidden;
     }
+  html:has(main[data-page="cv"]),
+  body:has(main[data-page="cv"]) {
+    background-color: white;
+    }
 }
 
 .page-transition {

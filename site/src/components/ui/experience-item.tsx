@@ -35,7 +35,7 @@ function ExperienceItem({
         {startDate} – {endDate}
       </p>
       {descriptions !== undefined && (
-        <div className="mt-2 space-y-1 text-base leading-tight text-neutral-600">
+        <div className="mt-2 text-xs space-y-1 text-base leading-tight text-neutral-600">
           {descriptions.map((line, index) => (
             <p key={`${index}-${line}`}>{line}</p>
           ))}

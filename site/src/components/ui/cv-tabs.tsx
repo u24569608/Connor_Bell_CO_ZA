@@ -48,10 +48,10 @@ function CVTabs() {
               startDate="Feb 2026"
               endDate="Present"
               descriptions={[
-                "S1—COS 221 (Introduction to Database Systems)",
-                "S1—COS 216 (Netcentric Computer Systems)",
-                "S2—COS 226 (Concurrent Systems)",
-                "S2—COS 214 (Software Modelling)"
+                "COS 221 (Introduction to Database Systems)",
+                "COS 216 (Netcentric Computer Systems)",
+                "COS 226 (Concurrent Systems)",
+                "COS 214 (Software Modelling)"
               ]}
             />
             <ExperienceItem
@@ -68,8 +68,8 @@ function CVTabs() {
               startDate="February 2025"
               endDate="November 2025"
               descriptions={[
-                "S1—COS 132 (Imperative Programming)",
-                "S2—COS 110 (Introduction to Program Design)",
+                "COS 132 (Imperative Programming)",
+                "COS 110 (Introduction to Program Design)",
               ]}
             />
             <SocialLinks className="flex-col items-start text-black" />
