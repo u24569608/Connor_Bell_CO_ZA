@@ -57,7 +57,7 @@ function HomePage() {
         )}
       </div>
 
-      <div className="absolute inset-x-8 bottom-4 mx-auto w-auto max-w-4xl md:bottom-38">
+      <div className="home-slider-panel absolute inset-x-8 bottom-8 mx-auto w-auto max-w-4xl">
         <div className="w-full max-w-xs">
           <h1 className="text-[1.1rem] tracking-wide font-medium mb-6">About Me</h1>
           <Slider
