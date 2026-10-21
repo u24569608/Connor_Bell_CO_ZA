@@ -33,7 +33,7 @@ const socialItems = [
 
 function Navbar() {
   return (
-    <nav className="bg-black fixed w-full z-20 top-0 start-0 border-b border-default">
+    <nav className="bg-black fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
         <Link
           href="/"
