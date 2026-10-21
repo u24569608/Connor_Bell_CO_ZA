@@ -17,7 +17,7 @@ function ExperienceItem({
 }: ExperienceItemProps) {
   return (
     <article className="max-w-3xl">
-      <h3 className="text-lg font-semibold tracking-wide text-black sm:text-2xl">
+      <h3 className="text-lg font-semibold tracking-wide text-black sm:text-xl">
         {title}
       </h3>
       <a
