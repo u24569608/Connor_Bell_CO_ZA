@@ -1,5 +1,9 @@
 function PortfolioPage() {
-  return <section className="min-h-svh bg-black" />;
+    return (
+        <main>
+
+        </main>
+    ); 
 }
 
-export default PortfolioPage;
+export default PortfolioPage; 
