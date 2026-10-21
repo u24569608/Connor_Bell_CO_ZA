@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 import {
   Drawer,
@@ -12,7 +14,7 @@ import {
 } from "@/components/ui/drawer";
 
 const menuControlClassName =
-  "absolute top-3 right-8 flex size-10 cursor-pointer items-center justify-center focus-visible:outline-none focus-visible:ring-2";
+  "absolute top-3 right-8 z-30 flex size-10 touch-manipulation cursor-pointer items-center justify-center focus-visible:outline-none focus-visible:ring-2";
 
 const navigationItems = [
   { href: "/", label: "HOME" },
@@ -32,6 +34,32 @@ const socialItems = [
 ];
 
 function Navbar() {
+  const headshotAnimation = useRef<Animation | null>(null);
+
+  const animateHeadshot = (headshot: HTMLImageElement) => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches === true) {
+      return;
+    }
+
+    if (headshotAnimation.current?.playState === "running") {
+      return;
+    }
+
+    headshotAnimation.current = headshot.animate(
+      [
+        { transform: "rotate(0deg)", offset: 0, easing: "ease-in-out" },
+        { transform: "rotate(12deg)", offset: 0.15, easing: "ease-in-out" },
+        { transform: "rotate(-9deg)", offset: 0.32, easing: "ease-in-out" },
+        { transform: "rotate(6.5deg)", offset: 0.49, easing: "ease-in-out" },
+        { transform: "rotate(-4.5deg)", offset: 0.65, easing: "ease-in-out" },
+        { transform: "rotate(3deg)", offset: 0.79, easing: "ease-in-out" },
+        { transform: "rotate(-1.5deg)", offset: 0.9, easing: "ease-in-out" },
+        { transform: "rotate(0deg)", offset: 1 },
+      ],
+      { duration: 4800, iterations: 1 },
+    );
+  };
+
   return (
     <nav className="bg-black fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
@@ -105,6 +133,16 @@ function Navbar() {
                 </div>
 
                 <address className="mt-auto pt-16 text-[1rem] leading-relaxed tracking-wide not-italic">
+                  <Image
+                    src="/Headshot.jpg"
+                    alt="Connor Bell Headshot"
+                    width={96}
+                    height={96}
+                    sizes="96px"
+                    className="mx-auto mb-5 size-22 rounded-full object-cover"
+                    onPointerEnter={(event) => animateHeadshot(event.currentTarget)}
+                    onPointerDown={(event) => animateHeadshot(event.currentTarget)}
+                  />
                   <p className="font-semibold text-[1.1rem]">CONNOR BELL</p>
                   <p>
                     Johannesburg – RSA

@@ -123,9 +123,14 @@
     @apply border-border outline-ring/50;
     }
   body {
-    @apply relative bg-background text-foreground;
+    @apply relative min-h-svh bg-black text-foreground;
     }
   html {
-    @apply font-sans;
+    @apply bg-black font-sans;
+    }
+  html:has(main[data-page="home"]),
+  body:has(main[data-page="home"]) {
+    overflow: hidden;
     }
 }
+

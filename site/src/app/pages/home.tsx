@@ -19,7 +19,7 @@ function HomePage() {
   const currentDetail = detailLevel[0] ?? 0;
 
   return (
-    <section className="flex min-h-svh flex-col items-center bg-black px-8 pt-24 pb-38 text-white">
+    <section className="flex h-full min-h-0 flex-col items-center overflow-hidden overscroll-none bg-black px-8 pt-24 pb-38 text-white">
       <div className="flex min-h-0 w-full max-w-4xl flex-1 flex-col">
         <div className="flex flex-1 flex-col justify-center">
           <p
@@ -30,8 +30,8 @@ function HomePage() {
           </p>
         </div>
 
-        <div className="w-full max-w-xs pt-8">
-          <h1 className="text-[1rem] font-medium mb-4">ABOUT ME</h1>
+        <div className="w-full max-w-xs pt-8 select-none">
+          <h1 className="text-[1rem] font-medium mb-6">ABOUT ME</h1>
           <Slider
             aria-label="About me detail level"
             value={detailLevel}
@@ -44,8 +44,8 @@ function HomePage() {
             className="[&_[data-slot=slider-range]]:bg-white [&_[data-slot=slider-thumb]]:border-white [&_[data-slot=slider-thumb]]:bg-white [&_[data-slot=slider-track]]:bg-white/30"
           />
           <div className="mt-4 flex justify-between text-xs">
-            <span>LESS</span>
-            <span>MORE</span>
+            <span className="tracking-widest">LESS</span>
+            <span className="tracking-widest">MORE</span>
           </div>
         </div>
       </div>
