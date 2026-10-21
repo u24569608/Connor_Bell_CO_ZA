@@ -45,7 +45,7 @@ function CVTabs() {
               title="Teaching Assistant"
               company="University of Pretoria"
               companyUrl="https://www.up.ac.za/"
-              startDate="Feb 2026"
+              startDate="February 2026"
               endDate="Present"
               descriptions={[
                 "COS 221 (Introduction to Database Systems)",
@@ -58,8 +58,8 @@ function CVTabs() {
               title="Student Vacation Worker"
               company="Gendac"
               companyUrl="https://www.gendac.co.za/"
-              startDate="Jan 2026"
-              endDate="Feb 2026"
+              startDate="January 2026"
+              endDate="February 2026"
             />
             <ExperienceItem
               title="Teaching Assistant"
