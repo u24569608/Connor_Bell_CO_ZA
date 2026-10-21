@@ -18,7 +18,7 @@ const menuControlClassName =
 
 const navigationItems = [
   { href: "/", label: "HOME" },
-  { href: "/portfolio", label: "PORTFOLIO" },
+//   { href: "/portfolio", label: "PORTFOLIO" },
   { href: "/cv", label: "CV" },
 ];
 
@@ -34,38 +34,38 @@ const socialItems = [
 ];
 
 function Navbar() {
-  const headshotAnimation = useRef<Animation | null>(null);
+//   const headshotAnimation = useRef<Animation | null>(null);
 
-  const animateHeadshot = (headshot: HTMLImageElement) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches === true) {
-      return;
-    }
+//   const animateHeadshot = (headshot: HTMLImageElement) => {
+//     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches === true) {
+//       return;
+//     }
 
-    if (headshotAnimation.current?.playState === "running") {
-      return;
-    }
+//     if (headshotAnimation.current?.playState === "running") {
+//       return;
+//     }
 
-    headshotAnimation.current = headshot.animate(
-      [
-        { transform: "rotate(0deg)", offset: 0, easing: "ease-in-out" },
-        { transform: "rotate(12deg)", offset: 0.15, easing: "ease-in-out" },
-        { transform: "rotate(-9deg)", offset: 0.32, easing: "ease-in-out" },
-        { transform: "rotate(6.5deg)", offset: 0.49, easing: "ease-in-out" },
-        { transform: "rotate(-4.5deg)", offset: 0.65, easing: "ease-in-out" },
-        { transform: "rotate(3deg)", offset: 0.79, easing: "ease-in-out" },
-        { transform: "rotate(-1.5deg)", offset: 0.9, easing: "ease-in-out" },
-        { transform: "rotate(0deg)", offset: 1 },
-      ],
-      { duration: 4800, iterations: 1 },
-    );
-  };
+//     headshotAnimation.current = headshot.animate(
+//       [
+//         { transform: "translateZ(0) rotate(0deg)", offset: 0, easing: "ease-in-out" },
+//         { transform: "translateZ(0) rotate(12deg)", offset: 0.15, easing: "ease-in-out" },
+//         { transform: "translateZ(0) rotate(-9deg)", offset: 0.32, easing: "ease-in-out" },
+//         { transform: "translateZ(0) rotate(6.5deg)", offset: 0.49, easing: "ease-in-out" },
+//         { transform: "translateZ(0) rotate(-4.5deg)", offset: 0.65, easing: "ease-in-out" },
+//         { transform: "translateZ(0) rotate(3deg)", offset: 0.79, easing: "ease-in-out" },
+//         { transform: "translateZ(0) rotate(-1.5deg)", offset: 0.9, easing: "ease-in-out" },
+//         { transform: "translateZ(0) rotate(0deg)", offset: 1 },
+//       ],
+//       { duration: 4800, iterations: 1 },
+//     );
+//   };
 
   return (
     <nav className="bg-black fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
         <Link
           href="/"
-          className="self-center text-lg text-white font-semibold whitespace-nowrap"
+          className="self-center tracking-wide text-lg text-white font-semibold whitespace-nowrap"
         >
           CONNOR BELL
         </Link>
@@ -133,19 +133,28 @@ function Navbar() {
                 </div>
 
                 <address className="mt-auto pt-16 text-[1rem] leading-relaxed tracking-wide not-italic">
-                  <Image
+                  {/* <Image
                     src="/Headshot.jpg"
                     alt="Connor Bell Headshot"
                     width={96}
                     height={96}
                     sizes="96px"
-                    className="mx-auto mb-5 size-22 rounded-full object-cover"
+                    unoptimized
+                    className="mx-auto mb-5 size-24 object-cover will-change-transform [backface-visibility:hidden]"
                     onPointerEnter={(event) => animateHeadshot(event.currentTarget)}
                     onPointerDown={(event) => animateHeadshot(event.currentTarget)}
-                  />
+                  /> */}
                   <p className="font-semibold text-[1.1rem]">CONNOR BELL</p>
-                  <p>
-                    Johannesburg – RSA
+                  <p className="flex items-center justify-center gap-1.5">
+                    {/* <Image
+                      src="/south-africa-flag.svg"
+                      alt=""
+                      width={24}
+                      height={16}
+                      sizes="24px"
+                      className="h-4 w-6 shrink-0 object-contain"
+                    /> */}
+                    <span>Johannesburg – South Africa</span>
                   </p>
                   <a
                     href="mailto:connor@cbell.co.za"

@@ -19,7 +19,7 @@ function HomePage() {
   const currentDetail = detailLevel[0] ?? 0;
 
   return (
-    <section className="flex h-full min-h-0 flex-col items-center overflow-hidden overscroll-none bg-black px-8 pt-24 pb-38 text-white">
+    <section className="flex h-full min-h-0 select-none flex-col items-center overflow-hidden overscroll-none bg-black px-8 pt-24 pb-38 text-white">
       <div className="flex min-h-0 w-full max-w-4xl flex-1 flex-col">
         <div className="flex flex-1 flex-col justify-center">
           <p
@@ -30,8 +30,8 @@ function HomePage() {
           </p>
         </div>
 
-        <div className="w-full max-w-xs pt-8 select-none">
-          <h1 className="text-[1rem] font-medium mb-6">ABOUT ME</h1>
+        <div className="w-full max-w-xs pt-8">
+          <h1 className="text-[1.1rem] tracking-wide font-medium mb-6">About Me</h1>
           <Slider
             aria-label="About me detail level"
             value={detailLevel}
