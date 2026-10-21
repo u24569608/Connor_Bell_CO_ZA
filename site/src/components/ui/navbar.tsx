@@ -70,6 +70,7 @@ function Navbar() {
                     {navigationItems.map((item) => (
                       <li key={item.href}>
                         <DrawerClose
+                          nativeButton={false}
                           render={
                             <Link
                               href={item.href}
