@@ -170,3 +170,9 @@
   }
 }
 
+@media (min-width: 48rem) {
+  .home-slider-panel {
+    bottom: clamp(2rem, calc(100svh - 38rem), 9.5rem);
+  }
+}
+
