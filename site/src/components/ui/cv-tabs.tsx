@@ -1,5 +1,9 @@
+"use client";
+
+import Banner from "@/components/ui/banner";
 import EducationItem from "@/components/ui/education-item";
 import ExperienceItem from "@/components/ui/experience-item";
+import SocialLinks from "@/components/ui/social-links";
 import {
   Tabs,
   TabsContent,
@@ -9,27 +13,29 @@ import {
 
 function CVTabs() {
   return (
-    <section className="w-full max-w-4xl px-24 py-12 sm:py-12">
-      <Tabs defaultValue="experience" className="gap-0">
+    <Tabs defaultValue="experience" className="gap-0">
+      <Banner heading="Curriculum Vitae">
         <TabsList
           aria-label="Curriculum vitae sections"
           activateOnFocus
-          className="bg-neutral-100 p-1.5 group-data-horizontal/tabs:h-auto"
+          className="p-1.5 group-data-horizontal/tabs:h-auto"
         >
           <TabsTrigger
             value="experience"
-            className="cursor-pointer px-4 py-2 text-sm transition-all duration-900 data-active:bg-white data-active:text-black data-active:font-medium sm:px-5 sm:text-base"
+            className="cursor-pointer px-4 py-2 text-sm duration-900 data-active:font-medium sm:px-5 sm:text-base"
           >
             Experience
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="cursor-pointer px-4 py-2 text-sm transition-all duration-900 data-active:bg-white data-active:text-black data-active:font-medium sm:px-5 sm:text-base"
+            className="cursor-pointer px-4 py-2 text-sm duration-900 data-active:font-medium sm:px-5 sm:text-base"
           >
             Education
           </TabsTrigger>
         </TabsList>
+      </Banner>
 
+      <section className="w-full max-w-4xl px-8 pt-6 pb-32 md:px-24 md:pb-24">
         <div className="mt-12 grid">
           <TabsContent
             value="experience"
@@ -66,6 +72,7 @@ function CVTabs() {
                 "S2—COS 110 (Introduction to Program Design)",
               ]}
             />
+            <SocialLinks className="flex-col items-start text-black" />
           </TabsContent>
 
           <TabsContent
@@ -84,10 +91,11 @@ function CVTabs() {
               startDate="January 2019"
               endDate="November 2023"
             />
+            <SocialLinks className="flex-col items-start text-black" />
           </TabsContent>
         </div>
-      </Tabs>
-    </section>
+      </section>
+    </Tabs>
   );
 }
 

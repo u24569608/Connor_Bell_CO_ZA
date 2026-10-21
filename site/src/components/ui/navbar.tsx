@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 
 import {
   Drawer,
@@ -12,54 +10,17 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import SocialLinks from "@/components/ui/social-links";
 
 const menuControlClassName =
   "absolute top-3 right-8 z-30 flex size-10 touch-manipulation cursor-pointer items-center justify-center focus-visible:outline-none focus-visible:ring-2";
 
 const navigationItems = [
   { href: "/", label: "HOME" },
-//   { href: "/portfolio", label: "PORTFOLIO" },
   { href: "/cv", label: "CV" },
 ];
 
-const socialItems = [
-  {
-    href: "https://za.linkedin.com/in/connorbellup",
-    label: "LINKEDIN",
-  },
-  {
-    href: "https://github.com/u24569608",
-    label: "GITHUB",
-  },
-];
-
 function Navbar() {
-//   const headshotAnimation = useRef<Animation | null>(null);
-
-//   const animateHeadshot = (headshot: HTMLImageElement) => {
-//     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches === true) {
-//       return;
-//     }
-
-//     if (headshotAnimation.current?.playState === "running") {
-//       return;
-//     }
-
-//     headshotAnimation.current = headshot.animate(
-//       [
-//         { transform: "translateZ(0) rotate(0deg)", offset: 0, easing: "ease-in-out" },
-//         { transform: "translateZ(0) rotate(12deg)", offset: 0.15, easing: "ease-in-out" },
-//         { transform: "translateZ(0) rotate(-9deg)", offset: 0.32, easing: "ease-in-out" },
-//         { transform: "translateZ(0) rotate(6.5deg)", offset: 0.49, easing: "ease-in-out" },
-//         { transform: "translateZ(0) rotate(-4.5deg)", offset: 0.65, easing: "ease-in-out" },
-//         { transform: "translateZ(0) rotate(3deg)", offset: 0.79, easing: "ease-in-out" },
-//         { transform: "translateZ(0) rotate(-1.5deg)", offset: 0.9, easing: "ease-in-out" },
-//         { transform: "translateZ(0) rotate(0deg)", offset: 1 },
-//       ],
-//       { duration: 4800, iterations: 1 },
-//     );
-//   };
-
   return (
     <nav className="bg-black fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
@@ -113,47 +74,11 @@ function Navbar() {
                   </ul>
                 </nav>
 
-                <div className="mt-12 flex flex-col items-center gap-2 text-[1.1rem] font-medium">
-                  {socialItems.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 focus-visible:outline-none"
-                    >
-                      <span className="underline underline-offset-4">
-                        {item.label}
-                      </span>
-                      <span className="material-symbols-sharp">
-                        north_east
-                      </span>
-                    </a>
-                  ))}
-                </div>
+                <SocialLinks className="mt-12 flex-col items-center" />
 
                 <address className="mt-auto pt-16 text-[1rem] leading-relaxed tracking-wide not-italic">
-                  {/* <Image
-                    src="/Headshot.jpg"
-                    alt="Connor Bell Headshot"
-                    width={96}
-                    height={96}
-                    sizes="96px"
-                    unoptimized
-                    className="mx-auto mb-5 size-24 object-cover will-change-transform [backface-visibility:hidden]"
-                    onPointerEnter={(event) => animateHeadshot(event.currentTarget)}
-                    onPointerDown={(event) => animateHeadshot(event.currentTarget)}
-                  /> */}
                   <p className="font-semibold text-[1.1rem]">CONNOR BELL</p>
                   <p className="flex items-center justify-center gap-1.5">
-                    {/* <Image
-                      src="/south-africa-flag.svg"
-                      alt=""
-                      width={24}
-                      height={16}
-                      sizes="24px"
-                      className="h-4 w-6 shrink-0 object-contain"
-                    /> */}
                     <span>Johannesburg – South Africa</span>
                   </p>
                   <a

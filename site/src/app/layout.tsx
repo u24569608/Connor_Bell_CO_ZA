@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
+import PageTransition from "@/components/ui/page-transition";
 import "./globals.css";
 
 const workSans = Work_Sans({
@@ -15,7 +16,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={workSans.variable}>
-      <body>{children}</body>
+      <body>
+        <PageTransition>{children}</PageTransition>
+      </body>
     </html>
   );
 }
