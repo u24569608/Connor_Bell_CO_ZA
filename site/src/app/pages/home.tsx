@@ -1,0 +1,84 @@
+"use client";
+
+import { useState } from "react";
+
+import { Slider } from "@/components/ui/slider";
+
+const aboutMeDetails = [
+  "BSc Computer Science student.",
+  "Final year BSc Computer Science student.",
+  "Final year BSc Computer Science student at the University of Pretoria.",
+  "Final year BSc Computer Science student at the University of Pretoria, passionate about software engineering.",
+  "I'm a dedicated, driven, and disciplined final year BSc Computer Science student at the University of Pretoria, passionate about full-stack software development.",
+  "I'm a dedicated, driven, and disciplined final year BSc Computer Science student at the University of Pretoria, passionate about full-stack software development. I'm especially interested in User Interface and User Experience design.",
+  "I'm a final-year BSc Computer Science student at the University of Pretoria, from Johannesburg, South Africa. I've always been fascinated by computers and I'm passionate about full-stack software development, especially UI/UX design. I enjoy combining technical problem-solving with creativity to build applications that are both functional and enjoyable to use. Outside of technology, I love cycling and enjoy challenging myself both on and off the bike.",
+];
+
+const aboutMeOffsets = [
+  "-translate-y-1/2",
+  "-translate-y-[52%]",
+  "-translate-y-[55%]",
+  "-translate-y-[58%]",
+  "-translate-y-[62%]",
+  "-translate-y-[66%]",
+  "-translate-y-[58%] md:-translate-y-[70%]",
+];
+
+function HomePage() {
+  const [detailLevel, setDetailLevel] = useState([2]);
+  const currentDetail = detailLevel[0] ?? 0;
+  const currentOffset = aboutMeOffsets[currentDetail] ?? "-translate-y-1/2";
+
+  return (
+    <section className="relative h-full select-none overflow-hidden overscroll-none bg-black px-8 text-white">
+      <div
+        className={`absolute inset-x-8 top-1/2 mx-auto w-auto max-w-4xl transition-transform duration-500 ${currentOffset}`}
+      >
+        <p
+          aria-live="polite"
+          className="max-w-3xl text-[1.1rem] leading-relaxed"
+        >
+          {aboutMeDetails[currentDetail]}
+        </p>
+        {currentDetail === aboutMeDetails.length - 1 && (
+          <a
+            href="https://www.strava.com/athletes/48844564"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex items-center gap-1 text-[1.1rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <span className="underline underline-offset-4">
+              Check out my Strava
+            </span>
+            <span aria-hidden="true" className="material-symbols-sharp" style={{fontSize: '1.1rem'}}>
+              north_east
+            </span>
+          </a>
+        )}
+      </div>
+
+      <div className="absolute inset-x-8 bottom-4 mx-auto w-auto max-w-4xl md:bottom-38">
+        <div className="w-full max-w-xs">
+          <h1 className="text-[1.1rem] tracking-wide font-medium mb-6">About Me</h1>
+          <Slider
+            aria-label="About me detail level"
+            value={detailLevel}
+            onValueChange={(value) =>
+              setDetailLevel(typeof value === "number" ? [value] : [...value])
+            }
+            min={0}
+            max={aboutMeDetails.length - 1}
+            step={1}
+            className="[&_[data-slot=slider-range]]:bg-white [&_[data-slot=slider-thumb]]:border-white [&_[data-slot=slider-thumb]]:bg-white [&_[data-slot=slider-track]]:bg-white/30"
+          />
+          <div className="mt-4 flex justify-between text-xs">
+            <span className="tracking-widest">LESS</span>
+            <span className="tracking-widest">MORE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default HomePage;
