@@ -10,8 +10,8 @@ const aboutMeDetails = [
   "Final year BSc Computer Science student at the University of Pretoria.",
   "Final year BSc Computer Science student at the University of Pretoria, passionate about software engineering.",
   "I'm a dedicated, driven, and disciplined final year BSc Computer Science student at the University of Pretoria, passionate about full-stack software development.",
-  "I'm a dedicated, driven, and disciplined final year BSc Computer Science student at the University of Pretoria, passionate about full-stack software development. I'm especially interested in User Interface and User Experience design.",
-  "I'm a final-year BSc Computer Science student at the University of Pretoria, from Johannesburg, South Africa. I've always been fascinated by computers and I'm passionate about full-stack software development, especially UI/UX design. I enjoy combining technical problem-solving with creativity to build applications that are both functional and enjoyable to use. Outside of technology, I love cycling and enjoy challenging myself both on and off the bike.",
+  "I'm a dedicated, driven, and disciplined final year BSc Computer Science student at the University of Pretoria, passionate about full-stack software development. I'm especially interested in UI/UX design.",
+  "I'm a final year BSc Computer Science student at the University of Pretoria, from Johannesburg, South Africa. I've always been fascinated by computers and I'm passionate about full-stack software development, especially UI/UX design. I enjoy combining problem-solving with creativity to build applications that are both functional and enjoyable to use. I also love cycling and enjoy challenging myself both on and off the bike.",
 ];
 
 const aboutMeOffsets = [
@@ -32,7 +32,7 @@ function HomePage() {
   return (
     <section className="relative h-full select-none overflow-hidden overscroll-none bg-black px-8 text-white">
       <div
-        className={`absolute inset-x-8 top-1/2 mx-auto w-auto max-w-4xl transition-transform duration-500 ${currentOffset}`}
+        className={`absolute inset-x-8 top-1/2 mx-auto w-auto max-w-4xl ${currentOffset}`}
       >
         <p
           aria-live="polite"
