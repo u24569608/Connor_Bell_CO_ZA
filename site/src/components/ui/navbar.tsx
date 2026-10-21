@@ -1,6 +1,5 @@
 "use client";
 
-import { XIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 
 import {
@@ -45,7 +44,8 @@ function Navbar() {
                 aria-label="Close menu"
                 className={`${menuControlClassName} focus-visible:ring-black`}
               >
-                <XIcon aria-hidden="true" size={40} weight="regular" />
+                <span className="absolute h-[2.515px] w-8 rotate-45 bg-black" />
+                <span className="absolute h-[2.515px] w-8 -rotate-45 bg-black" />
               </DrawerClose>
             </DrawerContent>
           </Drawer>
