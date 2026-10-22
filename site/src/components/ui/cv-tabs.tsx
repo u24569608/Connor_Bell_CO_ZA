@@ -60,6 +60,7 @@ function CVTabs() {
               companyUrl="https://www.gendac.co.za/"
               startDate="January 2026"
               endDate="February 2026"
+              descriptions={["Software Engineering"]}
             />
             <ExperienceItem
               title="Teaching Assistant"
@@ -93,7 +94,7 @@ function CVTabs() {
               certification="National Senior Certificate"
               startDate="January 2019"
               endDate="November 2023"
-              descriptions={[]}
+              descriptions={["Achieved distinctions in all seven subjects, earned full academic colours, and attained the second-highest overall average. Received awards for the highest achievement in Physical Sciences, Mathematics, Information Technology, and Geography."]}
             />
             <SocialLinks className="flex-col items-start text-black" />
           </TabsContent>
