@@ -3,6 +3,7 @@ import { Work_Sans } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ClarityAnalytics from "@/components/clarity-analytics";
 import PageTransition from "@/components/ui/page-transition";
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <PageTransition>{children}</PageTransition>
         <Analytics />
         <SpeedInsights />
+        <ClarityAnalytics />
         {process.env.NODE_ENV === "production" && (
           <>
             <Script
