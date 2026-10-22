@@ -39,22 +39,25 @@ function HomePage() {
           className="max-w-3xl text-[1.1rem] leading-relaxed"
         >
           {aboutMeDetails[currentDetail]}
+          {currentDetail === aboutMeDetails.length - 1 && (
+            <>
+              {" "}
+              <a
+                href="https://www.strava.com/athletes/48844564"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 align-baseline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <span className="underline underline-offset-4">
+                  Check out my Strava
+                </span>
+                <span aria-hidden="true" className="material-symbols-sharp" style={{fontSize: '1.1rem'}}>
+                  north_east
+                </span>
+              </a>
+            </>
+          )}
         </p>
-        {currentDetail === aboutMeDetails.length - 1 && (
-          <a
-            href="https://www.strava.com/athletes/48844564"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-4 inline-flex items-center gap-1 text-[1.1rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-          >
-            <span className="underline underline-offset-4">
-              Check out my Strava
-            </span>
-            <span aria-hidden="true" className="material-symbols-sharp" style={{fontSize: '1.1rem'}}>
-              north_east
-            </span>
-          </a>
-        )}
       </div>
 
       <div className="home-slider-panel absolute inset-x-8 bottom-8 mx-auto w-auto max-w-4xl">
