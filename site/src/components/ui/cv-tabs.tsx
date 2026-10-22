@@ -101,7 +101,7 @@ function CVTabs() {
               issuerUrl="https://education.gauteng.gov.za/"
               date="February 2024"
               descriptions={[
-                "Received an award from the Gauteng Department of Education (GDE) for achieving the highest average of 97% in the Johannesburg East (D9) district for Information Technology in Grade 12.",
+                "Received an award from the Gauteng Department of Education (GDE) for having achieved the highest average of 97% in the Johannesburg East (D9) district for Information Technology in Grade 12.",
               ]}
             />
             <SocialLinks className="flex-col items-start text-black" />
