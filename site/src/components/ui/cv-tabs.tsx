@@ -46,7 +46,7 @@ function CVTabs() {
               company="University of Pretoria"
               companyUrl="https://www.up.ac.za/"
               startDate="February 2026"
-              endDate="Present"
+              endDate="November 2026"
               descriptions={[
                 "COS 221 (Introduction to Database Systems)",
                 "COS 216 (Netcentric Computer Systems)",
@@ -81,15 +81,19 @@ function CVTabs() {
           >
             <EducationItem
               school="University of Pretoria"
+              schoolUrl="https://www.up.ac.za/"
               certification="BSc Computer Science"
               startDate="February 2024"
               endDate="November 2026"
+              descriptions={[]}
             />
             <EducationItem
               school="Jeppe High School for Boys"
+              schoolUrl="https://www.jeppeboys.co.za/"
               certification="National Senior Certificate"
               startDate="January 2019"
               endDate="November 2023"
+              descriptions={[]}
             />
             <SocialLinks className="flex-col items-start text-black" />
           </TabsContent>
