@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import PageTransition from "@/components/ui/page-transition";
 import "./globals.css";
 
@@ -18,6 +20,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={workSans.variable}>
       <body>
         <PageTransition>{children}</PageTransition>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
