@@ -12,8 +12,19 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 
+const tabLabels = {
+  experience: "Experience",
+  education: "Education",
+  awards: "Awards",
+};
+
 function CVTabs() {
-  function handleTabChange() {
+  function handleTabChange(value: unknown) {
+    if (value !== "experience" && value !== "education" && value !== "awards") {
+      return;
+    }
+
+    document.title = `Connor Bell – Curriculum Vitae (${tabLabels[value]})`;
     window.scrollTo({
       top: 0,
       left: 0,
@@ -37,19 +48,19 @@ function CVTabs() {
         >
           <TabsTrigger
             value="experience"
-            className="h-auto min-w-0 hover:underline active:underline underline-offset-4 cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
+            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm duration-500 ease-in-out data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Experience
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="h-auto min-w-0 hover:underline active:underline underline-offset-4  cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
+            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm duration-500 ease-in-out data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Education
           </TabsTrigger>
           <TabsTrigger
             value="awards"
-            className="h-auto min-w-0 hover:underline active:underline underline-offset-4  cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
+            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm duration-500 ease-in-out data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Awards
           </TabsTrigger>

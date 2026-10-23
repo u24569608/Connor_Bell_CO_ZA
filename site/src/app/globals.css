@@ -6,6 +6,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@utility fade-underline {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+
+  &:is(:hover, :active, :focus-visible, [data-active]):not(:disabled):not([aria-disabled="true"]) {
+    text-decoration-color: currentColor;
+  }
+}
+
 @theme inline {
     --font-heading: var(--font-work-sans);
     --font-sans: var(--font-work-sans);
@@ -164,12 +173,11 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .home-detail-slider:not([data-dragging]) [data-slot="slider-thumb"] {
-    transition: inset-inline-start 140ms ease-out;
-  }
-
-  .home-detail-slider:not([data-dragging]) [data-slot="slider-range"] {
-    transition: width 140ms ease-out;
+  .home-detail-slider:not([data-pointer-dragging]) [data-slot="slider-thumb"],
+  .home-detail-slider:not([data-pointer-dragging]) [data-slot="slider-range"] {
+    transition-property: inset-inline-start, width;
+    transition-duration: 700ms;
+    transition-timing-function: ease-out;
   }
 }
 

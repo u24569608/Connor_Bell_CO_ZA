@@ -26,7 +26,7 @@ function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
         <Link
           href="/"
-          className="self-center hover:underline active:underline underline-offset-4 tracking-wide text-lg text-white font-semibold whitespace-nowrap"
+          className="fade-underline self-center underline-offset-4 tracking-wide text-lg text-white font-semibold whitespace-nowrap transition-[text-decoration-color] duration-500 ease-in-out motion-reduce:transition-none"
         >
           CONNOR BELL
         </Link>
@@ -63,7 +63,7 @@ function Navbar() {
                           render={
                             <Link
                               href={item.href}
-                              className="underline-offset-4 hover:underline active:underline focus-visible:underline focus-visible:outline-none"
+                              className="fade-underline underline-offset-4 transition-[text-decoration-color] duration-500 ease-in-out focus-visible:outline-none motion-reduce:transition-none"
                             />
                           }
                         >
