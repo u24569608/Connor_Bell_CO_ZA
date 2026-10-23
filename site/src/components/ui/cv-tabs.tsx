@@ -13,8 +13,22 @@ import {
 } from "@/components/ui/tabs";
 
 function CVTabs() {
+  function handleTabChange() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
+  }
+
   return (
-    <Tabs defaultValue="experience" className="gap-0">
+    <Tabs
+      defaultValue="experience"
+      onValueChange={handleTabChange}
+      className="gap-0"
+    >
       <Banner heading="Curriculum Vitae">
         <TabsList
           aria-label="Curriculum vitae sections"
