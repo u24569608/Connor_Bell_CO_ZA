@@ -22,7 +22,7 @@ export default function NotFound() {
       <Button
         nativeButton={false}
         render={<Link href="/" />}
-        className="h-auto cursor-pointer bg-white px-4 py-2 text-sm text-black hover:bg-white/90 sm:px-5 sm:text-base"
+        className="h-auto cursor-pointer hover:underline active:underline underline-offset-4 bg-white px-4 py-2 text-sm text-black hover:bg-white/90 sm:px-5 sm:text-base"
       >
         Go Home
       </Button>
