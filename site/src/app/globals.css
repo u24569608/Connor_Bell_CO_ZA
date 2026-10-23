@@ -6,6 +6,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@utility fade-underline {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+
+  &:is(:hover, :active, :focus-visible, [data-active]):not(:disabled):not([aria-disabled="true"]) {
+    text-decoration-color: currentColor;
+  }
+}
+
 @theme inline {
     --font-heading: var(--font-work-sans);
     --font-sans: var(--font-work-sans);
