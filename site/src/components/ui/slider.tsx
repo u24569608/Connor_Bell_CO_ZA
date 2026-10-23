@@ -40,6 +40,7 @@ function Slider({
           <SliderPrimitive.Thumb
             aria-label={props["aria-label"]}
             aria-labelledby={props["aria-labelledby"]}
+            aria-valuetext={props["aria-valuetext"]}
             data-slot="slider-thumb"
             key={index}
             className="relative block h-6 w-2 shrink-0 rounded-none ring-ring/50  select-none after:absolute after:-inset-2"
