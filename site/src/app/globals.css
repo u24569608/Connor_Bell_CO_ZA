@@ -142,7 +142,9 @@
     overflow: hidden;
     }
   html:has(main[data-page="cv"]),
-  body:has(main[data-page="cv"]) {
+  body:has(main[data-page="cv"]),
+  html:has(main[data-page="privacy"]),
+  body:has(main[data-page="privacy"]) {
     background-color: white;
     }
 }
