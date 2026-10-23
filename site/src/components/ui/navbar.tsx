@@ -88,6 +88,18 @@ function Navbar() {
                     connor@cbell.co.za
                   </a>
                 </address>
+
+                <DrawerClose
+                  nativeButton={false}
+                  render={
+                    <Link
+                      href="/privacy"
+                      className="fade-underline mt-1 inline-flex min-h-6 shrink-0 items-center self-center text-xs leading-tight text-neutral-600 underline-offset-4 transition-[text-decoration-color] duration-500 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black motion-reduce:transition-none"
+                    />
+                  }
+                >
+                  Privacy
+                </DrawerClose>
               </div>
             </DrawerContent>
           </Drawer>
