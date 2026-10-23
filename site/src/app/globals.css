@@ -163,6 +163,16 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .home-detail-slider:not([data-dragging]) [data-slot="slider-thumb"] {
+    transition: inset-inline-start 140ms ease-out;
+  }
+
+  .home-detail-slider:not([data-dragging]) [data-slot="slider-range"] {
+    transition: width 140ms ease-out;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .page-transition {
     animation-duration: 1ms;

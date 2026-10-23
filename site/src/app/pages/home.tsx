@@ -25,8 +25,8 @@ const aboutMeOffsets = [
 ];
 
 function HomePage() {
-  const [detailLevel, setDetailLevel] = useState([2]);
-  const currentDetail = detailLevel[0] ?? 0;
+  const [detailLevel, setDetailLevel] = useState(2);
+  const currentDetail = Math.round(detailLevel);
   const currentOffset = aboutMeOffsets[currentDetail] ?? "-translate-y-1/2";
 
   return (
@@ -65,18 +65,50 @@ function HomePage() {
           <h1 className="text-[1.1rem] tracking-wide font-medium mb-6">About Me</h1>
           <Slider
             aria-label="About me detail level"
-            value={detailLevel}
-            onValueChange={(value) =>
-              setDetailLevel(typeof value === "number" ? [value] : [...value])
-            }
+            aria-valuetext={`Detail level ${currentDetail + 1} of ${aboutMeDetails.length}`}
+            value={[detailLevel]}
+            onValueChange={(value, eventDetails) => {
+              const nextValue = typeof value === "number" ? value : value[0] ?? 0;
+
+              setDetailLevel(
+                eventDetails.reason === "keyboard"
+                  ? nextValue > detailLevel
+                    ? Math.ceil(nextValue)
+                    : Math.floor(nextValue)
+                  : nextValue,
+              );
+            }}
             min={0}
             max={aboutMeDetails.length - 1}
-            step={1}
-            className="[&_[data-slot=slider-range]]:bg-white [&_[data-slot=slider-thumb]]:border-white [&_[data-slot=slider-thumb]]:bg-white [&_[data-slot=slider-track]]:bg-white/30"
+            step={0.01}
+            largeStep={1}
+            className="home-detail-slider [&_[data-slot=slider-range]]:bg-white [&_[data-slot=slider-thumb]]:border-white [&_[data-slot=slider-thumb]]:bg-white [&_[data-slot=slider-track]]:bg-white/30"
           />
           <div className="mt-4 flex justify-between text-xs">
-            <span className="tracking-widest">LESS</span>
-            <span className="tracking-widest">MORE</span>
+            <button
+              type="button"
+              aria-label="Show less detail"
+              disabled={currentDetail === 0}
+              onClick={() =>
+                setDetailLevel((value) => Math.max(0, Math.round(value) - 1))
+              }
+              className="min-h-6 cursor-pointer tracking-widest underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none disabled:cursor-default disabled:opacity-40 disabled:hover:no-underline"
+            >
+              LESS
+            </button>
+            <button
+              type="button"
+              aria-label="Show more detail"
+              disabled={currentDetail === aboutMeDetails.length - 1}
+              onClick={() =>
+                setDetailLevel((value) =>
+                  Math.min(aboutMeDetails.length - 1, Math.round(value) + 1),
+                )
+              }
+              className="min-h-6 cursor-pointer tracking-widest underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none disabled:cursor-default disabled:opacity-40 disabled:hover:no-underline"
+            >
+              MORE
+            </button>
           </div>
         </div>
       </div>

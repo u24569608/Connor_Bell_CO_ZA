@@ -37,19 +37,19 @@ function CVTabs() {
         >
           <TabsTrigger
             value="experience"
-            className="h-auto min-w-0 cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
+            className="h-auto min-w-0 hover:underline underline-offset-4 cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
           >
             Experience
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="h-auto min-w-0 cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
+            className="h-auto min-w-0 hover:underline underline-offset-4  cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
           >
             Education
           </TabsTrigger>
           <TabsTrigger
             value="awards"
-            className="h-auto min-w-0 cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
+            className="h-auto min-w-0 hover:underline underline-offset-4  cursor-pointer px-0 py-2 text-sm duration-900 data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base"
           >
             Awards
           </TabsTrigger>

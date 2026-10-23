@@ -26,7 +26,7 @@ function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
         <Link
           href="/"
-          className="self-center tracking-wide text-lg text-white font-semibold whitespace-nowrap"
+          className="self-center hover:underline underline-offset-4 tracking-wide text-lg text-white font-semibold whitespace-nowrap"
         >
           CONNOR BELL
         </Link>
