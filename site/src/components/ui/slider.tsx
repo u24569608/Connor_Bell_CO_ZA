@@ -1,3 +1,6 @@
+"use client"
+
+import { useRef, useState } from "react"
 import { Slider as SliderPrimitive } from "@base-ui/react/slider"
 import { cn } from "cn"
 
@@ -7,26 +10,63 @@ function Slider({
   value,
   min = 0,
   max = 100,
+  disabled,
   ...props
 }: SliderPrimitive.Root.Props) {
+  const [isPointerDragging, setIsPointerDragging] = useState(false)
+  const pointerStart = useRef<{ id: number; x: number; y: number } | null>(null)
   const _values = Array.isArray(value)
     ? value
     : Array.isArray(defaultValue)
       ? defaultValue
       : [min, max]
 
+  function finishPointerInteraction() {
+    pointerStart.current = null
+    setIsPointerDragging(false)
+  }
+
   return (
     <SliderPrimitive.Root
       className={cn("data-horizontal:w-full data-vertical:h-full", className)}
       data-slot="slider"
+      data-pointer-dragging={isPointerDragging ? "" : undefined}
       defaultValue={defaultValue}
+      disabled={disabled}
       value={value}
       min={min}
       max={max}
       thumbAlignment="edge"
       {...props}
     >
-      <SliderPrimitive.Control className="relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col">
+      <SliderPrimitive.Control
+        className="relative flex w-full touch-none items-center select-none before:absolute before:content-[''] data-horizontal:before:inset-x-0 data-horizontal:before:-inset-y-4 data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col data-vertical:before:inset-y-0 data-vertical:before:-inset-x-4"
+        onPointerDownCapture={(event) => {
+          if (disabled === true || event.button !== 0) {
+            return
+          }
+
+          pointerStart.current = {
+            id: event.pointerId,
+            x: event.clientX,
+            y: event.clientY,
+          }
+          setIsPointerDragging(false)
+        }}
+        onPointerMoveCapture={(event) => {
+          const start = pointerStart.current
+
+          if (start === null || start.id !== event.pointerId) {
+            return
+          }
+
+          if (Math.hypot(event.clientX - start.x, event.clientY - start.y) >= 4) {
+            setIsPointerDragging(true)
+          }
+        }}
+        onPointerUpCapture={finishPointerInteraction}
+        onPointerCancelCapture={finishPointerInteraction}
+      >
         <SliderPrimitive.Track
           data-slot="slider-track"
           className="relative grow overflow-hidden rounded-none bg-muted select-none data-horizontal:h-1 data-horizontal:w-full data-vertical:h-full data-vertical:w-1"

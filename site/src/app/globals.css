@@ -173,8 +173,8 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .home-detail-slider:not([data-dragging]) [data-slot="slider-thumb"],
-  .home-detail-slider:not([data-dragging]) [data-slot="slider-range"] {
+  .home-detail-slider:not([data-pointer-dragging]) [data-slot="slider-thumb"],
+  .home-detail-slider:not([data-pointer-dragging]) [data-slot="slider-range"] {
     transition-property: inset-inline-start, width;
     transition-duration: 700ms;
     transition-timing-function: ease-out;
