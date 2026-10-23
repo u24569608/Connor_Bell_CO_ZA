@@ -92,7 +92,7 @@ function HomePage() {
               onClick={() =>
                 setDetailLevel((value) => Math.max(0, Math.round(value) - 1))
               }
-              className="min-h-6 cursor-pointer tracking-widest underline-offset-4 hover:underline active:underline focus-visible:underline focus-visible:outline-none disabled:cursor-default disabled:opacity-40 disabled:hover:no-underline disabled:active:no-underline"
+              className="min-h-6 cursor-pointer tracking-widest underline-offset-4 opacity-100 transition-opacity duration-500 ease-in-out hover:underline active:underline focus-visible:underline focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:no-underline disabled:active:no-underline motion-reduce:transition-none"
             >
               LESS
             </button>
@@ -105,7 +105,7 @@ function HomePage() {
                   Math.min(aboutMeDetails.length - 1, Math.round(value) + 1),
                 )
               }
-              className="min-h-6 cursor-pointer tracking-widest underline-offset-4 hover:underline active:underline focus-visible:underline focus-visible:outline-none disabled:cursor-default disabled:opacity-40 disabled:hover:no-underline disabled:active:no-underline"
+              className="min-h-6 cursor-pointer tracking-widest underline-offset-4 opacity-100 transition-opacity duration-500 ease-in-out hover:underline active:underline focus-visible:underline focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:no-underline disabled:active:no-underline motion-reduce:transition-none"
             >
               MORE
             </button>
