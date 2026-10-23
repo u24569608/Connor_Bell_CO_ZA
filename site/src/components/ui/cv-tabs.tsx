@@ -12,8 +12,19 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 
+const tabLabels = {
+  experience: "Experience",
+  education: "Education",
+  awards: "Awards",
+};
+
 function CVTabs() {
-  function handleTabChange() {
+  function handleTabChange(value: unknown) {
+    if (value !== "experience" && value !== "education" && value !== "awards") {
+      return;
+    }
+
+    document.title = `Connor Bell – Curriculum Vitae (${tabLabels[value]})`;
     window.scrollTo({
       top: 0,
       left: 0,

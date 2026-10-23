@@ -3,7 +3,7 @@ import Navbar from "@/components/ui/navbar";
 import CVPage from "../pages/cv";
 
 export const metadata: Metadata = {
-  title: "Connor Bell – Curriculum Vitae",
+  title: "Connor Bell – Curriculum Vitae (Experience)",
 };
 
 export default function CV() {
