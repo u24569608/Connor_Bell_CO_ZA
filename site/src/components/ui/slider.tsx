@@ -51,7 +51,10 @@ function Slider({
             x: event.clientX,
             y: event.clientY,
           }
-          setIsPointerDragging(false)
+          setIsPointerDragging(
+            event.target instanceof Element &&
+              event.target.closest('[data-slot="slider-thumb"]') !== null
+          )
         }}
         onPointerMoveCapture={(event) => {
           const start = pointerStart.current

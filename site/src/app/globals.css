@@ -10,8 +10,14 @@
   text-decoration-line: underline;
   text-decoration-color: transparent;
 
-  &:is(:hover, :active, :focus-visible, [data-active]):not(:disabled):not([aria-disabled="true"]) {
+  &:is(:active, :focus-visible, [data-active], [data-tap-underline]):not(:disabled):not([aria-disabled="true"]) {
     text-decoration-color: currentColor;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover:not(:disabled):not([aria-disabled="true"]) {
+      text-decoration-color: currentColor;
+    }
   }
 }
 

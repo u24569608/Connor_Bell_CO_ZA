@@ -228,7 +228,7 @@ export default function Privacy() {
               variant="outline"
               className="h-auto rounded-none border-2 border-neutral-300 px-2 py-1 text-xs font-normal text-neutral-500 sm:text-sm"
             >
-              <time dateTime="2026-10-23">23 October 2026</time>
+              <time dateTime="2026-10-23">23 October 2026 by Connor Bell</time>
             </Badge>
           </footer>
         </div>

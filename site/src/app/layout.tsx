@@ -3,6 +3,7 @@ import { Work_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import PageTransition from "@/components/ui/page-transition";
+import TapUnderline from "@/components/ui/tap-underline";
 import "./globals.css";
 
 const workSans = Work_Sans({
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={workSans.variable}>
       <body>
+        <TapUnderline />
         <PageTransition>{children}</PageTransition>
         <Analytics />
         <SpeedInsights />
