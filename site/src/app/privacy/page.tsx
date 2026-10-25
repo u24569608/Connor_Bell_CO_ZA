@@ -75,9 +75,7 @@ export default function Privacy() {
               </a>{" "}
               to monitor website performance and loading times. These tools help
               me understand how the website is used and how I can improve it.
-            </p>
-            <p>
-              These tools provide anonymous, aggregated statistics about how the
+              They provide anonymous, aggregated statistics about how the
               website is used and how well it performs. The reports I receive do
               not identify you personally. Vercel Web Analytics counts visits
               without placing a tracking cookie on your device. It creates a
@@ -228,7 +226,7 @@ export default function Privacy() {
               variant="outline"
               className="h-auto rounded-none border-2 border-neutral-300 px-2 py-1 text-xs font-normal text-neutral-500 sm:text-sm"
             >
-              <time dateTime="2026-10-23">23 October 2026 by Connor Bell</time>
+              <time dateTime="2026-10-23">25 October 2026 by Connor Bell</time>
             </Badge>
           </footer>
         </div>
