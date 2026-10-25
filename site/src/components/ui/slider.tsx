@@ -49,7 +49,10 @@ function Slider({
       {...props}
     >
       <SliderPrimitive.Control
-        className="relative flex w-full touch-none items-center select-none before:absolute before:content-[''] data-horizontal:before:inset-x-0 data-horizontal:before:-inset-y-4 data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col data-vertical:before:inset-y-0 data-vertical:before:-inset-x-4 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+        className={cn(
+          "relative flex w-full touch-none items-center select-none before:absolute before:content-[''] data-horizontal:before:inset-x-0 data-horizontal:before:-inset-y-4 data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col data-vertical:before:inset-y-0 data-vertical:before:-inset-x-4 motion-safe:transition-transform motion-safe:ease-out",
+          isPointerDragging ? "motion-safe:duration-300" : "motion-safe:duration-600"
+        )}
         style={{
           transform: orientation === "horizontal"
             ? `translateX(${stretch * 50}%) scaleX(${1 + Math.abs(stretch)})`
