@@ -11,10 +11,17 @@ function Slider({
   min = 0,
   max = 100,
   disabled,
+  orientation = "horizontal",
   ...props
 }: SliderPrimitive.Root.Props) {
   const [isPointerDragging, setIsPointerDragging] = useState(false)
-  const pointerStart = useRef<{ id: number; x: number; y: number } | null>(null)
+  const [stretch, setStretch] = useState(0)
+  const pointerStart = useRef<{
+    id: number
+    x: number
+    y: number
+    bounds: DOMRect
+  } | null>(null)
   const _values = Array.isArray(value)
     ? value
     : Array.isArray(defaultValue)
@@ -24,6 +31,7 @@ function Slider({
   function finishPointerInteraction() {
     pointerStart.current = null
     setIsPointerDragging(false)
+    setStretch(0)
   }
 
   return (
@@ -36,11 +44,17 @@ function Slider({
       value={value}
       min={min}
       max={max}
+      orientation={orientation}
       thumbAlignment="edge"
       {...props}
     >
       <SliderPrimitive.Control
-        className="relative flex w-full touch-none items-center select-none before:absolute before:content-[''] data-horizontal:before:inset-x-0 data-horizontal:before:-inset-y-4 data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col data-vertical:before:inset-y-0 data-vertical:before:-inset-x-4"
+        className="relative flex w-full touch-none items-center select-none before:absolute before:content-[''] data-horizontal:before:inset-x-0 data-horizontal:before:-inset-y-4 data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col data-vertical:before:inset-y-0 data-vertical:before:-inset-x-4 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+        style={{
+          transform: orientation === "horizontal"
+            ? `translateX(${stretch * 50}%) scaleX(${1 + Math.abs(stretch)})`
+            : `translateY(${stretch * 50}%) scaleY(${1 + Math.abs(stretch)})`,
+        }}
         onPointerDownCapture={(event) => {
           if (disabled === true || event.button !== 0) {
             return
@@ -50,6 +64,7 @@ function Slider({
             id: event.pointerId,
             x: event.clientX,
             y: event.clientY,
+            bounds: event.currentTarget.getBoundingClientRect(),
           }
           setIsPointerDragging(
             event.target instanceof Element &&
@@ -66,9 +81,21 @@ function Slider({
           if (Math.hypot(event.clientX - start.x, event.clientY - start.y) >= 4) {
             setIsPointerDragging(true)
           }
+
+          const horizontal = orientation === "horizontal"
+          const position = horizontal ? event.clientX : event.clientY
+          const lower = horizontal ? start.bounds.left : start.bounds.top
+          const upper = horizontal ? start.bounds.right : start.bounds.bottom
+          const overflow = position - Math.max(lower, Math.min(upper, position))
+
+          setStretch(
+            Math.sign(overflow) * Math.min(Math.abs(overflow) * 0.2, 24) /
+              Math.max(upper - lower, 1)
+          )
         }}
         onPointerUpCapture={finishPointerInteraction}
         onPointerCancelCapture={finishPointerInteraction}
+        onLostPointerCapture={finishPointerInteraction}
       >
         <SliderPrimitive.Track
           data-slot="slider-track"
