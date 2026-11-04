@@ -123,13 +123,13 @@ function CVTabs() {
                     href="https://www.naked.insure/"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 align-baseline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                    className="inline-flex items-center gap-0.5 align-baseline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
                   >
-                    <span className="underline underline-offset-2">Naked Insurance</span>
+                    <span className="underline underline-offset-4">Naked Insurance</span>
                     <span
                       aria-hidden="true"
                       className="material-symbols-sharp"
-                      style={{ fontSize: "1em" }}
+                      style={{ fontSize: "1em", marginLeft: "-1px", marginRight: "1px"}}
                     >
                       north_east
                     </span>
