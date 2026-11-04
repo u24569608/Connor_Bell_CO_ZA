@@ -1,9 +1,11 @@
+import type { ReactNode } from "react";
+
 type AwardItemProps = {
   title: string;
   issuer: string;
   issuerUrl: string;
   date: string;
-  descriptions?: readonly string[];
+  descriptions?: readonly ReactNode[];
 };
 
 function AwardItem({
@@ -33,9 +35,9 @@ function AwardItem({
         {date}
       </p>
       {descriptions !== undefined && (
-        <div className="mt-2 text-xs space-y-1 text-base leading-tight text-neutral-600">
+        <div className="mt-2 text-xs space-y-1 text-base leading-normal text-neutral-600">
           {descriptions.map((line, index) => (
-            <p key={`${index}-${line}`}>{line}</p>
+            <p key={index}>{line}</p>
           ))}
         </div>
       )}

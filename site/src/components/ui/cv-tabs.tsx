@@ -112,6 +112,39 @@ function CVTabs() {
             className="col-start-1 row-start-1 space-y-10 transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-reduce:transition-none"
           >
             <AwardItem
+              title="Cyber and Information Security Excellence Prize"
+              issuer="University of Pretoria"
+              issuerUrl="https://www.up.ac.za/"
+              date="October 2026"
+              descriptions={[
+                <span key="cyber-security-prize">
+                  Received the Cyber and Information Security Excellence Prize sponsored by{" "}
+                  <a
+                    href="https://www.naked.insure/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 align-baseline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                  >
+                    <span className="underline underline-offset-2">Naked Insurance</span>
+                    <span
+                      aria-hidden="true"
+                      className="material-symbols-sharp"
+                      style={{ fontSize: "1em" }}
+                    >
+                      north_east
+                    </span>
+                  </a>
+                  {' '}for our COS 301 (Software Engineering) project. 
+                  As part of The Project Cheesecake Team, we developed Insightful Phish,
+                  a cybersecurity awareness and training platform. 
+                  The award recognised our outstanding commitment to cybersecurity principles in software engineering. 
+                  This included building a secure and resilient system, implementing advanced security practices 
+                  and modern defensive techniques, and applying secure design principles to protect against evolving 
+                  cybersecurity threats.
+                </span>,
+              ]}
+            />
+            <AwardItem
               title="Dean’s Merit Award"
               issuer="University of Pretoria"
               issuerUrl="https://www.up.ac.za/"
