@@ -17,7 +17,7 @@ const menuControlClassName =
 
 const navigationItems = [
   { href: "/", label: "HOME" },
-  { href: "/cv", label: "CV" },
+  { href: "/cv/experience", label: "CV" },
 ];
 
 function Navbar() {

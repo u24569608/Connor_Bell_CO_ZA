@@ -1,5 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+
 import Banner from "@/components/ui/banner";
 import AwardItem from "@/components/ui/award-item";
 import EducationItem from "@/components/ui/education-item";
@@ -19,12 +22,23 @@ const tabLabels = {
 };
 
 function CVTabs() {
+  const pathname = usePathname();
+  const activeTab = pathname === "/cv/education"
+    ? "education"
+    : pathname === "/cv/awards"
+      ? "awards"
+      : "experience";
+
+  useEffect(() => {
+    document.title = `Connor Bell – Curriculum Vitae (${tabLabels[activeTab]})`;
+  }, [activeTab]);
+
   function handleTabChange(value: unknown) {
     if (value !== "experience" && value !== "education" && value !== "awards") {
       return;
     }
 
-    document.title = `Connor Bell – Curriculum Vitae (${tabLabels[value]})`;
+    window.history.pushState(null, "", `/cv/${value}${window.location.search}`);
     window.scrollTo({
       top: 0,
       left: 0,
@@ -36,7 +50,7 @@ function CVTabs() {
 
   return (
     <Tabs
-      defaultValue="experience"
+      value={activeTab}
       onValueChange={handleTabChange}
       className="gap-0"
     >

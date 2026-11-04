@@ -11,12 +11,19 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   reactCompiler: true,
   async redirects() {
-    return ["cv.cbell.co.za", "cv.connorbell.co.za"].map((host) => ({
-      source: "/:path*",
-      has: [{ type: "host" as const, value: host }],
-      destination: "https://www.connorbell.co.za/cv",
-      permanent: true,
-    }));
+    return [
+      ...["cv.cbell.co.za", "cv.connorbell.co.za"].map((host) => ({
+        source: "/:path*",
+        has: [{ type: "host" as const, value: host }],
+        destination: "https://www.connorbell.co.za/cv/experience",
+        permanent: true,
+      })),
+      {
+        source: "/cv",
+        destination: "/cv/experience",
+        permanent: true,
+      },
+    ];
   },
   turbopack: {
     rules: {
