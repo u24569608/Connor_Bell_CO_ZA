@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/work-sans-latin.woff2") format("woff2");
+}
+
+urlset {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  box-sizing: border-box;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 6rem) 2rem;
+  background: white;
+  color: #171717;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+urlset::before,
+urlset::after {
+  display: block;
+  grid-row: 1;
+  margin-bottom: 2rem;
+  font-size: clamp(1.1rem, 6vw, 2rem);
+  font-weight: 500;
+}
+
+urlset::before {
+  content: "CONNOR BELL";
+  grid-column: 1;
+  font-weight: 600;
+}
+
+urlset::after {
+  content: "\00a0– Sitemap";
+  grid-column: 2;
+}
+
+url {
+  display: block;
+  grid-column: 1 / -1;
+  padding: 1.5rem 0;
+  border-bottom: 2px solid #f2f2f2;
+  font-size: clamp(0.2rem, 3.8vw, 1.2rem);
+  color: #444444;
+  
+}
+
+loc {
+  display: block;
+  overflow-wrap: anywhere;
+}

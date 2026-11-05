@@ -12,8 +12,8 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Connor Bell",
-  description: "Connor Bell's Website",
+  title: "Connor Bell's Personal Website",
+  description: "I'm Connor Bell, a final-year BSc Computer Science student at the University of Pretoria. I enjoy engineering software and riding my bicycles.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
