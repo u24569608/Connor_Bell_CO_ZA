@@ -4,6 +4,9 @@ import CVPage from "../pages/cv";
 
 export const metadata: Metadata = {
   title: "Connor Bell – Curriculum Vitae (Experience)",
+  alternates: {
+    canonical: "/cv/experience",
+  },
 };
 
 export default function CV() {

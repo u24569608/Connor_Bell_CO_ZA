@@ -5,6 +5,9 @@ import Navbar from "@/components/ui/navbar";
 
 export const metadata: Metadata = {
   title: "Connor Bell – Privacy",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function Privacy() {

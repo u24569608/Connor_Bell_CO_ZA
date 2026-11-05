@@ -4,4 +4,7 @@ export { default } from "../page";
 
 export const metadata: Metadata = {
   title: "Connor Bell – Curriculum Vitae (Education)",
+  alternates: {
+    canonical: "/cv/education",
+  },
 };

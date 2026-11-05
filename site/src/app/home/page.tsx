@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/ui/navbar";
 import HomePage from "../pages/home";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
