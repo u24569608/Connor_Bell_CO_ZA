@@ -168,7 +168,7 @@ function CVTabs() {
               ]}
             />
             <AwardItem
-              title="Johannesburg East (D9) District Awards"
+              title="Johannesburg East (D9) District Award"
               issuer="Gauteng Department of Education"
               issuerUrl="https://education.gauteng.gov.za/"
               date="February 2024"
