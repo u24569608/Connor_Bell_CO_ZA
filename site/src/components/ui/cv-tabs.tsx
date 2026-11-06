@@ -148,7 +148,7 @@ function CVTabs() {
                       north_east
                     </span>
                   </a>
-                  {' '}for our COS 301 (Software Engineering) project. 
+                  {' '}for our COS 301 (Software Engineering) capstone project. 
                   As part of The Project Cheesecake Team, we developed Insightful Phish,
                   a cybersecurity awareness and training platform. 
                   The award recognised our outstanding commitment to cybersecurity principles in software engineering. 
