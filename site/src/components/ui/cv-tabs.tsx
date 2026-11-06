@@ -126,13 +126,13 @@ function CVTabs() {
             className="col-start-1 row-start-1 space-y-10 transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-reduce:transition-none"
           >
             <AwardItem
-              title="Cyber and Information Security Excellence Prize"
+              title="Cyber and Information Security Excellence Award"
               issuer="University of Pretoria"
               issuerUrl="https://www.up.ac.za/"
               date="October 2026"
               descriptions={[
-                <span key="cyber-security-prize">
-                  Received the Cyber and Information Security Excellence Prize sponsored by{" "}
+                <span key="cyber-security-award">
+                  Received the Cyber and Information Security Excellence Award sponsored by{" "}
                   <a
                     href="https://www.naked.insure/"
                     target="_blank"
