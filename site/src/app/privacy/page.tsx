@@ -12,11 +12,15 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <main data-page="privacy" className="min-h-svh bg-white">
+    <main data-page="privacy" className="flex h-dvh flex-col overflow-hidden bg-white">
       <Navbar />
       <Banner heading="Privacy" />
-      <section className="w-full max-w-4xl px-8 pt-6 pb-32 md:px-24 md:pb-24">
-        <div className="mt-12 max-w-3xl space-y-[68px] text-sm text-neutral-500 sm:text-base [&_p]:text-justify">
+      <section
+        aria-label="Privacy policy content"
+        tabIndex={0}
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black/30"
+      >
+        <div className="mt-12 w-full max-w-4xl space-y-[68px] px-8 pt-6 pb-32 text-sm text-neutral-500 sm:text-base md:px-24 md:pb-24 [&_p]:text-justify">
           <div className="space-y-4">
             <h2 className="text-lg font-semibold tracking-wide text-black sm:text-xl">
               Introduction

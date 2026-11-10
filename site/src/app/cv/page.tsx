@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function CV() {
   return (
-    <main data-page="cv" className="min-h-svh bg-black">
+    <main data-page="cv" className="h-dvh overflow-hidden bg-black">
       <Navbar />
       <CVPage />
     </main>
