@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import Banner from "@/components/ui/banner";
 import AwardItem from "@/components/ui/award-item";
@@ -22,6 +22,7 @@ const tabLabels = {
 };
 
 function CVTabs() {
+  const contentRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
   const activeTab = pathname === "/cv/education"
     ? "education"
@@ -39,7 +40,7 @@ function CVTabs() {
     }
 
     window.history.pushState(null, "", `/cv/${value}${window.location.search}`);
-    window.scrollTo({
+    contentRef.current?.scrollTo({
       top: 0,
       left: 0,
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -52,7 +53,7 @@ function CVTabs() {
     <Tabs
       value={activeTab}
       onValueChange={handleTabChange}
-      className="gap-0"
+      className="min-h-0 flex-1 gap-0"
     >
       <Banner heading="Curriculum Vitae">
         <TabsList
@@ -62,27 +63,32 @@ function CVTabs() {
         >
           <TabsTrigger
             value="experience"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm duration-500 ease-in-out data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Experience
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm duration-500 ease-in-out data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Education
           </TabsTrigger>
           <TabsTrigger
             value="awards"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm duration-500 ease-in-out data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Awards
           </TabsTrigger>
         </TabsList>
       </Banner>
 
-      <section className="w-full max-w-4xl px-8 pt-6 pb-32 md:px-24 md:pb-24">
-        <div className="mt-12 grid">
+      <section
+        ref={contentRef}
+        aria-label="Curriculum vitae content"
+        tabIndex={0}
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black/30"
+      >
+        <div className="mt-12 grid w-full max-w-4xl px-8 pt-6 pb-32 md:px-24 md:pb-24">
           <TabsContent
             value="experience"
             className="col-start-1 row-start-1 space-y-10 transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-reduce:transition-none"

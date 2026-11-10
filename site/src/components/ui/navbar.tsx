@@ -26,7 +26,7 @@ function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
         <Link
           href="/"
-          className="fade-underline self-center underline-offset-4 tracking-wide text-lg text-white font-semibold whitespace-nowrap transition-[text-decoration-color] duration-500 ease-in-out motion-reduce:transition-none"
+          className="fade-underline self-center underline-offset-4 tracking-wide text-lg text-white font-semibold whitespace-nowrap motion-reduce:transition-none"
         >
           CONNOR BELL
         </Link>
@@ -41,7 +41,7 @@ function Navbar() {
               <span className="h-0.5 w-8 bg-white" />
               <span className="h-0.5 w-8 bg-white" />
             </DrawerTrigger>
-            <DrawerContent className="bg-white text-black">
+            <DrawerContent className="menu-drawer bg-white text-black">
               <DrawerTitle className="sr-only">Navigation</DrawerTitle>
               <DrawerDescription className="sr-only">
                 Site navigation menu
@@ -53,7 +53,7 @@ function Navbar() {
                 <span className="absolute h-[2.515px] w-8 rotate-45 bg-black" />
                 <span className="absolute h-[2.515px] w-8 -rotate-45 bg-black" />
               </DrawerClose>
-              <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-8 pt-20 pb-8 text-center">
+              <div className="menu-drawer-items flex min-h-0 flex-1 flex-col overflow-y-auto px-8 pt-20 pb-8 text-center">
                 <nav aria-label="Primary navigation">
                   <ul className="flex flex-col items-center gap-2 text-[1.2rem] font-medium">
                     {navigationItems.map((item) => (
@@ -63,7 +63,7 @@ function Navbar() {
                           render={
                             <Link
                               href={item.href}
-                              className="fade-underline underline-offset-4 transition-[text-decoration-color] duration-500 ease-in-out focus-visible:outline-none motion-reduce:transition-none"
+                              className="fade-underline underline-offset-4 focus-visible:outline-none motion-reduce:transition-none"
                             />
                           }
                         >
@@ -94,7 +94,7 @@ function Navbar() {
                   render={
                     <Link
                       href="/privacy"
-                      className="fade-underline mt-1 inline-flex min-h-6 shrink-0 items-center self-center text-xs leading-tight text-neutral-600 underline-offset-4 transition-[text-decoration-color] duration-500 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black motion-reduce:transition-none"
+                      className="fade-underline mt-1 inline-flex min-h-6 shrink-0 items-center self-center text-xs leading-tight text-neutral-600 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black motion-reduce:transition-none"
                     />
                   }
                 >
