@@ -9,6 +9,7 @@
 @utility fade-underline {
   text-decoration-line: underline;
   text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
 
   &:is(:active, :focus-visible, [data-active], [data-tap-underline]):not(:disabled):not([aria-disabled="true"]) {
     text-decoration-color: currentColor;
