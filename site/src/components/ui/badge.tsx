@@ -15,7 +15,7 @@ const badgeVariants = cva(
         destructive: "bg-destructive/10 text-destructive",
         outline: "border-border bg-transparent text-foreground",
         ghost: "text-foreground",
-        link: "fade-underline text-primary underline-offset-4 duration-500 ease-in-out motion-reduce:transition-none",
+        link: "fade-underline text-primary underline-offset-4 motion-reduce:transition-none",
       },
     },
     defaultVariants: {

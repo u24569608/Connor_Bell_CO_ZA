@@ -26,7 +26,7 @@ function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
         <Link
           href="/"
-          className="fade-underline self-center underline-offset-4 tracking-wide text-lg text-white font-semibold whitespace-nowrap transition-[text-decoration-color] duration-500 ease-in-out motion-reduce:transition-none"
+          className="fade-underline self-center underline-offset-4 tracking-wide text-lg text-white font-semibold whitespace-nowrap motion-reduce:transition-none"
         >
           CONNOR BELL
         </Link>
@@ -63,7 +63,7 @@ function Navbar() {
                           render={
                             <Link
                               href={item.href}
-                              className="fade-underline underline-offset-4 transition-[text-decoration-color] duration-500 ease-in-out focus-visible:outline-none motion-reduce:transition-none"
+                              className="fade-underline underline-offset-4 focus-visible:outline-none motion-reduce:transition-none"
                             />
                           }
                         >
@@ -94,7 +94,7 @@ function Navbar() {
                   render={
                     <Link
                       href="/privacy"
-                      className="fade-underline mt-1 inline-flex min-h-6 shrink-0 items-center self-center text-xs leading-tight text-neutral-600 underline-offset-4 transition-[text-decoration-color] duration-500 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black motion-reduce:transition-none"
+                      className="fade-underline mt-1 inline-flex min-h-6 shrink-0 items-center self-center text-xs leading-tight text-neutral-600 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black motion-reduce:transition-none"
                     />
                   }
                 >
