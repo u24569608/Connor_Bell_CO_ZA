@@ -30,7 +30,7 @@ function HomePage() {
   const currentOffset = aboutMeOffsets[currentDetail] ?? "-translate-y-1/2";
 
   return (
-    <section className="relative h-full select-none overflow-hidden overscroll-none bg-black px-8 text-white">
+    <section className="home-content relative h-full select-none overflow-hidden overscroll-none bg-black px-8 text-white">
       <div
         className={`absolute inset-x-8 top-1/2 mx-auto w-auto max-w-4xl ${currentOffset}`}
       >

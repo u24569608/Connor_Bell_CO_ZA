@@ -41,7 +41,7 @@ function Navbar() {
               <span className="h-0.5 w-8 bg-white" />
               <span className="h-0.5 w-8 bg-white" />
             </DrawerTrigger>
-            <DrawerContent className="bg-white text-black">
+            <DrawerContent className="menu-drawer bg-white text-black">
               <DrawerTitle className="sr-only">Navigation</DrawerTitle>
               <DrawerDescription className="sr-only">
                 Site navigation menu
@@ -53,7 +53,7 @@ function Navbar() {
                 <span className="absolute h-[2.515px] w-8 rotate-45 bg-black" />
                 <span className="absolute h-[2.515px] w-8 -rotate-45 bg-black" />
               </DrawerClose>
-              <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-8 pt-20 pb-8 text-center">
+              <div className="menu-drawer-items flex min-h-0 flex-1 flex-col overflow-y-auto px-8 pt-20 pb-8 text-center">
                 <nav aria-label="Primary navigation">
                   <ul className="flex flex-col items-center gap-2 text-[1.2rem] font-medium">
                     {navigationItems.map((item) => (
