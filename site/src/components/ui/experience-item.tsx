@@ -26,7 +26,7 @@ function ExperienceItem({
         rel="noreferrer"
         className="inline-flex items-center gap-1 text-base text-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black sm:text-lg"
       >
-        <span className="underline underline-offset-4">{company}</span>
+        <span className="underline underline-offset-6">{company}</span>
         <span aria-hidden="true" className="material-symbols-sharp" style={{fontSize: '1.2rem'}}>
           north_east
         </span>
