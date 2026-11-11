@@ -145,7 +145,7 @@ function CVTabs() {
                     rel="noreferrer"
                     className="inline-flex items-center gap-0.5 align-baseline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
                   >
-                    <span className="underline underline-offset-4">Naked Insurance</span>
+                    <span className="underline underline-offset-3">Naked Insurance</span>
                     <span
                       aria-hidden="true"
                       className="material-symbols-sharp"
