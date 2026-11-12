@@ -26,7 +26,7 @@ function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between px-8 py-5">
         <Link
           href="/"
-          className="fade-underline self-center underline-offset-4 tracking-wide text-lg text-white font-semibold whitespace-nowrap motion-reduce:transition-none"
+          className="fade-underline self-center underline-offset-5 tracking-wide text-lg text-white font-semibold whitespace-nowrap motion-reduce:transition-none"
         >
           CONNOR BELL
         </Link>
