@@ -79,7 +79,20 @@ function Navbar() {
                 <address className="mt-auto pt-16 text-[1rem] leading-relaxed tracking-wide not-italic">
                   <p className="font-semibold text-[1.1rem]">CONNOR BELL</p>
                   <p className="flex items-center justify-center gap-1.5">
-                    <span>Johannesburg – South Africa</span>
+                    <span>
+                      <DrawerClose
+                        nativeButton={false}
+                        render={
+                          <Link
+                            href="/weather"
+                            className="fade-underline underline-offset-5 focus-visible:outline-none motion-reduce:transition-none"
+                          />
+                        }
+                      >
+                        Gauteng
+                      </DrawerClose>
+                      {" – South Africa"}
+                    </span>
                   </p>
                   <a
                     href="mailto:connor@cbell.co.za"
