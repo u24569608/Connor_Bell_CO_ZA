@@ -3,10 +3,55 @@ import { test } from "node:test";
 
 import { GET } from "../src/app/api/weather/route";
 import { fetchCurrentWeather } from "../src/lib/weather/provider";
+import { weatherBackground, weatherDate, weatherTime, windDirection } from "../src/lib/weather/presentation";
 import { weatherLocations } from "../src/lib/weather/types";
 
 const apiKey = "weather-test-key";
 const observedAt = Date.UTC(2026, 10, 12, 12) / 1000;
+
+test("daytime themes follow the selected reading and night overrides the condition", async () => {
+  const current = await fetchCurrentWeather(weatherLocations[0], apiKey, weatherFetcher([]));
+  const daytime = observedAt * 1000;
+  assert.equal(weatherBackground(current, daytime), "#006AFF");
+  assert.equal(weatherBackground({ ...current, condition: { ...current.condition, id: 804 } }, daytime), "#8F8F8F");
+  const storm = { ...current, condition: { ...current.condition, id: 211 } };
+  assert.equal(weatherBackground(storm, daytime), "#2B2B4B");
+  assert.equal(weatherBackground(storm, (observedAt + 21600) * 1000), "#000000");
+  assert.equal(weatherBackground(current, (observedAt - 21601) * 1000), "#000000");
+});
+
+test("missing sun times use the provider day or night indication", async () => {
+  const current = await fetchCurrentWeather(weatherLocations[0], apiKey, weatherFetcher([]));
+  const withoutSunTimes = { ...current, sunrise: null, sunset: null };
+  assert.equal(weatherBackground(withoutSunTimes, observedAt * 1000), "#006AFF");
+  assert.equal(weatherBackground({ ...withoutSunTimes, condition: { ...current.condition, icon: "01n" } }, observedAt * 1000), "#000000");
+  assert.equal(weatherBackground(null, 0), "#000000");
+});
+
+test("theme calculation does not read the clock during rendering", async (context) => {
+  const current = await fetchCurrentWeather(weatherLocations[0], apiKey, weatherFetcher([]));
+  context.mock.method(Date, "now", () => {
+    throw new Error("The clock cannot be read during prerendering.");
+  });
+  assert.equal(weatherBackground(null, 0), "#000000");
+  assert.equal(weatherBackground(current, observedAt * 1000), "#006AFF");
+});
+
+test("weather clocks use South African time for observations and cached timestamps", () => {
+  assert.equal(weatherTime(observedAt), "02:00 PM");
+  assert.equal(weatherTime("2026-11-12T08:00:00.000Z"), "10:00 AM");
+  assert.equal(weatherTime(null), "—");
+  assert.equal(weatherDate(Date.UTC(2026, 10, 12, 20, 30) / 1000), "12 November 2026");
+  assert.equal(weatherDate(Date.UTC(2026, 10, 12, 22, 30) / 1000), "13 November 2026");
+  assert.equal(weatherDate(null), "—");
+});
+
+test("wind bearings wrap around north and preserve missing directions", () => {
+  assert.equal(windDirection(45), "NE");
+  assert.equal(windDirection(359), "N");
+  assert.equal(windDirection(360), "N");
+  assert.equal(windDirection(null), "—");
+});
 
 function providerReading() {
   return {

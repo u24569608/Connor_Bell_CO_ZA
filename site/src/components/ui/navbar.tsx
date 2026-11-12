@@ -89,7 +89,7 @@ function Navbar() {
                           />
                         }
                       >
-                        Johannesburg
+                        Gauteng
                       </DrawerClose>
                       {" – South Africa"}
                     </span>

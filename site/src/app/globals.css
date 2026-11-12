@@ -153,12 +153,65 @@
   html:has(main[data-page="cv"]),
   body:has(main[data-page="cv"]),
   html:has(main[data-page="privacy"]),
-  body:has(main[data-page="privacy"]),
-  html:has(main[data-page="weather"]),
-  body:has(main[data-page="weather"]) {
+  body:has(main[data-page="privacy"]) {
     background-color: white;
     overflow: hidden;
     }
+}
+
+.weather-page,
+.weather-page > nav,
+.weather-page header {
+  background-color: var(--weather-background, #000000);
+  transition: background-color 600ms ease-in-out;
+}
+
+.weather-page header {
+  height: auto;
+  min-height: 13rem;
+}
+
+.weather-page header h1 {
+  transform: translateY(-0.5rem);
+}
+
+@media (min-width: 40rem) {
+  .weather-page header {
+    height: 13rem;
+  }
+}
+
+.weather-page [data-slot="tabs-list"] {
+  background-color: rgb(255 255 255 / 8%);
+}
+
+.weather-page [data-slot="tabs-trigger"] {
+  color: rgb(255 255 255 / 60%);
+  background-color: transparent;
+}
+
+.weather-page [data-slot="tabs-trigger"]:hover {
+  color: white;
+}
+
+.weather-page [data-slot="tabs-trigger"][data-active] {
+  color: white;
+  border-color: rgb(255 255 255 / 20%);
+  background-color: rgb(255 255 255 / 8%);
+}
+
+html:has(main[data-page="weather"]),
+body:has(main[data-page="weather"]) {
+  background-color: black;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weather-page,
+  .weather-page > nav,
+  .weather-page header {
+    transition: none;
+  }
 }
 
 .menu-drawer {

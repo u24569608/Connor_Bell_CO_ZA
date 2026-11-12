@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/ui/navbar";
+import WeatherPage from "@/components/ui/weather-page";
 
 export const metadata: Metadata = {
   title: "Connor Bell – Weather",
@@ -9,9 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Weather() {
-  return (
-    <main data-page="weather" className="flex h-dvh flex-col overflow-hidden bg-white">
-      <Navbar />
-    </main>
-  );
+  return <WeatherPage />;
 }
