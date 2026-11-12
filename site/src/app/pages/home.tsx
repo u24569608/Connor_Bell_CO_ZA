@@ -14,6 +14,8 @@ const aboutMeDetails = [
   "I'm a final year BSc Computer Science student at the University of Pretoria, from Johannesburg, South Africa. I've always been fascinated by computers and I'm passionate about full-stack software development, especially UI/UX design. I enjoy combining problem-solving with creativity to build applications that are both functional and enjoyable to use. I also love cycling and enjoy challenging myself both on and off the bike.",
 ];
 
+const aboutMeMarkers = aboutMeDetails.slice(1).map((_, index) => index + 0.5);
+
 const aboutMeOffsets = [
   "-translate-y-1/2",
   "-translate-y-[52%]",
@@ -80,6 +82,7 @@ function HomePage() {
             }}
             min={0}
             max={aboutMeDetails.length - 1}
+            markers={aboutMeMarkers}
             step={0.01}
             largeStep={1}
             className="home-detail-slider [&_[data-slot=slider-range]]:bg-white [&_[data-slot=slider-thumb]]:border-white [&_[data-slot=slider-thumb]]:bg-white [&_[data-slot=slider-track]]:bg-white/30"
@@ -92,7 +95,7 @@ function HomePage() {
               onClick={() =>
                 setDetailLevel((value) => Math.max(0, Math.round(value) - 1))
               }
-              className="fade-underline min-h-6 cursor-pointer tracking-widest underline-offset-4 opacity-100 transition-[opacity,text-decoration-color] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
+              className="fade-underline min-h-6 cursor-pointer tracking-widest underline-offset-5 opacity-100 transition-[opacity,text-decoration-color] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
             >
               LESS
             </button>
@@ -105,7 +108,7 @@ function HomePage() {
                   Math.min(aboutMeDetails.length - 1, Math.round(value) + 1),
                 )
               }
-              className="fade-underline min-h-6 cursor-pointer tracking-widest underline-offset-4 opacity-100 transition-[opacity,text-decoration-color] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
+              className="fade-underline min-h-6 cursor-pointer tracking-widest underline-offset-5 opacity-100 transition-[opacity,text-decoration-color] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
             >
               MORE
             </button>

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { type ComponentProps, useEffect, useLayoutEffect, useRef } from "react";
 
 import Banner from "@/components/ui/banner";
 import AwardItem from "@/components/ui/award-item";
@@ -21,8 +21,21 @@ const tabLabels = {
   awards: "Awards",
 };
 
+function CVTabContent({ children, ...props }: ComponentProps<typeof TabsContent>) {
+  return (
+    <TabsContent
+      className="absolute inset-0 overflow-y-auto overscroll-contain transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 [&[inert]]:overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black/30 motion-reduce:transition-none"
+      {...props}
+    >
+      <div className="mt-12 w-full max-w-4xl space-y-10 px-8 pt-6 pb-32 md:px-24 md:pb-24">
+        {children}
+      </div>
+    </TabsContent>
+  );
+}
+
 function CVTabs() {
-  const contentRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const activeTab = pathname === "/cv/education"
     ? "education"
@@ -34,19 +47,20 @@ function CVTabs() {
     document.title = `Connor Bell – Curriculum Vitae (${tabLabels[activeTab]})`;
   }, [activeTab]);
 
+  useLayoutEffect(() => {
+    contentRef.current?.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [activeTab]);
+
   function handleTabChange(value: unknown) {
     if (value !== "experience" && value !== "education" && value !== "awards") {
       return;
     }
 
     window.history.pushState(null, "", `/cv/${value}${window.location.search}`);
-    contentRef.current?.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
   }
 
   return (
@@ -63,19 +77,19 @@ function CVTabs() {
         >
           <TabsTrigger
             value="experience"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-5 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Experience
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-5 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Education
           </TabsTrigger>
           <TabsTrigger
             value="awards"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-5 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Awards
           </TabsTrigger>
@@ -83,131 +97,127 @@ function CVTabs() {
       </Banner>
 
       <section
-        ref={contentRef}
         aria-label="Curriculum vitae content"
-        tabIndex={0}
-        className="min-h-0 flex-1 overflow-y-auto overscroll-contain focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black/30"
+        className="relative min-h-0 flex-1 overflow-hidden"
       >
-        <div className="mt-12 grid w-full max-w-4xl px-8 pt-6 pb-32 md:px-24 md:pb-24">
-          <TabsContent
-            value="experience"
-            className="col-start-1 row-start-1 space-y-10 transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-reduce:transition-none"
-          >
-            <ExperienceItem
-              title="Teaching Assistant"
-              company="University of Pretoria"
-              companyUrl="https://www.up.ac.za/"
-              startDate="February 2026"
-              endDate="November 2026"
-              descriptions={[
-                "COS 221 (Introduction to Database Systems)",
-                "COS 216 (Netcentric Computer Systems)",
-                "COS 226 (Concurrent Systems)",
-                "COS 214 (Software Modelling)"
-              ]}
-            />
-            <ExperienceItem
-              title="Student Vacation Worker"
-              company="Gendac"
-              companyUrl="https://www.gendac.co.za/"
-              startDate="January 2026"
-              endDate="February 2026"
-              descriptions={["Software Engineering"]}
-            />
-            <ExperienceItem
-              title="Teaching Assistant"
-              company="University of Pretoria"
-              companyUrl="https://www.up.ac.za/"
-              startDate="February 2025"
-              endDate="November 2025"
-              descriptions={[
-                "COS 132 (Imperative Programming)",
-                "COS 110 (Introduction to Program Design)",
-              ]}
-            />
-            <SocialLinks className="flex-col items-start text-black" />
-          </TabsContent>
-          <TabsContent
-            value="awards"
-            className="col-start-1 row-start-1 space-y-10 transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-reduce:transition-none"
-          >
-            <AwardItem
-              title="Cyber and Information Security Excellence Award"
-              issuer="University of Pretoria"
-              issuerUrl="https://www.up.ac.za/"
-              date="October 2026"
-              descriptions={[
-                <span key="cyber-security-award">
-                  Received the Cyber and Information Security Excellence Award sponsored by{" "}
-                  <a
-                    href="https://www.naked.insure/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-0.5 align-baseline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+        <CVTabContent
+          ref={activeTab === "experience" ? contentRef : undefined}
+          value="experience"
+        >
+          <ExperienceItem
+            title="Teaching Assistant"
+            company="University of Pretoria"
+            companyUrl="https://www.up.ac.za/"
+            startDate="February 2026"
+            endDate="November 2026"
+            descriptions={[
+              "COS 221 (Introduction to Database Systems)",
+              "COS 216 (Netcentric Computer Systems)",
+              "COS 226 (Concurrent Systems)",
+              "COS 214 (Software Modelling)"
+            ]}
+          />
+          <ExperienceItem
+            title="Student Vacation Worker"
+            company="Gendac"
+            companyUrl="https://www.gendac.co.za/"
+            startDate="January 2026"
+            endDate="February 2026"
+            descriptions={["Software Engineering"]}
+          />
+          <ExperienceItem
+            title="Teaching Assistant"
+            company="University of Pretoria"
+            companyUrl="https://www.up.ac.za/"
+            startDate="February 2025"
+            endDate="November 2025"
+            descriptions={[
+              "COS 132 (Imperative Programming)",
+              "COS 110 (Introduction to Program Design)",
+            ]}
+          />
+          <SocialLinks className="flex-col items-start text-black" />
+        </CVTabContent>
+        <CVTabContent
+          ref={activeTab === "awards" ? contentRef : undefined}
+          value="awards"
+        >
+          <AwardItem
+            title="Cyber and Information Security Excellence Award"
+            issuer="University of Pretoria"
+            issuerUrl="https://www.up.ac.za/"
+            date="October 2026"
+            descriptions={[
+              <span key="cyber-security-award">
+                Received the Cyber and Information Security Excellence Award sponsored by{" "}
+                <a
+                  href="https://www.naked.insure/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-0.5 align-baseline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                >
+                  <span className="underline underline-offset-3">Naked Insurance</span>
+                  <span
+                    aria-hidden="true"
+                    className="material-symbols-sharp"
+                    style={{ fontSize: "1em", marginLeft: "-1px", marginRight: "1px"}}
                   >
-                    <span className="underline underline-offset-3">Naked Insurance</span>
-                    <span
-                      aria-hidden="true"
-                      className="material-symbols-sharp"
-                      style={{ fontSize: "1em", marginLeft: "-1px", marginRight: "1px"}}
-                    >
-                      north_east
-                    </span>
-                  </a>
-                  {' '}for our COS 301 (Software Engineering) capstone project. 
-                  As part of The Project Cheesecake Team, we developed Insightful Phish,
-                  a cybersecurity awareness and training platform. 
-                  The award recognised our outstanding commitment to cybersecurity principles in software engineering. 
-                  This included building a secure and resilient system, implementing advanced security practices 
-                  and modern defensive techniques, and applying secure design principles to protect against evolving 
-                  cybersecurity threats.
-                </span>,
-              ]}
-            />
-            <AwardItem
-              title="Dean’s Merit Award"
-              issuer="University of Pretoria"
-              issuerUrl="https://www.up.ac.za/"
-              date="May 2025"
-              descriptions={[
-                "Received an award from the Dean of the Faculty of Engineering, Built Environment, and Information Technology (EBIT) for having achieved an average of above 75% in my first year of Computer Science (2024).",
-              ]}
-            />
-            <AwardItem
-              title="Johannesburg East (D9) District Award"
-              issuer="Gauteng Department of Education"
-              issuerUrl="https://education.gauteng.gov.za/"
-              date="February 2024"
-              descriptions={[
-                "Received an award from the Gauteng Department of Education (GDE) for having achieved the highest average of 97% in the Johannesburg East (D9) district for Information Technology in Grade 12.",
-              ]}
-            />
-            <SocialLinks className="flex-col items-start text-black" />
-          </TabsContent>
+                    north_east
+                  </span>
+                </a>
+                {' '}for our COS 301 (Software Engineering) capstone project.
+                As part of The Project Cheesecake Team, we developed Insightful Phish,
+                a cybersecurity awareness and training platform.
+                The award recognised our outstanding commitment to cybersecurity principles in software engineering.
+                This included building a secure and resilient system, implementing advanced security practices
+                and modern defensive techniques, and applying secure design principles to protect against evolving
+                cybersecurity threats.
+              </span>,
+            ]}
+          />
+          <AwardItem
+            title="Dean’s Merit Award"
+            issuer="University of Pretoria"
+            issuerUrl="https://www.up.ac.za/"
+            date="May 2025"
+            descriptions={[
+              "Received an award from the Dean of the Faculty of Engineering, Built Environment, and Information Technology (EBIT) for having achieved an average of above 75% in my first year of Computer Science (2024).",
+            ]}
+          />
+          <AwardItem
+            title="Johannesburg East (D9) District Award"
+            issuer="Gauteng Department of Education"
+            issuerUrl="https://education.gauteng.gov.za/"
+            date="February 2024"
+            descriptions={[
+              "Received an award from the Gauteng Department of Education (GDE) for having achieved the highest average of 97% in the Johannesburg East (D9) district for Information Technology in Grade 12.",
+            ]}
+          />
+          <SocialLinks className="flex-col items-start text-black" />
+        </CVTabContent>
 
-          <TabsContent
-            value="education"
-            className="col-start-1 row-start-1 space-y-10 transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-reduce:transition-none"
-          >
-            <EducationItem
-              school="University of Pretoria"
-              schoolUrl="https://www.up.ac.za/"
-              certification="BSc Computer Science"
-              startDate="February 2024"
-              endDate="November 2026"
-              descriptions={[]}
-            />
-            <EducationItem
-              school="Jeppe High School for Boys"
-              schoolUrl="https://www.jeppeboys.co.za/"
-              certification="National Senior Certificate"
-              startDate="January 2019"
-              endDate="November 2023"
-              descriptions={["Achieved distinctions in all seven subjects, earned full academic colours, and attained the second-highest overall average. Received awards for the highest achievement in Physical Sciences, Mathematics, Information Technology, and Geography."]}
-            />
-            <SocialLinks className="flex-col items-start text-black" />
-          </TabsContent>
-        </div>
+        <CVTabContent
+          ref={activeTab === "education" ? contentRef : undefined}
+          value="education"
+        >
+          <EducationItem
+            school="University of Pretoria"
+            schoolUrl="https://www.up.ac.za/"
+            certification="BSc Computer Science"
+            startDate="February 2024"
+            endDate="November 2026"
+            descriptions={[]}
+          />
+          <EducationItem
+            school="Jeppe High School for Boys"
+            schoolUrl="https://www.jeppeboys.co.za/"
+            certification="National Senior Certificate"
+            startDate="January 2019"
+            endDate="November 2023"
+            descriptions={["Achieved distinctions in all seven subjects, earned full academic colours, and attained the second-highest overall average. Received awards for the highest achievement in Physical Sciences, Mathematics, Information Technology, and Geography."]}
+          />
+          <SocialLinks className="flex-col items-start text-black" />
+        </CVTabContent>
       </section>
     </Tabs>
   );
