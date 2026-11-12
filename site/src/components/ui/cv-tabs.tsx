@@ -63,19 +63,19 @@ function CVTabs() {
         >
           <TabsTrigger
             value="experience"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-5 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Experience
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-5 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Education
           </TabsTrigger>
           <TabsTrigger
             value="awards"
-            className="fade-underline h-auto min-w-0 underline-offset-4 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
+            className="fade-underline h-auto min-w-0 underline-offset-5 cursor-pointer px-0 py-2 text-sm data-active:font-medium min-[360px]:px-1.5 sm:px-5 sm:text-base motion-reduce:transition-none"
           >
             Awards
           </TabsTrigger>
