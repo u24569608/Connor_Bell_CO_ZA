@@ -83,7 +83,7 @@ function Navbar() {
                   </p>
                   <a
                     href="mailto:connor@cbell.co.za"
-                    className="underline-offset-4 underline focus-visible:underline focus-visible:outline-none"
+                    className="underline-offset-5 underline focus-visible:underline focus-visible:outline-none"
                   >
                     connor@cbell.co.za
                   </a>
