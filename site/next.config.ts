@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     "192.168.68.117",
     "192.168.68.103",
     "192.168.101.112",
+    "192.168.68.118",
   ],
   cacheComponents: true,
   partialPrefetching: true,
