@@ -84,7 +84,7 @@ function Navbar() {
                         nativeButton={false}
                         render={
                           <Link
-                            href="/weather"
+                            href="/weather/johannesburg"
                             className="fade-underline underline-offset-5 focus-visible:outline-none motion-reduce:transition-none"
                           />
                         }

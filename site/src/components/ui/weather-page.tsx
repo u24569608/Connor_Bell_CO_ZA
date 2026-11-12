@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 
 import { Spokes } from "@/components/loading-ui/spokes";
 import Banner from "@/components/ui/banner";
@@ -61,7 +62,8 @@ function WeatherDetails({ current }: { current: CurrentWeather }) {
 }
 
 export default function WeatherPage() {
-  const [city, setCity] = useState<LocationId>("johannesburg");
+  const pathname = usePathname();
+  const city: LocationId = pathname === "/weather/pretoria" ? "pretoria" : "johannesburg";
   const [weather, setWeather] = useState<WeatherData>({ johannesburg: null, pretoria: null });
   const [isUpdating, setIsUpdating] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -71,6 +73,11 @@ export default function WeatherPage() {
   const panel = useRef<HTMLDivElement>(null);
   const selected = weather[city];
   const background = weatherBackground(selected?.data ?? null, now);
+
+  useEffect(() => {
+    const location = weatherLocations.find((location) => location.id === city);
+    document.title = `Connor Bell – Weather (${location?.name})`;
+  }, [city]);
 
   const updateWeather = useCallback(async () => {
     request.current?.abort();
@@ -89,7 +96,7 @@ export default function WeatherPage() {
         const date = retry === null ? NaN : Date.parse(retry);
         const until = Number.isFinite(seconds) ? Date.now() + seconds * 1000 : date;
         setRetryAt(Number.isFinite(until) && until > Date.now() ? until : Date.now() + 60000);
-        throw new Error("You’re updating a little quickly. Please try again in a minute.");
+        throw new Error("Too Many Requests. Try Again Later.");
       }
 
       if (response.ok !== true) {
@@ -158,7 +165,7 @@ export default function WeatherPage() {
       <Tabs value={city} onValueChange={(value) => {
         if (value === "johannesburg" || value === "pretoria") {
           setNow(Date.now());
-          setCity(value);
+          window.history.pushState(null, "", `/weather/${value}${window.location.search}${window.location.hash}`);
         }
       }} className="min-h-0 flex-1 gap-0">
         <Banner heading="Current Weather">
@@ -202,7 +209,7 @@ export default function WeatherPage() {
                     <p role="status" className="inline-flex items-center gap-2 text-base opacity-80">
                       {isUpdating === true
                         ? <><Spokes aria-hidden="true" /> Loading Current Weather</>
-                        : `Current weather for ${location.name} is unavailable.`}
+                        : "Current Weather Unavailable."}
                     </p>
                   </div>}
             </TabsContent>;
