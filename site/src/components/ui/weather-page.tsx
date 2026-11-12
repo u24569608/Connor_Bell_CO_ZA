@@ -6,8 +6,9 @@ import { usePathname } from "next/navigation";
 import { Spokes } from "@/components/loading-ui/spokes";
 import Banner from "@/components/ui/banner";
 import Navbar from "@/components/ui/navbar";
+import WeatherStars from "@/components/ui/weather-stars";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { weatherBackground, weatherDate, weatherTime, windDirection } from "@/lib/weather/presentation";
+import { weatherBackground, weatherDate, weatherHasStars, weatherTime, windDirection } from "@/lib/weather/presentation";
 import { weatherLocations, type CurrentWeather, type WeatherLocation } from "@/lib/weather/types";
 
 type LocationId = WeatherLocation["id"];
@@ -160,14 +161,15 @@ export default function WeatherPage() {
   }, [city]);
 
   return (
-    <main data-page="weather" className="weather-page flex h-dvh flex-col overflow-hidden text-white" style={{ "--weather-background": background } as CSSProperties}>
+    <main data-page="weather" className="weather-page relative isolate flex h-dvh flex-col overflow-hidden text-white" style={{ "--weather-background": background } as CSSProperties}>
+      <WeatherStars active={weatherHasStars(selected?.data ?? null, now)} />
       <Navbar />
       <Tabs value={city} onValueChange={(value) => {
         if (value === "johannesburg" || value === "pretoria") {
           setNow(Date.now());
           window.history.pushState(null, "", `/weather/${value}${window.location.search}${window.location.hash}`);
         }
-      }} className="min-h-0 flex-1 gap-0">
+      }} className="relative z-10 min-h-0 flex-1 gap-0">
         <Banner heading="Current Weather">
           <div className="flex w-full flex-wrap items-center gap-x-6 gap-y-3">
             <TabsList aria-label="Weather location" activateOnFocus className="grid w-max max-w-full shrink-0 grid-cols-2 p-1.5 group-data-horizontal/tabs:h-auto">

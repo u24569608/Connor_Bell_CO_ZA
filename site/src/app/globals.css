@@ -159,11 +159,71 @@
     }
 }
 
-.weather-page,
-.weather-page > nav,
-.weather-page header {
+.weather-page {
   background-color: var(--weather-background, #000000);
   transition: background-color 600ms ease-in-out;
+}
+
+.weather-page > nav,
+.weather-page header {
+  background-color: transparent;
+}
+
+.weather-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1200ms ease-in-out;
+}
+
+.weather-stars[data-active="true"] {
+  opacity: 1;
+}
+
+.weather-star {
+  position: absolute;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #e5edff;
+  box-shadow: 0 0 6px rgb(190 210 255 / 45%);
+  opacity: 0.15;
+  animation: weather-star-twinkle var(--duration) ease-in-out var(--delay) infinite;
+  animation-play-state: paused;
+}
+
+.weather-stars[data-active="true"] .weather-star {
+  animation-play-state: running;
+}
+
+.weather-star[data-bright="true"] {
+  background: white;
+  box-shadow: 0 0 3px white, 0 0 7px white, 0 0 16px rgb(190 210 255 / 95%);
+}
+
+@keyframes weather-star-twinkle {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: var(--brightness);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weather-stars {
+    transition: none;
+  }
+  .weather-star {
+    animation: none;
+    opacity: 0.3;
+    transform: none;
+  }
 }
 
 .weather-page header {
