@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
         destination: "/cv/experience",
         permanent: true,
       },
+      {
+        source: "/weather",
+        destination: "/weather/johannesburg",
+        permanent: true,
+      },
     ];
   },
   turbopack: {

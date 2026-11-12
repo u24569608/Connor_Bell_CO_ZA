@@ -17,7 +17,11 @@ type TransitionPhase = "idle" | "leaving" | "waiting";
 
 function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
-  const pageKey = pathname === "/cv" || pathname.startsWith("/cv/") ? "/cv" : pathname;
+  const pageKey = pathname === "/cv" || pathname.startsWith("/cv/")
+    ? "/cv"
+    : pathname === "/weather" || pathname.startsWith("/weather/")
+      ? "/weather"
+      : pathname;
   const router = useRouter();
   const [phase, setPhase] = useState<TransitionPhase>("idle");
   const [pendingHref, setPendingHref] = useState<string | null>(null);
