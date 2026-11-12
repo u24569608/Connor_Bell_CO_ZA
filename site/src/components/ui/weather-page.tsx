@@ -7,6 +7,7 @@ import { Spokes } from "@/components/loading-ui/spokes";
 import Banner from "@/components/ui/banner";
 import Navbar from "@/components/ui/navbar";
 import WeatherStars from "@/components/ui/weather-stars";
+import { useCricketAmbience } from "@/components/ui/use-cricket-ambience";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { weatherBackground, weatherDate, weatherHasStars, weatherTime, windDirection } from "@/lib/weather/presentation";
 import { weatherLocations, type CurrentWeather, type WeatherLocation } from "@/lib/weather/types";
@@ -19,7 +20,7 @@ function Detail({ label, children }: { label: string; children: ReactNode }) {
   return <div><dt className="whitespace-nowrap">{label}</dt><dd className="font-semibold whitespace-nowrap">{children}</dd></div>;
 }
 
-function WeatherDetails({ current }: { current: CurrentWeather }) {
+function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: ReturnType<typeof useCricketAmbience> | null }) {
   const weather = current.data;
   const speed = (value: number | null) => value === null ? "—" : `${Math.round(value * 3.6)} km/h`;
   const detailGridClassName = "grid w-fit grid-cols-[repeat(2,7rem)] gap-x-6 gap-y-5 min-[460px]:grid-cols-[repeat(2,7rem)_max-content] sm:gap-x-8 lg:grid-cols-[repeat(4,7rem)_max-content]";
@@ -58,6 +59,11 @@ function WeatherDetails({ current }: { current: CurrentWeather }) {
       <p className="mt-1 text-xs opacity-80">
         Observed on <time dateTime={new Date(weather.timestamp * 1000).toISOString()}>{weatherDate(weather.timestamp)} at {weatherTime(weather.timestamp)}</time>
       </p>
+      {sound !== null && <button type="button" data-weather-audio onClick={() => sound.toggle()} disabled={sound.starting} aria-busy={sound.starting} className="group/audio mt-3 inline-flex cursor-pointer items-center gap-1.5 text-xs opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current disabled:cursor-wait">
+        <span aria-hidden="true" className="material-symbols-sharp" style={{ fontSize: "1rem", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{sound.enabled === true ? "music_note" : "music_off"}</span>
+        <span className="fade-underline underline-offset-5 group-hover/audio:decoration-current group-focus-visible/audio:decoration-current group-active/audio:decoration-current group-disabled/audio:decoration-transparent motion-reduce:transition-none">{sound.enabled === true ? "Disable Audio" : "Enable Audio"}</span>
+      </button>}
+      {sound !== null && sound.error !== null && <p role="status" className="mt-1 text-xs opacity-80">{sound.error}</p>}
     </div>
   );
 }
@@ -74,6 +80,8 @@ export default function WeatherPage() {
   const panel = useRef<HTMLDivElement>(null);
   const selected = weather[city];
   const background = weatherBackground(selected?.data ?? null, now);
+  const clearNight = weatherHasStars(selected?.data ?? null, now);
+  const sound = useCricketAmbience(clearNight);
 
   useEffect(() => {
     const location = weatherLocations.find((location) => location.id === city);
@@ -162,7 +170,7 @@ export default function WeatherPage() {
 
   return (
     <main data-page="weather" className="weather-page relative isolate flex h-dvh flex-col overflow-hidden text-white" style={{ "--weather-background": background } as CSSProperties}>
-      <WeatherStars active={weatherHasStars(selected?.data ?? null, now)} />
+      <WeatherStars active={clearNight} />
       <Navbar />
       <Tabs value={city} onValueChange={(value) => {
         if (value === "johannesburg" || value === "pretoria") {
@@ -206,7 +214,7 @@ export default function WeatherPage() {
 
             return <TabsContent key={location.id} value={location.id} ref={city === location.id ? panel : undefined} className="absolute inset-0 overflow-y-auto overscroll-contain transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 [&[inert]]:overflow-hidden motion-reduce:transition-none">
               {current !== null
-                ? <WeatherDetails current={current} />
+                ? <WeatherDetails current={current} sound={clearNight === true && city === location.id ? sound : null} />
                 : <div className="flex h-full items-center px-8 py-8 md:px-24">
                     <p role="status" className="inline-flex items-center gap-2 text-base opacity-80">
                       {isUpdating === true
