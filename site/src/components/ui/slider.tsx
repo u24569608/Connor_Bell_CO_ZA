@@ -20,7 +20,9 @@ function Slider({
     id: number
     x: number
     y: number
-    bounds: DOMRect
+    lower: number
+    upper: number
+    size: number
   } | null>(null)
   const _values = Array.isArray(value)
     ? value
@@ -50,8 +52,10 @@ function Slider({
     >
       <SliderPrimitive.Control
         className={cn(
-          "relative flex w-full touch-none items-center select-none before:absolute before:content-[''] data-horizontal:before:inset-x-0 data-horizontal:before:-inset-y-4 data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col data-vertical:before:inset-y-0 data-vertical:before:-inset-x-4 motion-safe:transition-transform motion-safe:ease-out",
-          isPointerDragging ? "motion-safe:duration-300" : "motion-safe:duration-600"
+          "relative flex w-full touch-none items-center select-none before:absolute before:content-[''] data-horizontal:before:inset-x-0 data-horizontal:before:-inset-y-4 data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col data-vertical:before:inset-y-0 data-vertical:before:-inset-x-4",
+          isPointerDragging
+            ? "transition-none"
+            : "motion-safe:transition-transform motion-safe:duration-600 motion-safe:ease-out"
         )}
         style={{
           transform: orientation === "horizontal"
@@ -63,16 +67,29 @@ function Slider({
             return
           }
 
+          const horizontal = orientation === "horizontal"
+          const bounds = event.currentTarget.getBoundingClientRect()
+          const pressedThumb = event.target instanceof Element
+            ? event.target.closest('[data-slot="slider-thumb"]')
+            : null
+          const thumb = pressedThumb ?? event.currentTarget.querySelector('[data-slot="slider-thumb"]')
+          const thumbBounds = thumb?.getBoundingClientRect()
+          const thumbSize = horizontal ? thumbBounds?.width ?? 0 : thumbBounds?.height ?? 0
+          const pointerOffset = pressedThumb !== null && thumbBounds !== undefined
+            ? horizontal
+              ? event.clientX - (thumbBounds.left + thumbSize / 2)
+              : event.clientY - (thumbBounds.top + thumbSize / 2)
+            : 0
+
           pointerStart.current = {
             id: event.pointerId,
             x: event.clientX,
             y: event.clientY,
-            bounds: event.currentTarget.getBoundingClientRect(),
+            lower: (horizontal ? bounds.left : bounds.top) + thumbSize / 2 + pointerOffset,
+            upper: (horizontal ? bounds.right : bounds.bottom) - thumbSize / 2 + pointerOffset,
+            size: horizontal ? bounds.width : bounds.height,
           }
-          setIsPointerDragging(
-            event.target instanceof Element &&
-              event.target.closest('[data-slot="slider-thumb"]') !== null
-          )
+          setIsPointerDragging(pressedThumb !== null)
         }}
         onPointerMoveCapture={(event) => {
           const start = pointerStart.current
@@ -87,13 +104,12 @@ function Slider({
 
           const horizontal = orientation === "horizontal"
           const position = horizontal ? event.clientX : event.clientY
-          const lower = horizontal ? start.bounds.left : start.bounds.top
-          const upper = horizontal ? start.bounds.right : start.bounds.bottom
-          const overflow = position - Math.max(lower, Math.min(upper, position))
+          const overflow = position - Math.max(start.lower, Math.min(start.upper, position))
+          const stretchDistance = 48 * Math.log1p(Math.abs(overflow) / 240)
 
           setStretch(
-            Math.sign(overflow) * Math.min(Math.abs(overflow) * 0.2, 24) /
-              Math.max(upper - lower, 1)
+            Math.sign(overflow) * stretchDistance /
+              Math.max(start.size, 1)
           )
         }}
         onPointerUpCapture={finishPointerInteraction}
