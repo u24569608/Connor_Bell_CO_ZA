@@ -1,16 +1,22 @@
 import type { WeatherReading } from "./types";
 
+function isWeatherNight(weather: WeatherReading, now: number) {
+  const seconds = now / 1000;
+  return weather.sunrise !== null && weather.sunset !== null
+    ? seconds < weather.sunrise || seconds >= weather.sunset
+    : weather.condition.icon.endsWith("n");
+}
+
+export function weatherHasStars(weather: WeatherReading | null, now: number) {
+  return weather !== null && weather.condition.id === 800 && isWeatherNight(weather, now);
+}
+
 export function weatherBackground(weather: WeatherReading | null, now: number) {
   if (weather === null) {
     return "#000000";
   }
 
-  const seconds = now / 1000;
-  const night = weather.sunrise !== null && weather.sunset !== null
-    ? seconds < weather.sunrise || seconds >= weather.sunset
-    : weather.condition.icon.endsWith("n");
-
-  if (night === true) {
+  if (isWeatherNight(weather, now) === true) {
     return "#000000";
   }
 
