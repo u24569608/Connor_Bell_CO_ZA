@@ -24,7 +24,17 @@ export function weatherBackground(weather: WeatherReading | null, now: number) {
     return "#2B2B4B";
   }
 
-  return weather.condition.id >= 800 && weather.condition.id <= 802 ? "#006AFF" : "#8F8F8F";
+  const condition = weather.condition.id;
+
+  if (condition === 800) {
+    return "#006AFF";
+  }
+
+  if (condition === 804 || (condition >= 300 && condition < 400) || (condition >= 500 && condition < 600)) {
+    return "#8F8F8F";
+  }
+
+  return "#85B8FF";
 }
 
 export function weatherTime(timestamp: number | string | null) {

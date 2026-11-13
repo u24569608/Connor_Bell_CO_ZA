@@ -27,7 +27,16 @@ test("daytime themes follow the selected reading and night overrides the conditi
   const current = await fetchCurrentWeather(weatherLocations[0], apiKey, weatherFetcher([]));
   const daytime = observedAt * 1000;
   assert.equal(weatherBackground(current, daytime), "#006AFF");
-  assert.equal(weatherBackground({ ...current, condition: { ...current.condition, id: 804 } }, daytime), "#8F8F8F");
+
+  for (const id of [801, 802, 803, 601, 701]) {
+    assert.equal(weatherBackground({ ...current, condition: { ...current.condition, id } }, daytime), "#85B8FF");
+  }
+
+  for (const id of [804, 300, 321, 500, 502, 531]) {
+    const reading = { ...current, condition: { ...current.condition, id } };
+    assert.equal(weatherBackground(reading, daytime), "#8F8F8F");
+    assert.equal(weatherBackground(reading, (observedAt + 21600) * 1000), "#000000");
+  }
   const storm = { ...current, condition: { ...current.condition, id: 211 } };
   assert.equal(weatherBackground(storm, daytime), "#2B2B4B");
   assert.equal(weatherBackground(storm, (observedAt + 21600) * 1000), "#000000");

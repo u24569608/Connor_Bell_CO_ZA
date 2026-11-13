@@ -26,7 +26,7 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
   const detailGridClassName = "grid w-fit grid-cols-[repeat(2,7rem)] gap-x-6 gap-y-5 min-[460px]:grid-cols-[repeat(2,7rem)_max-content] sm:gap-x-8 lg:grid-cols-[repeat(4,7rem)_max-content]";
 
   return (
-    <div className="w-full max-w-screen-xl px-8 pt-4 pb-16 md:px-24">
+    <div className="w-full max-w-screen-xl px-8 pt-0 pb-16 md:px-24">
       <h2 className="text-base font-semibold tracking-wider uppercase">{weather.condition.description}</h2>
       <p className="mt-1 text-[7rem] leading-none font-medium sm:text-[8rem]" aria-label={`${Math.round(weather.temperature)} degrees Celsius`}>
         {Math.round(weather.temperature)}°
@@ -168,8 +168,23 @@ export default function WeatherPage() {
     panel.current?.scrollTo({ top: 0, behavior: "instant" });
   }, [city]);
 
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    const previous = root.style.getPropertyValue("--weather-background");
+    root.style.setProperty("--weather-background", background);
+
+    return () => {
+      if (previous === "") {
+        root.style.removeProperty("--weather-background");
+      } else {
+        root.style.setProperty("--weather-background", previous);
+      }
+    };
+  }, [background]);
+
   return (
     <main data-page="weather" className="weather-page relative isolate flex h-dvh flex-col overflow-hidden text-white" style={{ "--weather-background": background } as CSSProperties}>
+      <meta name="theme-color" content={background} />
       <WeatherStars active={clearNight} />
       <Navbar />
       <Tabs value={city} onValueChange={(value) => {
