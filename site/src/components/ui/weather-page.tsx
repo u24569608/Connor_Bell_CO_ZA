@@ -67,7 +67,7 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
         {sound !== null && <div className="md:shrink-0">
           <button type="button" data-weather-audio onClick={() => sound.toggle()} disabled={sound.starting} aria-busy={sound.starting} className="group/audio inline-flex cursor-pointer items-center gap-1.5 text-xs opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current disabled:cursor-wait">
             <span aria-hidden="true" className="material-symbols-sharp" style={{ fontSize: "1rem", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{sound.enabled === true ? "music_note" : "music_off"}</span>
-            <span className="fade-underline underline-offset-5 group-hover/audio:decoration-current group-focus-visible/audio:decoration-current group-active/audio:decoration-current group-disabled/audio:decoration-transparent motion-reduce:transition-none">{sound.enabled === true ? "Disable Audio" : "Enable Audio"}</span>
+            <span className="uppercase fade-underline underline-offset-5 group-hover/audio:decoration-current group-focus-visible/audio:decoration-current group-active/audio:decoration-current group-disabled/audio:decoration-transparent motion-reduce:transition-none">{sound.enabled === true ? "Disable Audio" : "Enable Audio"}</span>
           </button>
           {sound.error !== null && <p role="status" className="mt-1 text-xs opacity-80">{sound.error}</p>}
         </div>}
