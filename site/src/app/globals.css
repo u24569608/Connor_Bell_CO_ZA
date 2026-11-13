@@ -190,10 +190,10 @@
   height: var(--size);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #e5edff;
-  box-shadow: 0 0 6px rgb(190 210 255 / 45%);
-  opacity: 0.15;
-  animation: weather-star-twinkle var(--duration) ease-in-out var(--delay) infinite;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgb(190 210 255 / 100%);
+  opacity: 1;
+  animation: var(--twinkle) var(--duration) var(--delay) infinite;
   animation-play-state: paused;
 }
 
@@ -207,10 +207,25 @@
 }
 
 @keyframes weather-star-twinkle {
-  0%, 100% {
-    opacity: 0.15;
+  0%, 36%, 74%, 100% {
+    opacity: var(--minimum);
   }
-  50% {
+  19%, 62% {
+    opacity: var(--brightness);
+  }
+  48%, 87% {
+    opacity: calc(var(--brightness) * 0.65);
+  }
+}
+
+@keyframes weather-star-shimmer {
+  0%, 43%, 100% {
+    opacity: calc(var(--brightness) * 0.75);
+  }
+  14%, 68% {
+    opacity: var(--minimum);
+  }
+  29%, 84% {
     opacity: var(--brightness);
   }
 }
