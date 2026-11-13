@@ -52,20 +52,26 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
           <Detail label="Sunset">{weatherTime(weather.sunset)}</Detail>
         </dl>
       </div>
-      <p className="mt-10 text-xs opacity-40">
-        Weather Data by <a className="inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current" href="https://openweathermap.org/" target="_blank" rel="noreferrer">
-          <span className="underline underline-offset-4">OpenWeather</span>
-          <span aria-hidden="true" className="material-symbols-sharp" style={{ fontSize: "1rem" }}>north_east</span>
-        </a>
-      </p>
-      <p className="mt-1 text-xs opacity-40 tracking-wide">
-        Observed on <time dateTime={new Date(weather.timestamp * 1000).toISOString()}>{weatherDate(weather.timestamp)} at {weatherTime(weather.timestamp)}</time>
-      </p>
-      {sound !== null && <button type="button" data-weather-audio onClick={() => sound.toggle()} disabled={sound.starting} aria-busy={sound.starting} className="group/audio mt-3 inline-flex cursor-pointer items-center gap-1.5 text-xs opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current disabled:cursor-wait">
-        <span aria-hidden="true" className="material-symbols-sharp" style={{ fontSize: "1rem", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{sound.enabled === true ? "music_note" : "music_off"}</span>
-        <span className="fade-underline underline-offset-5 group-hover/audio:decoration-current group-focus-visible/audio:decoration-current group-active/audio:decoration-current group-disabled/audio:decoration-transparent motion-reduce:transition-none">{sound.enabled === true ? "Disable Audio" : "Enable Audio"}</span>
-      </button>}
-      {sound !== null && sound.error !== null && <p role="status" className="mt-1 text-xs opacity-80">{sound.error}</p>}
+      <div className="mt-10 flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-8">
+        <div>
+          <p className="text-xs opacity-40">
+            Weather Data by <a className="inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current" href="https://openweathermap.org/" target="_blank" rel="noreferrer">
+              <span className="underline underline-offset-4">OpenWeather</span>
+              <span aria-hidden="true" className="material-symbols-sharp" style={{ fontSize: "1rem" }}>north_east</span>
+            </a>
+          </p>
+          <p className="mt-1 text-xs opacity-40 tracking-wide">
+            Observed on <time dateTime={new Date(weather.timestamp * 1000).toISOString()}>{weatherDate(weather.timestamp)} at {weatherTime(weather.timestamp)}</time>
+          </p>
+        </div>
+        {sound !== null && <div className="md:shrink-0">
+          <button type="button" data-weather-audio onClick={() => sound.toggle()} disabled={sound.starting} aria-busy={sound.starting} className="group/audio inline-flex cursor-pointer items-center gap-1.5 text-xs opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current disabled:cursor-wait">
+            <span aria-hidden="true" className="material-symbols-sharp" style={{ fontSize: "1rem", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{sound.enabled === true ? "music_note" : "music_off"}</span>
+            <span className="fade-underline underline-offset-5 group-hover/audio:decoration-current group-focus-visible/audio:decoration-current group-active/audio:decoration-current group-disabled/audio:decoration-transparent motion-reduce:transition-none">{sound.enabled === true ? "Disable Audio" : "Enable Audio"}</span>
+          </button>
+          {sound.error !== null && <p role="status" className="mt-1 text-xs opacity-80">{sound.error}</p>}
+        </div>}
+      </div>
     </div>
   );
 }
@@ -241,7 +247,7 @@ export default function WeatherPage() {
               }
             }} className="absolute inset-0 overflow-y-auto overscroll-contain transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 [&[inert]]:overflow-hidden motion-reduce:transition-none">
               {current !== null
-                ? <WeatherDetails current={current} sound={night === true && city === location.id ? sound : null} />
+                ? <WeatherDetails current={current} sound={isWeatherNight(current.data, now) === true ? sound : null} />
                 : <div className="flex h-full items-center px-8 py-8 md:px-24">
                     <p role="status" className="inline-flex items-center gap-2 text-base opacity-80">
                       {isUpdating === true
