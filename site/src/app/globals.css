@@ -262,11 +262,14 @@
 
 html:has(main[data-page="weather"]),
 body:has(main[data-page="weather"]) {
-  background-color: black;
+  background-color: var(--weather-background, #000000);
+  transition: background-color 600ms ease-in-out;
   overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html:has(main[data-page="weather"]),
+  body:has(main[data-page="weather"]),
   .weather-page,
   .weather-page > nav,
   .weather-page header {
