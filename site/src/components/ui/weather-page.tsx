@@ -46,7 +46,7 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
         </dl>
         <dl className={detailGridClassName}>
           <Detail label="Wind Speed">{speed(weather.windSpeed)}</Detail>
-          <Detail label="Wind Gust">{speed(weather.windGust)}</Detail>
+          <Detail label="Wind Gusts">{speed(weather.windGust)}</Detail>
           <Detail label="Wind Direction">{windDirection(weather.windDirection)}</Detail>
         </dl>
       </div>
