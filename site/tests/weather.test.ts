@@ -26,10 +26,10 @@ test("stars appear only for clear nights in the selected reading", async () => {
 test("daytime themes follow the selected reading and night overrides the condition", async () => {
   const current = await fetchCurrentWeather(weatherLocations[0], apiKey, weatherFetcher([]));
   const daytime = observedAt * 1000;
-  assert.equal(weatherBackground(current, daytime), "#006AFF");
+  assert.equal(weatherBackground(current, daytime), "#007BFF");
 
   for (const id of [801, 802, 803, 601, 701]) {
-    assert.equal(weatherBackground({ ...current, condition: { ...current.condition, id } }, daytime), "#85B8FF");
+    assert.equal(weatherBackground({ ...current, condition: { ...current.condition, id } }, daytime), "#5FA2FF");
   }
 
   for (const id of [804, 300, 321, 500, 502, 531]) {
@@ -46,7 +46,7 @@ test("daytime themes follow the selected reading and night overrides the conditi
 test("missing sun times use the provider day or night indication", async () => {
   const current = await fetchCurrentWeather(weatherLocations[0], apiKey, weatherFetcher([]));
   const withoutSunTimes = { ...current, sunrise: null, sunset: null };
-  assert.equal(weatherBackground(withoutSunTimes, observedAt * 1000), "#006AFF");
+  assert.equal(weatherBackground(withoutSunTimes, observedAt * 1000), "#007BFF");
   assert.equal(weatherBackground({ ...withoutSunTimes, condition: { ...current.condition, icon: "01n" } }, observedAt * 1000), "#000000");
   assert.equal(weatherBackground(null, 0), "#000000");
 });
@@ -57,7 +57,7 @@ test("theme calculation does not read the clock during rendering", async (contex
     throw new Error("The clock cannot be read during prerendering.");
   });
   assert.equal(weatherBackground(null, 0), "#000000");
-  assert.equal(weatherBackground(current, observedAt * 1000), "#006AFF");
+  assert.equal(weatherBackground(current, observedAt * 1000), "#007BFF");
 });
 
 test("weather clocks use South African time for observations and cached timestamps", () => {

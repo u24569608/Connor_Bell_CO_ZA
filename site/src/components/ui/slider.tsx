@@ -13,9 +13,10 @@ function Slider({
   disabled,
   orientation = "horizontal",
   markers = [],
+  markersVisible = false,
   onValueChange,
   ...props
-}: SliderPrimitive.Root.Props & { markers?: readonly number[] }) {
+}: SliderPrimitive.Root.Props & { markers?: readonly number[]; markersVisible?: boolean }) {
   const [isPointerDragging, setIsPointerDragging] = useState(false)
   const [areMarkersVisible, setAreMarkersVisible] = useState(false)
   const [stretch, setStretch] = useState(0)
@@ -160,7 +161,7 @@ function Slider({
               className={cn(
                 "pointer-events-none absolute transition-opacity duration-500 ease-out motion-reduce:transition-none",
                 orientation === "horizontal" ? "inset-x-1 inset-y-0" : "inset-x-0 inset-y-3",
-                areMarkersVisible ? "opacity-100" : "opacity-0"
+                areMarkersVisible === true || markersVisible === true ? "opacity-100" : "opacity-0"
               )}
             >
               {markers.filter((marker) => marker > min && marker < max).map((marker) => (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Slider } from "@/components/ui/slider";
 
@@ -28,8 +28,29 @@ const aboutMeOffsets = [
 
 function HomePage() {
   const [detailLevel, setDetailLevel] = useState(2);
+  const [markersVisible, setMarkersVisible] = useState(false);
+  const markerHideTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentDetail = Math.round(detailLevel);
   const currentOffset = aboutMeOffsets[currentDetail] ?? "-translate-y-1/2";
+
+  useEffect(() => () => {
+    if (markerHideTimeout.current !== null) {
+      clearTimeout(markerHideTimeout.current);
+    }
+  }, []);
+
+  function changeDetailLevel(direction: -1 | 1) {
+    if (markerHideTimeout.current !== null) {
+      clearTimeout(markerHideTimeout.current);
+    }
+
+    setMarkersVisible(true);
+    markerHideTimeout.current = setTimeout(() => {
+      setMarkersVisible(false);
+      markerHideTimeout.current = null;
+    }, 700);
+    setDetailLevel((value) => Math.max(0, Math.min(aboutMeDetails.length - 1, Math.round(value) + direction)));
+  }
 
   return (
     <section className="home-content relative h-full select-none overflow-hidden overscroll-none bg-black px-8 text-white">
@@ -83,6 +104,7 @@ function HomePage() {
             min={0}
             max={aboutMeDetails.length - 1}
             markers={aboutMeMarkers}
+            markersVisible={markersVisible}
             step={0.01}
             largeStep={1}
             className="home-detail-slider [&_[data-slot=slider-range]]:bg-white [&_[data-slot=slider-thumb]]:border-white [&_[data-slot=slider-thumb]]:bg-white [&_[data-slot=slider-track]]:bg-white/30"
@@ -92,9 +114,7 @@ function HomePage() {
               type="button"
               aria-label="Show less detail"
               disabled={currentDetail === 0}
-              onClick={() =>
-                setDetailLevel((value) => Math.max(0, Math.round(value) - 1))
-              }
+              onClick={() => changeDetailLevel(-1)}
               className="fade-underline min-h-6 cursor-pointer tracking-widest underline-offset-5 opacity-100 transition-[opacity,text-decoration-color] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
             >
               LESS
@@ -103,11 +123,7 @@ function HomePage() {
               type="button"
               aria-label="Show more detail"
               disabled={currentDetail === aboutMeDetails.length - 1}
-              onClick={() =>
-                setDetailLevel((value) =>
-                  Math.min(aboutMeDetails.length - 1, Math.round(value) + 1),
-                )
-              }
+              onClick={() => changeDetailLevel(1)}
               className="fade-underline min-h-6 cursor-pointer tracking-widest underline-offset-5 opacity-100 transition-[opacity,text-decoration-color] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
             >
               MORE

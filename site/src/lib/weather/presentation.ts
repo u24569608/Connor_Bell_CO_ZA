@@ -27,14 +27,14 @@ export function weatherBackground(weather: WeatherReading | null, now: number) {
   const condition = weather.condition.id;
 
   if (condition === 800) {
-    return "#006AFF";
+    return "#007BFF";
   }
 
   if (condition === 804 || (condition >= 300 && condition < 400) || (condition >= 500 && condition < 600)) {
     return "#8F8F8F";
   }
 
-  return "#85B8FF";
+  return "#5FA2FF";
 }
 
 export function weatherTime(timestamp: number | string | null) {
