@@ -23,7 +23,7 @@ function Detail({ label, children, className = "" }: { label: string; children: 
 function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: ReturnType<typeof useCricketAmbience> | null }) {
   const weather = current.data;
   const speed = (value: number | null) => value === null ? "—" : `${Math.round(value * 3.6)} km/h`;
-  const detailGridClassName = "grid w-fit grid-cols-[repeat(2,7rem)] gap-x-6 gap-y-5 min-[460px]:grid-cols-[repeat(2,7rem)_max-content] sm:gap-x-8 lg:grid-cols-[repeat(5,7rem)]";
+  const detailGridClassName = "grid w-fit grid-cols-[repeat(2,7rem)] gap-x-6 gap-y-5 min-[360px]:grid-cols-[repeat(2,8.5rem)] min-[560px]:grid-cols-[repeat(3,8.5rem)] sm:gap-x-8";
 
   return (
     <div className="w-full max-w-screen-xl px-8 pt-0 pb-16 md:px-24">
@@ -41,13 +41,15 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
           <Detail label="Humidity">{Math.round(weather.humidity)} %</Detail>
           <Detail label="Pressure">{Math.round(weather.pressure)} hPa</Detail>
           <Detail label="Visibility">{weather.visibility === null ? "—" : `${weather.visibility / 1000} km`}</Detail>
-          <Detail label="Sunrise" className="max-[460px]:col-start-1">{weatherTime(weather.sunrise)}</Detail>
-          <Detail label="Sunset">{weatherTime(weather.sunset)}</Detail>
+        </dl>
+        <dl className={`${detailGridClassName} max-[360px]:grid-cols-1`}>
+          <Detail label="Wind Speed">{speed(weather.windSpeed)}</Detail>
+          <Detail label="Wind Gust Speed">{speed(weather.windGust)}</Detail>
+          <Detail label="Wind Direction">{windDirection(weather.windDirection)}</Detail>
         </dl>
         <dl className={detailGridClassName}>
-          <Detail label="Wind Speed">{speed(weather.windSpeed)}</Detail>
-          <Detail label="Wind Gusts">{speed(weather.windGust)}</Detail>
-          <Detail label="Wind Direction">{windDirection(weather.windDirection)}</Detail>
+          <Detail label="Sunrise">{weatherTime(weather.sunrise)}</Detail>
+          <Detail label="Sunset">{weatherTime(weather.sunset)}</Detail>
         </dl>
       </div>
       <p className="mt-10 text-xs opacity-80">
