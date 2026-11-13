@@ -3,7 +3,7 @@ import { test } from "node:test";
 
 import { GET } from "../src/app/api/weather/route";
 import { fetchCurrentWeather } from "../src/lib/weather/provider";
-import { weatherBackground, weatherDate, weatherHasStars, weatherTime, windDirection } from "../src/lib/weather/presentation";
+import { isWeatherNight, weatherBackground, weatherDate, weatherHasStars, weatherTime, windDirection } from "../src/lib/weather/presentation";
 import { weatherLocations } from "../src/lib/weather/types";
 
 const apiKey = "weather-test-key";
@@ -15,12 +15,16 @@ test("stars appear only for clear nights in the selected reading", async () => {
   assert.equal(weatherHasStars(current, night), true);
   assert.equal(weatherHasStars(current, observedAt * 1000), false);
   assert.equal(weatherHasStars(null, night), false);
+  assert.equal(isWeatherNight(null, night), false);
+  assert.equal(isWeatherNight(current, observedAt * 1000), false);
   for (const id of [801, 802, 803, 804, 211, 500]) {
     assert.equal(weatherHasStars({ ...current, condition: { ...current.condition, id } }, night), false);
+    assert.equal(isWeatherNight({ ...current, condition: { ...current.condition, id } }, night), true);
   }
   const withoutSunTimes = { ...current, sunrise: null, sunset: null };
   assert.equal(weatherHasStars({ ...withoutSunTimes, condition: { ...current.condition, icon: "01n" } }, night), true);
   assert.equal(weatherHasStars(withoutSunTimes, night), false);
+  assert.equal(isWeatherNight({ ...withoutSunTimes, condition: { ...current.condition, id: 804, icon: "04n" } }, night), true);
 });
 
 test("daytime themes follow the selected reading and night overrides the condition", async () => {

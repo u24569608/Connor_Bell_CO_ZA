@@ -9,7 +9,7 @@ import Navbar from "@/components/ui/navbar";
 import WeatherStars from "@/components/ui/weather-stars";
 import { useCricketAmbience } from "@/components/ui/use-cricket-ambience";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { weatherBackground, weatherDate, weatherHasStars, weatherTime, windDirection } from "@/lib/weather/presentation";
+import { isWeatherNight, weatherBackground, weatherDate, weatherHasStars, weatherTime, windDirection } from "@/lib/weather/presentation";
 import { weatherLocations, type CurrentWeather, type WeatherLocation } from "@/lib/weather/types";
 
 type LocationId = WeatherLocation["id"];
@@ -84,7 +84,8 @@ export default function WeatherPage() {
   const selected = weather[city];
   const background = weatherBackground(selected?.data ?? null, now);
   const clearNight = weatherHasStars(selected?.data ?? null, now);
-  const sound = useCricketAmbience(clearNight);
+  const night = isWeatherNight(selected?.data ?? null, now);
+  const sound = useCricketAmbience(night);
 
   useEffect(() => {
     const location = weatherLocations.find((location) => location.id === city);
@@ -240,7 +241,7 @@ export default function WeatherPage() {
               }
             }} className="absolute inset-0 overflow-y-auto overscroll-contain transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 [&[inert]]:overflow-hidden motion-reduce:transition-none">
               {current !== null
-                ? <WeatherDetails current={current} sound={clearNight === true && city === location.id ? sound : null} />
+                ? <WeatherDetails current={current} sound={night === true && city === location.id ? sound : null} />
                 : <div className="flex h-full items-center px-8 py-8 md:px-24">
                     <p role="status" className="inline-flex items-center gap-2 text-base opacity-80">
                       {isUpdating === true

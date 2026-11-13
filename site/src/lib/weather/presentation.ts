@@ -1,6 +1,10 @@
 import type { WeatherReading } from "./types";
 
-function isWeatherNight(weather: WeatherReading, now: number) {
+export function isWeatherNight(weather: WeatherReading | null, now: number) {
+  if (weather === null) {
+    return false;
+  }
+
   const seconds = now / 1000;
   return weather.sunrise !== null && weather.sunset !== null
     ? seconds < weather.sunrise || seconds >= weather.sunset
