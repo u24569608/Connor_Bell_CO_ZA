@@ -26,7 +26,7 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
   const detailGridClassName = "grid w-fit grid-cols-[repeat(2,7rem)] gap-x-6 gap-y-5 min-[360px]:grid-cols-[repeat(2,8.5rem)] min-[560px]:grid-cols-[repeat(3,8.5rem)] sm:gap-x-8";
 
   return (
-    <div className="w-full max-w-screen-xl px-8 pt-0 pb-16 md:px-24">
+    <div className="w-full max-w-screen-xl px-8 pt-0 pb-8 md:px-24">
       <h2 className="text-base font-semibold tracking-wider uppercase">{weather.condition.description}</h2>
       <p className="mt-1 text-[7rem] leading-none font-medium sm:text-[8rem]" aria-label={`${Math.round(weather.temperature)} degrees Celsius`}>
         {Math.round(weather.temperature)}°
