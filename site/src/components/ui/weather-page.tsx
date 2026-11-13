@@ -34,7 +34,7 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
       <div className="mt-2 text-base leading-relaxed">
         <p>Feels Like <span className="font-semibold">{Math.round(weather.feelsLike)} °C</span></p>
         <p>Cloud Cover <span className="font-semibold">{weather.cloudCover === null ? "—" : `${Math.round(weather.cloudCover)} %`}</span></p>
-        <p>Rainfall (Past Hour) <span className="font-semibold">{weather.rain === null ? "—" : `${weather.rain} mm`}</span></p>
+        <p>Rainfall <span className="font-semibold">{weather.rain === null ? "—" : `${weather.rain} mm`}</span></p>
       </div>
       <div className="mt-10 space-y-5 text-base tracking-wide leading-tight">
         <dl className={detailGridClassName}>
