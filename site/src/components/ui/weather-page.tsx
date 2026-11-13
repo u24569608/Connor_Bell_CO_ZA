@@ -52,13 +52,13 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
           <Detail label="Sunset">{weatherTime(weather.sunset)}</Detail>
         </dl>
       </div>
-      <p className="mt-10 text-xs opacity-80">
+      <p className="mt-10 text-xs opacity-40">
         Weather Data by <a className="inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current" href="https://openweathermap.org/" target="_blank" rel="noreferrer">
           <span className="underline underline-offset-4">OpenWeather</span>
           <span aria-hidden="true" className="material-symbols-sharp" style={{ fontSize: "1rem" }}>north_east</span>
         </a>
       </p>
-      <p className="mt-1 text-xs opacity-80">
+      <p className="mt-1 text-xs opacity-40 tracking-wide">
         Observed on <time dateTime={new Date(weather.timestamp * 1000).toISOString()}>{weatherDate(weather.timestamp)} at {weatherTime(weather.timestamp)}</time>
       </p>
       {sound !== null && <button type="button" data-weather-audio onClick={() => sound.toggle()} disabled={sound.starting} aria-busy={sound.starting} className="group/audio mt-3 inline-flex cursor-pointer items-center gap-1.5 text-xs opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current disabled:cursor-wait">
