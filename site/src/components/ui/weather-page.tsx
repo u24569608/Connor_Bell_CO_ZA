@@ -80,6 +80,7 @@ export default function WeatherPage() {
   const [now, setNow] = useState(0);
   const request = useRef<AbortController | null>(null);
   const panel = useRef<HTMLDivElement>(null);
+  const content = useRef<HTMLElement>(null);
   const selected = weather[city];
   const background = weatherBackground(selected?.data ?? null, now);
   const clearNight = weatherHasStars(selected?.data ?? null, now);
@@ -168,6 +169,7 @@ export default function WeatherPage() {
 
   useLayoutEffect(() => {
     panel.current?.scrollTo({ top: 0, behavior: "instant" });
+    content.current?.removeAttribute("data-scrolled");
   }, [city]);
 
   useLayoutEffect(() => {
@@ -225,11 +227,16 @@ export default function WeatherPage() {
           </div>
           {error !== null && <p role="status" className="max-w-xl text-sm opacity-80">{error}</p>}
         </Banner>
-        <section aria-label="Current weather details" aria-busy={isUpdating} className="relative min-h-0 flex-1 overflow-hidden">
+        <section ref={content} aria-label="Current weather details" aria-busy={isUpdating} className="group/weather-content relative min-h-0 flex-1 overflow-hidden">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[3px] bg-white/10 opacity-0 transition-opacity duration-500 ease-in-out group-data-scrolled/weather-content:opacity-100 motion-reduce:transition-none" />
           {weatherLocations.map((location) => {
             const current = weather[location.id];
 
-            return <TabsContent key={location.id} value={location.id} ref={city === location.id ? panel : undefined} className="absolute inset-0 overflow-y-auto overscroll-contain transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 [&[inert]]:overflow-hidden motion-reduce:transition-none">
+            return <TabsContent key={location.id} value={location.id} ref={city === location.id ? panel : undefined} onScroll={(event) => {
+              if (city === location.id) {
+                content.current?.toggleAttribute("data-scrolled", event.currentTarget.scrollTop > 0);
+              }
+            }} className="absolute inset-0 overflow-y-auto overscroll-contain transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 [&[inert]]:overflow-hidden motion-reduce:transition-none">
               {current !== null
                 ? <WeatherDetails current={current} sound={clearNight === true && city === location.id ? sound : null} />
                 : <div className="flex h-full items-center px-8 py-8 md:px-24">
