@@ -225,8 +225,10 @@ export default function WeatherPage() {
               </button>
             </div>
           </div>
-          {error !== null && <p role="status" className="max-w-xl text-sm opacity-80">{error}</p>}
         </Banner>
+        {error !== null && <div role="status" className="shrink-0 px-8 pb-4 text-sm opacity-80 md:px-24">
+          <p className="max-w-xl">{error}</p>
+        </div>}
         <section ref={content} aria-label="Current weather details" aria-busy={isUpdating} className="group/weather-content relative min-h-0 flex-1 overflow-hidden">
           <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[3px] bg-white/10 opacity-0 transition-opacity duration-500 ease-in-out group-data-scrolled/weather-content:opacity-100 motion-reduce:transition-none" />
           {weatherLocations.map((location) => {
