@@ -23,10 +23,10 @@ function Detail({ label, children, className = "" }: { label: string; children: 
 function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: ReturnType<typeof useCricketAmbience> | null }) {
   const weather = current.data;
   const speed = (value: number | null) => value === null ? "—" : `${Math.round(value * 3.6)} km/h`;
-  const detailGridClassName = "grid w-fit grid-cols-[repeat(2,7rem)] gap-x-6 gap-y-5 min-[460px]:grid-cols-[repeat(2,7rem)_max-content] sm:gap-x-8 lg:grid-cols-[repeat(5,7rem)]";
+  const detailGridClassName = "grid w-fit grid-cols-[repeat(2,7rem)] gap-x-6 gap-y-5 min-[360px]:grid-cols-[repeat(2,8.5rem)] min-[560px]:grid-cols-[repeat(3,8.5rem)] sm:gap-x-8";
 
   return (
-    <div className="w-full max-w-screen-xl px-8 pt-0 pb-16 md:px-24">
+    <div className="w-full max-w-screen-xl px-8 pt-0 pb-8 md:px-24">
       <h2 className="text-base font-semibold tracking-wider uppercase">{weather.condition.description}</h2>
       <p className="mt-1 text-[7rem] leading-none font-medium sm:text-[8rem]" aria-label={`${Math.round(weather.temperature)} degrees Celsius`}>
         {Math.round(weather.temperature)}°
@@ -41,13 +41,15 @@ function WeatherDetails({ current, sound }: { current: CurrentWeather; sound: Re
           <Detail label="Humidity">{Math.round(weather.humidity)} %</Detail>
           <Detail label="Pressure">{Math.round(weather.pressure)} hPa</Detail>
           <Detail label="Visibility">{weather.visibility === null ? "—" : `${weather.visibility / 1000} km`}</Detail>
-          <Detail label="Sunrise" className="max-[460px]:col-start-1">{weatherTime(weather.sunrise)}</Detail>
-          <Detail label="Sunset">{weatherTime(weather.sunset)}</Detail>
+        </dl>
+        <dl className={`${detailGridClassName} max-[360px]:grid-cols-1`}>
+          <Detail label="Wind Speed">{speed(weather.windSpeed)}</Detail>
+          <Detail label="Wind Gust Speed">{speed(weather.windGust)}</Detail>
+          <Detail label="Wind Direction">{windDirection(weather.windDirection)}</Detail>
         </dl>
         <dl className={detailGridClassName}>
-          <Detail label="Wind Speed">{speed(weather.windSpeed)}</Detail>
-          <Detail label="Wind Gusts">{speed(weather.windGust)}</Detail>
-          <Detail label="Wind Direction">{windDirection(weather.windDirection)}</Detail>
+          <Detail label="Sunrise">{weatherTime(weather.sunrise)}</Detail>
+          <Detail label="Sunset">{weatherTime(weather.sunset)}</Detail>
         </dl>
       </div>
       <p className="mt-10 text-xs opacity-80">
@@ -78,6 +80,7 @@ export default function WeatherPage() {
   const [now, setNow] = useState(0);
   const request = useRef<AbortController | null>(null);
   const panel = useRef<HTMLDivElement>(null);
+  const content = useRef<HTMLElement>(null);
   const selected = weather[city];
   const background = weatherBackground(selected?.data ?? null, now);
   const clearNight = weatherHasStars(selected?.data ?? null, now);
@@ -166,6 +169,7 @@ export default function WeatherPage() {
 
   useLayoutEffect(() => {
     panel.current?.scrollTo({ top: 0, behavior: "instant" });
+    content.current?.removeAttribute("data-scrolled");
   }, [city]);
 
   useLayoutEffect(() => {
@@ -223,11 +227,16 @@ export default function WeatherPage() {
           </div>
           {error !== null && <p role="status" className="max-w-xl text-sm opacity-80">{error}</p>}
         </Banner>
-        <section aria-label="Current weather details" aria-busy={isUpdating} className="relative min-h-0 flex-1 overflow-hidden">
+        <section ref={content} aria-label="Current weather details" aria-busy={isUpdating} className="group/weather-content relative min-h-0 flex-1 overflow-hidden">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[3px] bg-white/10 opacity-0 transition-opacity duration-500 ease-in-out group-data-scrolled/weather-content:opacity-100 motion-reduce:transition-none" />
           {weatherLocations.map((location) => {
             const current = weather[location.id];
 
-            return <TabsContent key={location.id} value={location.id} ref={city === location.id ? panel : undefined} className="absolute inset-0 overflow-y-auto overscroll-contain transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 [&[inert]]:overflow-hidden motion-reduce:transition-none">
+            return <TabsContent key={location.id} value={location.id} ref={city === location.id ? panel : undefined} onScroll={(event) => {
+              if (city === location.id) {
+                content.current?.toggleAttribute("data-scrolled", event.currentTarget.scrollTop > 0);
+              }
+            }} className="absolute inset-0 overflow-y-auto overscroll-contain transition-opacity duration-[900ms] ease-in-out data-starting-style:opacity-0 data-ending-style:opacity-0 [&[inert]]:overflow-hidden motion-reduce:transition-none">
               {current !== null
                 ? <WeatherDetails current={current} sound={clearNight === true && city === location.id ? sound : null} />
                 : <div className="flex h-full items-center px-8 py-8 md:px-24">
